@@ -6,7 +6,6 @@ const server = create();
 server.use(defaults());
 server.use(bodyParser);
 
-// Microservices
-Object.keys(db).map(key => server.use(key, router(db[key])));
+server.use(router(db));
 
 server.listen(3001);

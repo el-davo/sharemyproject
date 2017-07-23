@@ -1,12 +1,12 @@
-import {ReleaseTogglesComponent} from './release-toggles/release-toggles.component';
+import {ProjectsComponent} from './projects/projects.component';
 
 export const routes = [
   {
     path: '',
-    redirectTo: '/release-toggles',
+    redirectTo: '/projects',
     pathMatch: 'full'
   }, {
-    path: 'release-toggles',
-    component: ReleaseTogglesComponent
+    path: 'projects',
+    component: ProjectsComponent
   }
 ];

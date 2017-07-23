@@ -5,6 +5,10 @@ export const navbarReducer = (state: NavbarState = navbarState, action): NavbarS
   switch (action.type) {
     case NavbarActions.FETCH_USER_INFO:
       return {...state, isFetchingUserInfo: true};
+    case NavbarActions.FETCH_USER_INFO_SUCCESS:
+      return {...state, isFetchingUserInfo: false, user: action.user};
+    case NavbarActions.FETCH_USER_INFO_FAIL:
+      return {...state, isFetchingUserInfo: false};
     default:
       return state;
   }

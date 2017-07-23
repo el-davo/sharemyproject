@@ -1,11 +1,5 @@
-import { releaseToggles } from './titan-raw-data-management/release-toggles';
-import { currentUser } from './titan-user-management/current-user'
+import {projects} from './projects/projects.stub';
 
 export const db = {
-    '/titan-raw-data-management': {
-        releaseToggles
-    },
-    '/titan-user-management': {
-        currentUser
-    }
+   projects
 };
