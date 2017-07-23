@@ -1,5 +1,4 @@
 import {ReleaseTogglesComponent} from './release-toggles/release-toggles.component';
-import {ReleaseToggleComponent} from './release-toggle/release-toggle.component';
 
 export const routes = [
   {
@@ -9,9 +8,5 @@ export const routes = [
   }, {
     path: 'release-toggles',
     component: ReleaseTogglesComponent
-  },
-  {
-    path: 'release-toggles/:id',
-    component: ReleaseToggleComponent
   }
 ];
