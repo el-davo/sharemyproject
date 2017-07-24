@@ -13,20 +13,18 @@ import {createEpicMiddleware, combineEpics} from 'redux-observable';
 import * as reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import {environment} from '../environments/environment';
 import {AppComponent} from './app.component';
-import {ClarityModule} from 'clarity-angular';
 import {ProjectsModule} from './projects/projects.module';
 import {SearchModule} from './search/search.module';
 import {routes} from './routes';
 import {ProjectsEpics} from './projects/epics/projects.epics';
+import {NavbarModule} from './navbar/navbar.module';
 
 import 'clarity-icons';
 import 'clarity-icons/shapes/essential-shapes';
-import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent
+    AppComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -34,10 +32,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     HttpModule,
     FormsModule,
     BrowserAnimationsModule,
-    ClarityModule.forRoot(),
     NgReduxModule,
     NgReduxFormModule,
     NgReduxRouterModule,
+    NavbarModule,
     ProjectsModule,
     SearchModule
   ],

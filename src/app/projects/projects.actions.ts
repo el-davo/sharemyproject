@@ -8,6 +8,9 @@ export class ProjectsActions {
   static FETCH_PROJECTS_SUCCESS = 'projects/FETCH_PROJECTS_SUCCESS';
   static FETCH_PROJECTS_FAIL = 'projects/FETCH_PROJECTS_FAIL';
 
+  static SHOW_ADD_PROJECT_MODAL = 'projects/SHOW_ADD_PROJECT_MODAL';
+  static HIDE_ADD_PROJECT_MODAL = 'projects/HIDE_ADD_PROJECT_MODAL';
+
   fetchProjects() {
     return {type: ProjectsActions.FETCH_PROJECTS};
   }
@@ -18,5 +21,13 @@ export class ProjectsActions {
 
   fetchProjectsFail() {
     return {type: ProjectsActions.FETCH_PROJECTS_FAIL};
+  }
+
+  showAddProjectModal() {
+    return {type: ProjectsActions.SHOW_ADD_PROJECT_MODAL};
+  }
+
+  hideAddProjectModal() {
+    return {type: ProjectsActions.HIDE_ADD_PROJECT_MODAL};
   }
 }

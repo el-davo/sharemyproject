@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {dispatch} from '@angular-redux/store';
+import {ProjectsActions} from '../projects/projects.actions';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
-  constructor() { }
+  constructor(private projectsActions: ProjectsActions) { }
 
-  ngOnInit() {
+  @dispatch()
+  openAddProjectModal() {
+    return this.projectsActions.showAddProjectModal();
   }
 
 }

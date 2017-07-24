@@ -1,7 +1,7 @@
 export const navbarState: NavbarState = {
   isFetchingUserInfo: false,
   user: null
-}
+};
 
 export interface NavbarState {
   isFetchingUserInfo: boolean;

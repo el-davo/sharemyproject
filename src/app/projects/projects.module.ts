@@ -5,15 +5,19 @@ import {ProjectsService} from './projects.service';
 import {ProjectsActions} from './projects.actions';
 import { ProjectsComponent } from './projects.component';
 import { CardComponent } from './card/card.component';
+import { AddProjectModalComponent } from './modal/add-project-modal.component';
+import {ClrModalModule} from 'clarity-angular/modal/modal.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    ClrModalModule
   ],
   declarations: [
     ListComponent,
     ProjectsComponent,
-    CardComponent
+    CardComponent,
+    AddProjectModalComponent
   ],
   providers: [
     ProjectsService,

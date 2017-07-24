@@ -1,7 +1,13 @@
 <header class="header-6">
   <div class="header-actions">
-    <a href="javascript://" class="nav-link nav-icon">
-      <clr-icon shape="cog"></clr-icon>
-    </a>
+    <clr-dropdown clrMenuPosition="bottom-right">
+      <button class="nav-icon" clrDropdownToggle>
+        <clr-icon shape="add"></clr-icon>
+      </button>
+      <clr-dropdown-menu>
+        <a (click)="openAddProjectModal()" clrDropdownItem>Add Project</a>
+        <a href="#" clrDropdownItem>Add List</a>
+      </clr-dropdown-menu>
+    </clr-dropdown>
   </div>
 </header>

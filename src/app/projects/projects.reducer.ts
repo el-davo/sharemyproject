@@ -9,6 +9,10 @@ export const projectsReducer = (state: ProjectsState = projectState, action): Pr
       return {...state, isFetchingProjects: false, projects: action.projects};
     case ProjectsActions.FETCH_PROJECTS_FAIL:
       return {...state, isFetchingProjects: false};
+    case ProjectsActions.SHOW_ADD_PROJECT_MODAL:
+      return {...state, showAddProjectModal: true};
+    case ProjectsActions.HIDE_ADD_PROJECT_MODAL:
+      return {...state, showAddProjectModal: false};
     default:
       return state;
   }
