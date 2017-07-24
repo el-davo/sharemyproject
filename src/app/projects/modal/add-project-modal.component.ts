@@ -20,4 +20,8 @@ export class AddProjectModalComponent {
     return this.projectsActions.hideAddProjectModal();
   }
 
+  @dispatch()
+  addProject() {
+    return this.projectsActions.addProject();
+  }
 }

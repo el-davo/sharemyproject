@@ -22,4 +22,18 @@ export class ProjectsEpics {
           .catch(err => Observable.of(this.projectsActions.fetchProjectsFail()));
       });
   };
+
+  addProject = (action$, store) => {
+    return action$.ofType(ProjectsActions.ADD_PROJECT)
+      .mergeMap(() => {
+        const projectForm = store.getState().projects.addProjectForm;
+
+        return this.projectsService.addProject(projectForm)
+          .mergeMap(project => Observable.concat(
+            Observable.of(this.projectsActions.addProjectSuccess(project)),
+            Observable.of(this.projectsActions.hideAddProjectModal())
+          ))
+          .catch(err => Observable.of(this.projectsActions.addProjectFail()));
+      });
+  };
 }

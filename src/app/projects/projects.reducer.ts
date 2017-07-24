@@ -13,6 +13,12 @@ export const projectsReducer = (state: ProjectsState = projectState, action): Pr
       return {...state, showAddProjectModal: true};
     case ProjectsActions.HIDE_ADD_PROJECT_MODAL:
       return {...state, showAddProjectModal: false};
+    case ProjectsActions.ADD_PROJECT:
+      return {...state, isAddingProject: true};
+    case ProjectsActions.ADD_PROJECT_SUCCESS:
+      return {...state, isAddingProject: false, projects: [...state.projects, action.project]};
+    case ProjectsActions.ADD_PROJECT_FAIL:
+      return {...state, isAddingProject: false};
     default:
       return state;
   }

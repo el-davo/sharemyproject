@@ -14,4 +14,8 @@ export class ProjectsService {
     return this.http.get(`http://localhost:3001/projects`).map(res => res.json());
   }
 
+  addProject(project: Project): Observable<Project> {
+    return this.http.post(`http://localhost:3001/projects`, project).map(res => res.json());
+  }
+
 }

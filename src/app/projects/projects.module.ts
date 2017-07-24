@@ -7,11 +7,17 @@ import { ProjectsComponent } from './projects.component';
 import { CardComponent } from './card/card.component';
 import { AddProjectModalComponent } from './modal/add-project-modal.component';
 import {ClrModalModule} from 'clarity-angular/modal/modal.module';
+import {NgReduxFormModule} from '@angular-redux/form/dist/source';
+import {ClrLoadingModule} from 'clarity-angular/utils/loading/loading.module'
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    ClrModalModule
+    ClrModalModule,
+    NgReduxFormModule,
+    FormsModule,
+    ClrLoadingModule
   ],
   declarations: [
     ListComponent,
