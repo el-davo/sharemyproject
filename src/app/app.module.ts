@@ -18,9 +18,11 @@ import {SearchModule} from './search/search.module';
 import {routes} from './routes';
 import {ProjectsEpics} from './projects/epics/projects.epics';
 import {NavbarModule} from './navbar/navbar.module';
+import {ProjectListModule} from './project-list/project-list.module';
 
 import 'clarity-icons';
 import 'clarity-icons/shapes/essential-shapes';
+import {ProjectListEpics} from './project-list/epics/project-list.epics';
 
 @NgModule({
   declarations: [
@@ -37,10 +39,12 @@ import 'clarity-icons/shapes/essential-shapes';
     NgReduxRouterModule,
     NavbarModule,
     ProjectsModule,
-    SearchModule
+    SearchModule,
+    ProjectListModule
   ],
   providers: [
-    ProjectsEpics
+    ProjectsEpics,
+    ProjectListEpics
   ],
   bootstrap: [AppComponent]
 })
@@ -48,11 +52,13 @@ export class AppModule {
 
   constructor(private ngRedux: NgRedux<any>,
               ngReduxRouter: NgReduxRouter,
-              private projectsEpics: ProjectsEpics) {
+              private projectsEpics: ProjectsEpics,
+              private projectListEpics: ProjectListEpics) {
 
     const epics = combineEpics(
       this.projectsEpics.fetchProjects,
-      this.projectsEpics.addProject
+      this.projectsEpics.addProject,
+      this.projectListEpics.fetchProjectList
     );
 
     const middleware = [

@@ -1,0 +1,13 @@
+<nav class="sidenav">
+  <section class="sidenav-content">
+    <section class="nav-group">
+      <input id="tabexample2" type="checkbox">
+      <label for="tabexample2">My Lists</label>
+      <ul class="nav-list">
+        <li *ngFor="let project of (projectList$ | async).projectList">
+          <a class="nav-link">{{project.name}}</a>
+        </li>
+      </ul>
+    </section>
+  </section>
+</nav>

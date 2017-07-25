@@ -28,6 +28,9 @@ import {FormsModule} from '@angular/forms';
   providers: [
     ProjectsService,
     ProjectsActions
+  ],
+  exports: [
+    AddProjectModalComponent
   ]
 })
 export class ProjectsModule { }
