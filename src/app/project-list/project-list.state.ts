@@ -2,16 +2,19 @@ import {Project} from '../projects/projects.state';
 
 export const projectListState: ProjectListState = {
   isFetchingProjectList: false,
+  isFetchingSelectedProjectList: false,
+  selectedProjectList: [],
   projectList: []
 };
 
 export interface ProjectListState {
   isFetchingProjectList: boolean;
-  projectList: ProjectList[]
+  isFetchingSelectedProjectList: boolean;
+  selectedProjectList: Project[];
+  projectList: ProjectList[];
 }
 
 export interface ProjectList {
   id: string;
   name: string;
-  projects: Project[]
 }

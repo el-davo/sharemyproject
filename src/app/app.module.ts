@@ -58,7 +58,8 @@ export class AppModule {
     const epics = combineEpics(
       this.projectsEpics.fetchProjects,
       this.projectsEpics.addProject,
-      this.projectListEpics.fetchProjectList
+      this.projectListEpics.fetchProjectList,
+      this.projectListEpics.fetchSelectedListProjects
     );
 
     const middleware = [

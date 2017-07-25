@@ -23,4 +23,13 @@ export class ProjectListEpics {
       });
   };
 
+  fetchSelectedListProjects = action$ => {
+    return action$.ofType(ProjectListActions.FETCH_SELECTED_LIST_PROJECTS)
+      .mergeMap(({listId}) => {
+        return this.projectListService.fetchSelectedListProject(listId)
+          .map(projects => this.projectListActions.fetchSelectedListProjectsSuccess(projects))
+          .catch(err => Observable.of(this.projectListActions.fetchSelectedListProjectsFail()));
+      });
+  };
+
 }

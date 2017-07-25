@@ -6,6 +6,6 @@ Factory.define('project-list')
   .sequence('id')
   .attr('name', () => name.findName())
   .attr('description', () => lorem.paragraph())
-  .attr('projects', () => Factory.buildList('project', 5));
+  .attr('projects', () => Factory.buildList('project', 15));
 
 export const projectList = Factory.buildList('project-list', 10) as ProjectList[];
