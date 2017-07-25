@@ -10,7 +10,7 @@
           <label for="tabexample2">My Lists</label>
           <ul class="nav-list">
             <li *ngFor="let list of (projectList$ | async).projectList">
-              <a class="nav-link" [routerLink]="[list.id]">{{list.name}}</a>
+                <a class="nav-link" [routerLink]="[list.id]">{{list.name}}</a>
             </li>
           </ul>
         </section>

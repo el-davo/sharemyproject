@@ -16,4 +16,8 @@ export class ProjectListService {
   fetchSelectedListProject(listId: string): Observable<Project[]> {
     return this.http.get(`http://localhost:3001/project-list/${listId}/projects`).map(res => res.json());
   }
+
+  addProjectList(projectList: ProjectList): Observable<ProjectList> {
+    return this.http.post(`http://localhost:3001/project-list`, projectList).map(res => res.json());
+  }
 }

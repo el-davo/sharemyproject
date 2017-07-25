@@ -32,4 +32,18 @@ export class ProjectListEpics {
       });
   };
 
+  addProjectList = (action$, store) => {
+    return action$.ofType(ProjectListActions.ADD_PROJECT_LIST)
+      .mergeMap(() => {
+        const projectListForm = store.getState().projectList.addProjectListForm;
+
+        return this.projectListService.addProjectList(projectListForm)
+          .mergeMap(projectList => Observable.concat(
+            Observable.of(this.projectListActions.addProjectListSuccess(projectList)),
+            Observable.of(this.projectListActions.hideAddProjectListModal())
+          ))
+          .catch(err => Observable.of(this.projectListActions.addProjectListFail()));
+      });
+  };
+
 }
