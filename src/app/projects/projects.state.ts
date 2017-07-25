@@ -3,6 +3,7 @@ export const projectState: ProjectsState = {
   showAddProjectModal: false,
   isAddingProject: false,
   addProjectForm: {
+    id: null,
     name: '',
     description: '',
     url: ''
@@ -19,6 +20,7 @@ export interface ProjectsState {
 }
 
 export interface Project {
+  id: string;
   name: string;
   description: string;
   url: string;

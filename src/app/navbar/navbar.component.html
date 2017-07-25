@@ -1,12 +1,21 @@
 <header class="header-6">
+  <div class="branding">
+    <a href="..." class="nav-link">
+      <clr-icon shape="vm-bug"></clr-icon>
+    </a>
+  </div>
+  <div class="header-nav">
+    <a [routerLink]="['/projects']" class="nav-link nav-text">My Projects</a>
+    <a [routerLink]="['/my-lists']" class="nav-link nav-text">My Lists</a>
+  </div>
   <div class="header-actions">
     <clr-dropdown clrMenuPosition="bottom-right">
       <button class="nav-icon" clrDropdownToggle>
         <clr-icon shape="add"></clr-icon>
       </button>
       <clr-dropdown-menu>
-        <a (click)="openAddProjectModal()" clrDropdownItem>Add Project</a>
-        <a href="#" clrDropdownItem>Add List</a>
+        <a (click)="openAddProjectModal()" clrDropdownItem>Create Project</a>
+        <a (click)="openAddProjectListModal()" clrDropdownItem>Create List</a>
       </clr-dropdown-menu>
     </clr-dropdown>
   </div>

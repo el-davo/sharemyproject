@@ -1,22 +1,14 @@
 <clr-modal [clrModalClosable]="false"
-           [clrModalOpen]="(projects$ | async)?.showAddProjectModal">
-  <h3 class="modal-title">Create Project</h3>
+           [clrModalOpen]="(projectList$ | async)?.showAddProjectListModal">
+  <h3 class="modal-title">Create List</h3>
   <div class="modal-body">
-    <form [connect]="['projects', 'addProjectForm']">
+    <form [connect]="['projectList', 'addProjectListForm']">
       <section class="form-block">
 
         <div class="form-group">
           <label for="name">Name</label>
           <input id="name"
                  name="name"
-                 size="38"
-                 ngModel>
-        </div>
-
-        <div class="form-group">
-          <label for="name">Url</label>
-          <input id="url"
-                 name="url"
                  size="38"
                  ngModel>
         </div>
@@ -32,8 +24,8 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline" (click)="hideAddProjectModal()">Cancel</button>
+    <button type="button" class="btn btn-outline" (click)="hideAddProjectListModal()">Cancel</button>
     <button type="button" class="btn btn-primary" [clrLoading]="(projects$ | async)?.isAddingProject"
-            (click)="addProject()">Ok</button>
+            (click)="addProjectList()">Ok</button>
   </div>
 </clr-modal>

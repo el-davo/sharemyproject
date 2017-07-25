@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {dispatch} from '@angular-redux/store';
 import {ProjectsActions} from '../projects/projects.actions';
+import {ProjectListActions} from '../project-list/project-list.actions';
 
 @Component({
   selector: 'app-navbar',
@@ -9,11 +10,16 @@ import {ProjectsActions} from '../projects/projects.actions';
 })
 export class NavbarComponent {
 
-  constructor(private projectsActions: ProjectsActions) { }
+  constructor(private projectsActions: ProjectsActions, private projectListActions: ProjectListActions) { }
 
   @dispatch()
   openAddProjectModal() {
     return this.projectsActions.showAddProjectModal();
+  }
+
+  @dispatch()
+  openAddProjectListModal() {
+    return this.projectListActions.showAddProjectListModal();
   }
 
 }
