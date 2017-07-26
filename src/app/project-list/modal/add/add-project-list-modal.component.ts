@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {dispatch, select} from '@angular-redux/store';
 import {Observable} from 'rxjs/Observable';
-import {ProjectListState} from '../project-list.state';
-import {ProjectListActions} from '../project-list.actions';
+import {ProjectListState} from '../../project-list.state';
+import {ProjectListActions} from '../../project-list.actions';
+import {ProjectsState} from '../../../projects/projects.state';
 
 @Component({
   selector: 'app-add-project-list-modal',
@@ -12,6 +13,7 @@ import {ProjectListActions} from '../project-list.actions';
 export class AddProjectListModalComponent implements OnInit {
 
   @select('projectList') projectList$: Observable<ProjectListState>;
+  @select('projects') projects$: Observable<ProjectsState>;
 
   constructor(private projectListActions: ProjectListActions) { }
 

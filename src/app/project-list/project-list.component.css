@@ -1,0 +1,11 @@
+.delete-icon {
+  display: none;
+}
+
+.nav-link:hover > .delete-icon {
+  display: inline-block;
+}
+
+.nav-link:focus {
+  outline: none;
+}

@@ -4,12 +4,15 @@ export const projectListState: ProjectListState = {
   isFetchingProjectList: false,
   isFetchingSelectedProjectList: false,
   isAddingProjectList: false,
+  isDeletingProject: false,
   showAddProjectListModal: false,
+  showDeleteProjectListModal: false,
   addProjectListForm: {
     id: null,
     name: '',
     description: ''
   },
+  deletingProjectList: null,
   selectedProjectList: [],
   projectList: []
 };
@@ -18,8 +21,11 @@ export interface ProjectListState {
   isFetchingProjectList: boolean;
   isFetchingSelectedProjectList: boolean;
   isAddingProjectList: boolean;
+  isDeletingProject: boolean;
   showAddProjectListModal: boolean;
-  addProjectListForm: ProjectList
+  showDeleteProjectListModal: boolean;
+  addProjectListForm: ProjectList;
+  deletingProjectList: ProjectList;
   selectedProjectList: Project[];
   projectList: ProjectList[];
 }

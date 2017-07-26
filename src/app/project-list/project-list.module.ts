@@ -11,7 +11,8 @@ import {ClrLoadingModule} from 'clarity-angular/utils/loading/loading.module'
 import {FormsModule} from '@angular/forms';
 import { SelectedListComponent } from './selected-list/selected-list.component';
 import { CardComponent } from './card/card.component';
-import { AddProjectListModalComponent } from './modal/add-project-list-modal.component';
+import { AddProjectListModalComponent } from './modal/add/add-project-list-modal.component';
+import { DeleteProjectListModalComponent } from './modal/delete/delete-project-list-modal.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { AddProjectListModalComponent } from './modal/add-project-list-modal.com
     ProjectListComponent,
     SelectedListComponent,
     CardComponent,
-    AddProjectListModalComponent
+    AddProjectListModalComponent,
+    DeleteProjectListModalComponent
   ],
   providers: [
     ProjectListService,

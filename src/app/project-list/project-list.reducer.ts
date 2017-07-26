@@ -25,6 +25,18 @@ export const projectListReducer = (state: ProjectListState = projectListState, a
       return {...state, isAddingProjectList: false, projectList: [...state.projectList, action.projectList]};
     case ProjectListActions.ADD_PROJECT_LIST_FAIL:
       return {...state, isAddingProjectList: false};
+    case ProjectListActions.SHOW_DELETE_PROJECT_LIST_MODAL:
+      return {...state, showDeleteProjectListModal: true, deletingProjectList: action.projectList};
+    case ProjectListActions.HIDE_DELETE_PROJECT_LIST_MODAL:
+      return {...state, showDeleteProjectListModal: false, deletingProjectList: null};
+    case ProjectListActions.DELETE_PROJECT_LIST:
+      return {...state, isDeletingProject: true};
+    case ProjectListActions.DELETE_PROJECT_LIST_SUCCESS:
+      return {...state, isDeletingProject: false, projectList: state.projectList.filter(projectList => {
+        return projectList.id !== action.projectList.id
+      })};
+    case ProjectListActions.DELETE_PROJECT_LIST_FAIL:
+      return {...state, isDeletingProject: false};
     default:
       return state;
   }

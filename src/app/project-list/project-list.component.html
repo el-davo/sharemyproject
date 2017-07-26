@@ -10,10 +10,16 @@
           <label for="tabexample2">My Lists</label>
           <ul class="nav-list">
             <li *ngFor="let list of (projectList$ | async).projectList">
-                <a class="nav-link" [routerLink]="[list.id]">{{list.name}}</a>
+              <div class="nav-link" [routerLink]="[list.id]">
+                <clr-icon class="delete-icon"
+                          (click)="deleteList($event, list)"
+                          shape="trash" size="18"></clr-icon>&nbsp;&nbsp;{{list.name}}
+              </div>
             </li>
           </ul>
         </section>
       </section>
     </nav>
+
+  <app-delete-project-list-modal></app-delete-project-list-modal>
 </div>

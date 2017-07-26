@@ -60,7 +60,8 @@ export class AppModule {
       this.projectsEpics.addProject,
       this.projectListEpics.fetchProjectList,
       this.projectListEpics.fetchSelectedListProjects,
-      this.projectListEpics.addProjectList
+      this.projectListEpics.addProjectList,
+      this.projectListEpics.deleteProjectList
     );
 
     const middleware = [

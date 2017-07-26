@@ -35,14 +35,28 @@ export class ProjectListEpics {
   addProjectList = (action$, store) => {
     return action$.ofType(ProjectListActions.ADD_PROJECT_LIST)
       .mergeMap(() => {
-        const projectListForm = store.getState().projectList.addProjectListForm;
+        const {addProjectListForm} = store.getState().projectList;
 
-        return this.projectListService.addProjectList(projectListForm)
+        return this.projectListService.addProjectList(addProjectListForm)
           .mergeMap(projectList => Observable.concat(
             Observable.of(this.projectListActions.addProjectListSuccess(projectList)),
             Observable.of(this.projectListActions.hideAddProjectListModal())
           ))
           .catch(err => Observable.of(this.projectListActions.addProjectListFail()));
+      });
+  };
+
+  deleteProjectList = (action$, store) => {
+    return action$.ofType(ProjectListActions.DELETE_PROJECT_LIST)
+      .mergeMap(() => {
+        const {deletingProjectList} = store.getState().projectList;
+
+        return this.projectListService.deleteProjectList(deletingProjectList)
+          .mergeMap(() => Observable.concat(
+            Observable.of(this.projectListActions.deleteProjectListSuccess(deletingProjectList)),
+            Observable.of(this.projectListActions.hideDeleteProjectListModal())
+          ))
+          .catch(err => Observable.of(this.projectListActions.deleteProjectListFail()));
       });
   };
 
