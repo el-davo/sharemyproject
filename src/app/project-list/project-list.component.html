@@ -9,7 +9,7 @@
           <input id="tabexample2" type="checkbox">
           <label for="tabexample2">My Lists</label>
           <ul class="nav-list">
-            <li *ngFor="let list of (projectList$ | async).projectList">
+            <li *ngFor="let list of (projectList$ | async)?.projectList">
               <div class="nav-link" [routerLink]="[list.id]">
                 <clr-icon class="delete-icon"
                           (click)="deleteList($event, list)"

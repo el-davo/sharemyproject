@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently --kill-others --raw \"ts-node ./src/stubs/stub-server.ts\" \"ng serve --open\"",
+    "start": "concurrently --kill-others --raw \"ts-node ./src/stubs/stub-server.ts\" \"ng serve --open --hmr -e=hmr\"",
     "build": "ng build --prod",
     "test": "ng test -sr -cc",
     "test:watch": "ng test -cc",
@@ -41,6 +41,7 @@
     "@angular/cli": "1.1.2",
     "@angular/compiler-cli": "^4.0.0",
     "@angular/language-service": "^4.0.0",
+    "@angularclass/hmr": "^2.1.3",
     "@types/jasmine": "2.5.45",
     "codelyzer": "~3.0.1",
     "concurrently": "^3.5.0",

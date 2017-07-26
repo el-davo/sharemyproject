@@ -1,4 +1,4 @@
 <div class="card-columns">
-  <app-project-list-card *ngFor="let project of (projectList$ | async).projectList" [project]="project">
+  <app-project-list-card *ngFor="let project of (projectList$ | async)?.projectList" [project]="project">
   </app-project-list-card>
 </div>
