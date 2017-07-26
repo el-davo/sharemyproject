@@ -20,4 +20,8 @@ export class ProjectListService {
   addProjectList(projectList: ProjectList): Observable<ProjectList> {
     return this.http.post(`http://localhost:3001/project-list`, projectList).map(res => res.json());
   }
+
+  deleteProjectList(projectList: ProjectList): Observable<ProjectList> {
+    return this.http.delete(`http://localhost:3001/project-list/${projectList.id}`).map(res => res.json());
+  }
 }

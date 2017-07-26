@@ -16,10 +16,16 @@ export class ProjectListActions {
   static SHOW_ADD_PROJECT_LIST_MODAL = 'project-list/SHOW_ADD_PROJECT_LIST_MODAL';
   static HIDE_ADD_PROJECT_LIST_MODAL = 'project-list/HIDE_ADD_PROJECT_LIST_MODAL';
 
-  static ADD_PROJECT_LIST = 'projects/ADD_PROJECT_LIST';
-  static ADD_PROJECT_LIST_SUCCESS = 'project/ADD_PROJECT_LIST_SUCCESS';
-  static ADD_PROJECT_LIST_FAIL = 'project/ADD_PROJECT_LIST_FAIL';
+  static ADD_PROJECT_LIST = 'project-list/ADD_PROJECT_LIST';
+  static ADD_PROJECT_LIST_SUCCESS = 'project-list/ADD_PROJECT_LIST_SUCCESS';
+  static ADD_PROJECT_LIST_FAIL = 'project-list/ADD_PROJECT_LIST_FAIL';
 
+  static SHOW_DELETE_PROJECT_LIST_MODAL = 'project-list/SHOW_DELETE_PROJECT_LIST_MODAL';
+  static HIDE_DELETE_PROJECT_LIST_MODAL = 'project-list/HIDE_DELETE_PROJECT_LIST_MODAL';
+
+  static DELETE_PROJECT_LIST = 'project-list/DELETE_PROJECT_LIST';
+  static DELETE_PROJECT_LIST_SUCCESS = 'project-list/DELETE_PROJECT_LIST_SUCCESS';
+  static DELETE_PROJECT_LIST_FAIL = 'project-list/DELETE_PROJECT_LIST_FAIL';
 
   fetchProjectList() {
     return {type: ProjectListActions.FETCH_PROJECT_LIST};
@@ -63,5 +69,25 @@ export class ProjectListActions {
 
   addProjectListFail() {
     return {type: ProjectListActions.ADD_PROJECT_LIST_FAIL};
+  }
+
+  showDeleteProjectListModal(projectList: ProjectList) {
+    return {type: ProjectListActions.SHOW_DELETE_PROJECT_LIST_MODAL, projectList};
+  }
+
+  hideDeleteProjectListModal() {
+    return {type: ProjectListActions.HIDE_DELETE_PROJECT_LIST_MODAL};
+  }
+
+  deleteProjectList() {
+    return {type: ProjectListActions.DELETE_PROJECT_LIST};
+  }
+
+  deleteProjectListSuccess(projectList: ProjectList) {
+    return {type: ProjectListActions.DELETE_PROJECT_LIST_SUCCESS, projectList};
+  }
+
+  deleteProjectListFail() {
+    return {type: ProjectListActions.DELETE_PROJECT_LIST_FAIL};
   }
 }
