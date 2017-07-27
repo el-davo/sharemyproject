@@ -10,6 +10,7 @@ export const projectListState: ProjectListState = {
   addProjectListForm: {
     id: null,
     name: '',
+    isPrivate: false,
     description: ''
   },
   deletingProjectList: null,
@@ -33,5 +34,6 @@ export interface ProjectListState {
 export interface ProjectList {
   id: string;
   name: string;
+  isPrivate: boolean;
   description: string;
 }
