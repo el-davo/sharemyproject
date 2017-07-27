@@ -5,6 +5,7 @@ import {ProjectList} from '../../app/project-list/project-list.state';
 Factory.define('project-list')
   .sequence('id')
   .attr('name', () => name.findName())
+  .attr('isPrivate', () => random.boolean())
   .attr('description', () => lorem.paragraph())
   .attr('projects', () => Factory.buildList('project', 15));
 
