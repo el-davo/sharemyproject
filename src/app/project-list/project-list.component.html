@@ -6,8 +6,7 @@
     <nav class="sidenav">
       <section class="sidenav-content">
         <section class="nav-group">
-          <input id="tabexample2" type="checkbox">
-          <label for="tabexample2">My Lists</label>
+          <label>My Lists</label>
           <ul class="nav-list">
             <li *ngFor="let list of (projectList$ | async)?.projectList">
               <div class="nav-link" [routerLink]="[list.id]">
