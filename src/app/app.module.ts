@@ -60,6 +60,7 @@ export class AppModule {
     const epics = combineEpics(
       this.projectsEpics.fetchProjects,
       this.projectsEpics.addProject,
+      this.projectsEpics.deleteProject,
       this.projectListEpics.fetchProjectList,
       this.projectListEpics.fetchSelectedListProjects,
       this.projectListEpics.addProjectList,
