@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently --kill-others --raw \"ts-node ./src/stubs/stub-server.ts\" \"ng serve --open --hmr -e=hmr\"",
+    "start": "concurrently --kill-others --raw \"ts-node ./src/stubs/stub-server.ts\" \"ng serve --open\"",
+    "start:hot": "concurrently --kill-others --raw \"ts-node ./src/stubs/stub-server.ts\" \"ng serve --open --hmr -e=hmr\"",
     "build": "ng build --prod",
     "test": "ng test -sr -cc",
     "test:watch": "ng test -cc",
@@ -61,6 +62,7 @@
     "protractor": "~5.1.2",
     "redux": "^3.7.1",
     "redux-immutable-state-invariant": "^2.0.0",
+    "redux-localstorage": "^0.4.1",
     "redux-logger": "^3.0.6",
     "rosie": "^1.6.0",
     "ts-node": "~3.0.4",

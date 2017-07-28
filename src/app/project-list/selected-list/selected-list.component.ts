@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ProjectListActions} from '../project-list.actions';
 import {dispatch, select} from '@angular-redux/store';
@@ -10,13 +10,11 @@ import {ProjectListState} from '../project-list.state';
   templateUrl: './selected-list.component.html',
   styleUrls: ['./selected-list.component.css']
 })
-export class SelectedListComponent implements OnInit {
+export class SelectedListComponent {
 
   @select('projectList') projectList$: Observable<ProjectListState>;
 
-  constructor(private route: ActivatedRoute, private projectListActions: ProjectListActions) { }
-
-  ngOnInit() {
+  constructor(private route: ActivatedRoute, private projectListActions: ProjectListActions) {
     this.route.params.subscribe(({id}) => this.fetchSelectedListProjects(id));
   }
 

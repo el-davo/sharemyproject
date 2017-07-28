@@ -11,6 +11,7 @@ import {NgReduxFormModule} from '@angular-redux/form';
 import {NgReduxRouterModule, NgReduxRouter} from '@angular-redux/router';
 import {createEpicMiddleware, combineEpics} from 'redux-observable';
 import * as reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
+import * as persistState from 'redux-localstorage'
 import {environment} from '../environments/environment';
 import {AppComponent} from './app.component';
 import {ProjectsModule} from './projects/projects.module';
@@ -23,6 +24,7 @@ import {ProjectListModule} from './project-list/project-list.module';
 import 'clarity-icons';
 import 'clarity-icons/shapes/essential-shapes';
 import {ProjectListEpics} from './project-list/epics/project-list.epics';
+import {Reducer} from 'redux';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,14 @@ export class AppModule {
       reduxImmutableStateInvariant.default()
     ];
 
-    ngRedux.configureStore(rootReducer, {}, middleware);
+    const enhancers = [];
+
+    if (environment.hmr) {
+      enhancers.push(persistState());
+    }
+
+    this.ngRedux.configureStore(rootReducer, {}, middleware, enhancers);
+
     ngReduxRouter.initialize();
   }
 
