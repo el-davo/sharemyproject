@@ -36,4 +36,18 @@ export class ProjectsEpics {
           .catch(err => Observable.of(this.projectsActions.addProjectFail()));
       });
   };
+
+  deleteProject = (action$, store) => {
+    return action$.ofType(ProjectsActions.DELETE_PROJECT)
+      .mergeMap(() => {
+        const {deletingProject} = store.getState().projects;
+
+        return this.projectsService.deleteProject(deletingProject)
+          .mergeMap(() => Observable.concat(
+            Observable.of(this.projectsActions.deleteProjectSuccess(deletingProject)),
+            Observable.of(this.projectsActions.hideDeleteProjectModal())
+          ))
+          .catch(err => Observable.of(this.projectsActions.deleteProjectFail()));
+      });
+  };
 }
