@@ -20,11 +20,11 @@ import {routes} from './routes';
 import {ProjectsEpics} from './projects/epics/projects.epics';
 import {NavbarModule} from './navbar/navbar.module';
 import {ProjectListModule} from './project-list/project-list.module';
+import {LoginModule} from './login/login.module';
 
 import 'clarity-icons';
 import 'clarity-icons/shapes/essential-shapes';
 import {ProjectListEpics} from './project-list/epics/project-list.epics';
-import {Reducer} from 'redux';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,8 @@ import {Reducer} from 'redux';
     NavbarModule,
     ProjectsModule,
     SearchModule,
-    ProjectListModule
+    ProjectListModule,
+    LoginModule
   ],
   providers: [
     ProjectsEpics,
