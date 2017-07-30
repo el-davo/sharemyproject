@@ -24,7 +24,7 @@ export class LoginEpics {
         return Observable.fromEvent(window, 'message')
           .mergeMap((event: any) => Observable.concat(
             Observable.of(this.loginActions.authComplete(event.data)),
-            this.loginService.getUserInformation()
+            this.loginService.getUserInformation().map(userData => this.loginActions.loginSuccess(userData))
           ))
           .catch(err => Observable.of(this.loginActions.loginFail()));
       });
