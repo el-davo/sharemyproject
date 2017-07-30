@@ -25,6 +25,7 @@ import {LoginModule} from './login/login.module';
 import 'clarity-icons';
 import 'clarity-icons/shapes/essential-shapes';
 import {ProjectListEpics} from './project-list/epics/project-list.epics';
+import {LoginEpics} from './login/epics/login.epics';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {ProjectListEpics} from './project-list/epics/project-list.epics';
     LoginModule
   ],
   providers: [
+    LoginEpics,
     ProjectsEpics,
     ProjectListEpics
   ],
@@ -55,10 +57,12 @@ export class AppModule {
 
   constructor(private ngRedux: NgRedux<any>,
               ngReduxRouter: NgReduxRouter,
+              private loginEpics: LoginEpics,
               private projectsEpics: ProjectsEpics,
               private projectListEpics: ProjectListEpics) {
 
     const epics = combineEpics(
+      this.loginEpics.socialLoginFacebook,
       this.projectsEpics.fetchProjects,
       this.projectsEpics.addProject,
       this.projectsEpics.deleteProject,

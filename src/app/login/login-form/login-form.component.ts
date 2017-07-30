@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import {select} from '@angular-redux/store';
+import {dispatch, select} from '@angular-redux/store';
 import {Observable} from 'rxjs/Observable';
 import {LoginState} from '../login.state';
+import {LoginActions} from '../login.actions';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent {
 
   @select('login') login$: Observable<LoginState>;
 
-  constructor() { }
+  constructor(private loginActions: LoginActions) { }
 
-  ngOnInit() {
+  @dispatch()
+  loginFacebook() {
+    return this.loginActions.loginFacebook();
   }
 
 }
