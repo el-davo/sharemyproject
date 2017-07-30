@@ -4,6 +4,7 @@ import {combineReducers} from 'redux';
 import {navbarReducer as navbar} from './navbar/navbar.reducer';
 import {projectsReducer as projects} from './projects/projects.reducer';
 import {projectListReducer as projectList} from './project-list/project-list.reducer';
+import {loginReducer as login} from './login/login.reducer';
 
 export const rootReducer = composeReducers(
   defaultFormReducer(),
@@ -11,6 +12,7 @@ export const rootReducer = composeReducers(
     router,
     navbar,
     projects,
-    projectList
+    projectList,
+    login
   })
 );
