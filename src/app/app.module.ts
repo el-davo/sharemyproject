@@ -63,6 +63,7 @@ export class AppModule {
 
     const epics = combineEpics(
       this.loginEpics.socialLoginFacebook,
+      this.loginEpics.socialLoginGithub,
       this.projectsEpics.fetchProjects,
       this.projectsEpics.addProject,
       this.projectsEpics.deleteProject,

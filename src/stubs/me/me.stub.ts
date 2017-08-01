@@ -1,6 +1,7 @@
 import {name, random, lorem, internet, helpers} from 'faker';
 import {Factory} from 'rosie';
-import {User} from '../../app/login/login.state';
+import {SocialUser} from '../../app/login/social/social-user.interface';
+import {FacebookIdentity} from '../../app/login/social/facebook.interface';
 
 Factory.define('profile')
   .attr('id', 'abc123');
@@ -29,4 +30,4 @@ Factory.define('me')
   .attr('user', () => Factory.build('user'))
   .attr('identity', () => Factory.build('identity'));
 
-export const me = Factory.build('me') as User;
+export const me = Factory.build('me') as SocialUser<FacebookIdentity>;

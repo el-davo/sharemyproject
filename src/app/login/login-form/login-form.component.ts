@@ -20,4 +20,9 @@ export class LoginFormComponent {
     return this.loginActions.loginFacebook();
   }
 
+  @dispatch()
+  loginGithub() {
+    return this.loginActions.loginGithub();
+  }
+
 }
