@@ -26,7 +26,7 @@ export class LoginEpics {
         return Observable.fromEvent(window, 'message')
           .mergeMap((event: any) => Observable.concat(
             Observable.of(this.loginActions.authComplete(event.data)),
-            this.loginService.getUserInformation<FacebookIdentity>()
+            this.loginService.getUserInformation<FacebookIdentity>(event.data.access_token)
               .map(userData => this.loginActions.loginSuccess(userData))
           ))
           .catch(err => Observable.of(this.loginActions.loginFail()));
@@ -42,7 +42,7 @@ export class LoginEpics {
         return Observable.fromEvent(window, 'message')
           .mergeMap((event: any) => Observable.concat(
             Observable.of(this.loginActions.authComplete(event.data)),
-            this.loginService.getUserInformation<GithubIdentity>()
+            this.loginService.getUserInformation<GithubIdentity>(event.data.access_token)
               .map(userData => this.loginActions.loginSuccess(userData))
           ))
           .catch(err => Observable.of(this.loginActions.loginFail()));
