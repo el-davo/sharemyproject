@@ -8,7 +8,7 @@ export const loginReducer = (state: LoginState = loginState, action): LoginState
     case LoginActions.AUTH_COMPLETE:
       return {...state, auth: action.auth};
     case LoginActions.LOGIN_SUCCESS:
-      return {...state, isLoggingIn: false, isLoggedIn: true, userData: action.userData};
+      return {...state, isLoggingIn: false, isLoggedIn: true, userData: action.socialUser};
     case LoginActions.LOGIN_FAIL:
       return {...state, isLoggingIn: false, hasLoginFailed: true};
     default:

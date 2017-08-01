@@ -5,7 +5,7 @@ const urlsEnv = {
     apiUrl: 'http://localhost:3001'
   },
   production: {
-    apiUrl: ''
+    apiUrl: 'https://sharemyproject-backend.cfapps.io/api'
   }
 };
 
