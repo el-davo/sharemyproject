@@ -1,4 +1,4 @@
 name: sharemyproject
 instances: 1
 memory: 128M
-buildpack: staticfile_buildpack
+buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
