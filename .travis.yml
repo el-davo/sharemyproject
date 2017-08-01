@@ -1,14 +1,18 @@
 language: node_js
 node_js:
-  - "7"
-
+- '7'
 install:
-  - yarn
-  - npm run lint
-
+- yarn
+- yarn run lint
 cache:
   yarn: true
-
-before_install:
- - export DISPLAY=:99.0
- - sh -e /etc/init.d/xvfb start
+deploy:
+  provider: cloudfoundry
+  api: api.run.pivotal.io
+  username: david.ahern26@gmail.com
+  password:
+    secure: FTX4Ey5F0LPtLlJEN9LbEHWegYiNXgI20lHudBcH1NId07riQ7GY9qm2GGpVpUqE/I4ngzeDXwua6Q+o4Vv42Qdp+FnOe/EoYepE9DFL0C4DBC3U4r7SrfyohtqiXXATI3yC4ezaK5lpNEN59GZem4qOSN/DQtNWHuwHrPj3EJOx+RgI3e6w5pTsoYyk6AD5X8MSZ3QBTgf6+XWVSTp0WDvaLSnBM1YDw1vEzdMJtopCm8Fv6dH6mv9bpMlz9fQ0adO3mPsaFr9X8FBOJD57iG8DUmkeVtSSvHRyNHKbBqRaqvhyzyu91kjcvSWquEHYC5U0NNuV0Qw7KsANd01qqHxTKnXmJoaHpjLobf23ahPGlwBOt9Bt1T/nmgR56HmUh3x1oJCSClc2GS16uOcUNsSifhYwSqOZrTAZbwgd5Zex9ew69tzoBxvLyXSBCf9pwr+BdI5tn+R0MJoV+7zrYZOomOxEu29o+XsHq1e/p+0a5z4gT3oDF6Ui3wTw5TgBDh2WF/tGEWQ1l/feA5H9u5DPpe5eycBL7EapQBDLlOQBBQlBsp4g5Tg8JDobcfJypV/3yif6rEYcvsR0HgVjvdivs3J6T39LhC7NjOthCrdGWwvA37cNZBg1AtzyeGk0HGJTexJCKyOoDTufe8AtCB5sxWTL6xNnSFTnuale5ac=
+  organization: thor
+  space: prod
+  on:
+    branch: master

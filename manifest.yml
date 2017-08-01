@@ -1,0 +1,4 @@
+name: sharemyproject
+instances: 1
+memory: 128M
+buildpack: staticfile_buildpack
