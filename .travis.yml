@@ -7,9 +7,6 @@ install:
   - yarn
   - npm run lint
 
-test:
-  - npm run test
-
 cache:
   yarn: true
 
