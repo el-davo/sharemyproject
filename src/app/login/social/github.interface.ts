@@ -9,10 +9,5 @@ interface Profile {
   displayName: string;
   username: string;
   profileUrl: string;
-  photos: Photo[],
   provider: string;
-}
-
-interface Photo {
-  value: string;
 }
