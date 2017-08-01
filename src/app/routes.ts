@@ -6,7 +6,7 @@ import {SelectedListComponent} from './project-list/selected-list/selected-list.
 export const routes = [
   {
     path: '',
-    redirectTo: '/projects',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
