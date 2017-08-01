@@ -4,6 +4,8 @@ node_js:
 install:
 - yarn
 - yarn run lint
+- npm run build
+- cp ./manifest.yml ./dist
 cache:
   yarn: true
 deploy:
