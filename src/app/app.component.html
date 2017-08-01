@@ -1,6 +1,6 @@
 <content>
   <div class="main-container">
-    <app-navbar></app-navbar>
+    <app-navbar *ngIf="(login$ | async)?.isLoggedIn"></app-navbar>
     <router-outlet>
       <app-add-project-modal></app-add-project-modal>
       <app-add-project-list-modal></app-add-project-list-modal>
