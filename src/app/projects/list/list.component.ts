@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import {select} from '@angular-redux/store';
+import {dispatch, select} from '@angular-redux/store';
 import {Observable} from 'rxjs/Observable';
-import {ProjectsState} from '../projects.state';
+import {Project, ProjectsState} from '../projects.state';
+import {ProjectsActions} from '../projects.actions';
 
 @Component({
   selector: 'app-projects-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
 
   @select('projects') projects$: Observable<ProjectsState>;
 
-  ngOnInit() {
+  constructor(private projectsActions: ProjectsActions) {}
+
+  @dispatch()
+  showDeleteProjectModal(project: Project) {
+    return this.projectsActions.showDeleteProjectModal(project);
   }
 
 }
