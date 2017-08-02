@@ -30,6 +30,7 @@ export class InitEpics {
 
         return Observable.concat(
           this.loginService.getUserInformation<Identity>(access_token).map(this.loginActions.loginSuccess),
+          Observable.of(this.loginActions.authComplete({access_token})),
           Observable.of(this.initActions.appInitSuccess())
         )
       })

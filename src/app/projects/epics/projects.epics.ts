@@ -14,10 +14,12 @@ export class ProjectsEpics {
   constructor(private projectsService: ProjectsService, private projectsActions: ProjectsActions) {
   }
 
-  fetchProjects = action$ => {
+  fetchProjects = (action$, store) => {
     return action$.ofType(ProjectsActions.FETCH_PROJECTS)
       .mergeMap(() => {
-        return this.projectsService.fetchProjects()
+        const {access_token} = store.getState().login.auth;
+
+        return this.projectsService.fetchProjects(access_token)
           .map(projects => this.projectsActions.fetchProjectsSuccess(projects))
           .catch(err => Observable.of(this.projectsActions.fetchProjectsFail()));
       });
@@ -26,9 +28,10 @@ export class ProjectsEpics {
   addProject = (action$, store) => {
     return action$.ofType(ProjectsActions.ADD_PROJECT)
       .mergeMap(() => {
+        const {access_token} = store.getState().login.auth;
         const projectForm = store.getState().projects.addProjectForm;
 
-        return this.projectsService.addProject(projectForm)
+        return this.projectsService.addProject(projectForm, access_token)
           .mergeMap(project => Observable.concat(
             Observable.of(this.projectsActions.addProjectSuccess(project)),
             Observable.of(this.projectsActions.hideAddProjectModal())
@@ -40,9 +43,10 @@ export class ProjectsEpics {
   deleteProject = (action$, store) => {
     return action$.ofType(ProjectsActions.DELETE_PROJECT)
       .mergeMap(() => {
+        const {access_token} = store.getState().login.auth;
         const {deletingProject} = store.getState().projects;
 
-        return this.projectsService.deleteProject(deletingProject)
+        return this.projectsService.deleteProject(deletingProject, access_token)
           .mergeMap(() => Observable.concat(
             Observable.of(this.projectsActions.deleteProjectSuccess(deletingProject)),
             Observable.of(this.projectsActions.hideDeleteProjectModal())
