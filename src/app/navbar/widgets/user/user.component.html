@@ -1,6 +1,6 @@
 <clr-dropdown clrMenuPosition="bottom-right">
   <button class="nav-icon" clrDropdownToggle>
-    <img class="avatar" [src]="(login$ | async)?.identity?.photos[0]?.value">
+    <img class="avatar" [src]="(login$ | async)?.identity?.profile?.photos[0]?.value">
   </button>
   <clr-dropdown-menu>
     <a href="#" clrDropdownItem>Log out</a>

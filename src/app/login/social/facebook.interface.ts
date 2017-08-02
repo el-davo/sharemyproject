@@ -8,6 +8,7 @@ export interface FacebookIdentity extends Identity {
 
 interface Profile {
   id: string;
+  photos: Photo[]
 }
 
 interface Name {
@@ -15,3 +16,6 @@ interface Name {
   givenName: string;
 }
 
+interface Photo {
+  value: string;
+}

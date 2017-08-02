@@ -12,7 +12,6 @@ export interface Identity {
   provider: string;
   authScheme: string;
   externalId: string;
-  photos: Photo[];
 }
 
 interface Photo {
