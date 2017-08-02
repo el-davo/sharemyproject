@@ -36,7 +36,10 @@ export class InitEpics {
       })
       .catch(() => {
         localStorage.removeItem('access_token');
-        return Observable.of(this.loginActions.loginFail());
+        return Observable.concat(
+          Observable.of(this.initActions.appInitSuccess()),
+          Observable.of(this.loginActions.loginFail())
+        );
       });
   };
 
