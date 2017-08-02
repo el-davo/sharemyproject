@@ -12,7 +12,7 @@ import {GithubIdentity} from '../../../login/social/github.interface';
 })
 export class UserComponent implements OnInit {
 
-  @select(['login', 'userData']) login$: Observable<SocialUser<FacebookIdentity | GithubIdentity>>;
+  @select(['login', 'userData']) userData$: Observable<SocialUser<FacebookIdentity | GithubIdentity>>;
 
   constructor() { }
 

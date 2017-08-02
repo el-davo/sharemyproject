@@ -16,6 +16,6 @@ export class LoginService {
     const headers = new Headers({authorization});
     const options = new RequestOptions({headers});
 
-    return this.http.get(`${urls.apiUrl}/me`, options).map(res => res.json());
+    return this.http.get(`${urls.apiUrl}/me`, options).map(res => res.json().info);
   }
 }

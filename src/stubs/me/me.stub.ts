@@ -26,8 +26,11 @@ Factory.define('identity')
   .attr('profile', Factory.build('profile'))
   .attr('name', Factory.build('name'));
 
-Factory.define('me')
+Factory.define('info')
   .attr('user', () => Factory.build('user'))
   .attr('identity', () => Factory.build('identity'));
+
+Factory.define('me')
+  .attr('info', () => Factory.build('info'));
 
 export const me = Factory.build('me') as SocialUser<FacebookIdentity>;
