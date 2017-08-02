@@ -4,7 +4,9 @@ import {SocialUser} from '../../app/login/social/social-user.interface';
 import {FacebookIdentity} from '../../app/login/social/facebook.interface';
 
 Factory.define('profile')
-  .attr('id', 'abc123');
+  .attr('id', 'abc123')
+  .attr('gender', () => helpers.randomize(['male', 'female']))
+  .attr('photos', () => Factory.buildList('photo', 1));
 
 Factory.define('name')
   .attr('familyName', () => name.lastName())
@@ -22,9 +24,7 @@ Factory.define('identity')
   .attr('authScheme', 'auth 2.0')
   .attr('externalId', 'abc123')
   .attr('profile', Factory.build('profile'))
-  .attr('name', Factory.build('name'))
-  .attr('gender', () => helpers.randomize(['male', 'female']))
-  .attr('photos', () => Factory.buildList('photo', 1));
+  .attr('name', Factory.build('name'));
 
 Factory.define('me')
   .attr('user', () => Factory.build('user'))

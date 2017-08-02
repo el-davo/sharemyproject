@@ -24,11 +24,15 @@ export class LoginEpics {
         this.loginService.socialLogin('auth/facebook');
 
         return Observable.fromEvent(window, 'message')
-          .mergeMap((event: any) => Observable.concat(
-            Observable.of(this.loginActions.authComplete(event.data)),
-            this.loginService.getUserInformation<FacebookIdentity>(event.data.access_token)
-              .map(userData => this.loginActions.loginSuccess(userData))
-          ))
+          .mergeMap((event: any) => {
+            localStorage.setItem('access_token', event.data.access_token);
+
+            return Observable.concat(
+              Observable.of(this.loginActions.authComplete(event.data)),
+              this.loginService.getUserInformation<FacebookIdentity>(event.data.access_token)
+                .map(userData => this.loginActions.loginSuccess(userData))
+            )
+          })
           .catch(err => Observable.of(this.loginActions.loginFail()));
       });
   };
@@ -40,14 +44,17 @@ export class LoginEpics {
         this.loginService.socialLogin('auth/github');
 
         return Observable.fromEvent(window, 'message')
-          .mergeMap((event: any) => Observable.concat(
-            Observable.of(this.loginActions.authComplete(event.data)),
-            this.loginService.getUserInformation<GithubIdentity>(event.data.access_token)
-              .map(userData => this.loginActions.loginSuccess(userData))
-          ))
+          .mergeMap((event: any) => {
+            localStorage.setItem('access_token', event.data.access_token);
+
+            return Observable.concat(
+              Observable.of(this.loginActions.authComplete(event.data)),
+              this.loginService.getUserInformation<GithubIdentity>(event.data.access_token)
+                .map(userData => this.loginActions.loginSuccess(userData))
+            )
+          })
           .catch(err => Observable.of(this.loginActions.loginFail()));
       });
   };
-
 
 }
