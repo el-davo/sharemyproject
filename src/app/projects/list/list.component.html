@@ -1,3 +1,21 @@
-<div class="card-columns">
-    <app-project-card *ngFor="let project of (projects$ | async).projects" [project]="project"></app-project-card>
+<div class="col-md-12">
+  <clr-datagrid>
+    <clr-dg-column>Name</clr-dg-column>
+    <clr-dg-column>Description</clr-dg-column>
+    <clr-dg-column>Private</clr-dg-column>
+
+    <clr-dg-row *ngFor="let project of (projects$ | async).projects">
+      <clr-dg-cell>{{project.name}}</clr-dg-cell>
+      <clr-dg-cell>{{project.description}}</clr-dg-cell>
+      <clr-dg-cell>
+        <div class="toggle-switch">
+          <input *ngIf="project.isPrivate" type="checkbox" checked>
+          <input *ngIf="!project.isPrivate" type="checkbox">
+          <label></label>
+        </div>
+      </clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>{{(projects$ | async).projects.length}} users</clr-dg-footer>
+  </clr-datagrid>
 </div>
