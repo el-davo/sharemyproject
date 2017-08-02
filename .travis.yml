@@ -5,6 +5,7 @@ install:
 - yarn
 - yarn run lint
 - npm run build
+- cp nginx.conf dist/nginx.conf
 cache:
   yarn: true
 deploy:
