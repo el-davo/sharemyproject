@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import {Http, Headers, RequestOptions} from '@angular/http';
+import {Injectable} from '@angular/core';
+import {Headers, Http, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {List} from './list.state';
 import {urls} from '../common/urls';
@@ -8,7 +8,8 @@ import {Link} from '../links/links.state';
 @Injectable()
 export class ListsService {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+  }
 
   fetchProjectList(authorization: string, userId: string): Observable<List[]> {
     const headers = new Headers({authorization});
@@ -36,5 +37,12 @@ export class ListsService {
     const options = new RequestOptions({headers});
 
     return this.http.delete(`${urls.apiUrl}/lists/${list.id}`, options).map(res => res.json());
+  }
+
+  addLinkToList(authorization: string, userId: string, listId: string, link: Link): Observable<List> {
+    const headers = new Headers({authorization});
+    const options = new RequestOptions({headers});
+
+    return this.http.post(`${urls.apiUrl}/lists/${listId}/links/`, link, options).map(res => res.json());
   }
 }

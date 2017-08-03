@@ -10,7 +10,7 @@ export const listsReducer = (state: ListState = listState, action): ListState =>
     case ListActions.FETCH_LISTS_FAIL:
       return {...state, isFetchingLists: false};
     case ListActions.FETCH_SELECTED_LIST_LINKS:
-      return {...state, isFetchingSelectedList: true};
+      return {...state, isFetchingSelectedList: true, selectedListId: action.listId};
     case ListActions.FETCH_SELECTED_LIST_LINKS_SUCCESS:
       return {...state, isFetchingSelectedList: false, selectedList: action.links};
     case ListActions.FETCH_SELECTED_LIST_LINKS_FAIL:
@@ -32,11 +32,17 @@ export const listsReducer = (state: ListState = listState, action): ListState =>
     case ListActions.DELETE_LIST:
       return {...state, isDeletingList: true};
     case ListActions.DELETE_LIST_SUCCESS:
-      return {...state, isDeletingList: false, lists: state.lists.filter(list => {
-        return list.id !== action.list.id
-      })};
+      return {
+        ...state, isDeletingList: false, lists: state.lists.filter(list => {
+          return list.id !== action.list.id
+        })
+      };
     case ListActions.DELETE_LIST_FAIL:
       return {...state, isDeletingProject: false};
+    case ListActions.SHOW_ADD_LINK_TO_LIST_MODAL:
+      return {...state, showAddLinkToListModal: true};
+    case ListActions.HIDE_ADD_LINK_TO_LIST_MODAL:
+      return {...state, showAddLinkToListModal: false};
     default:
       return state;
   }
