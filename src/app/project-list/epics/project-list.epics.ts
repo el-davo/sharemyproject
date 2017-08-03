@@ -18,8 +18,9 @@ export class ProjectListEpics {
     return action$.ofType(ProjectListActions.FETCH_PROJECT_LIST)
       .mergeMap(() => {
         const {access_token} = store.getState().login.auth;
+        const {id} = store.getState().login.userData.user;
 
-        return this.projectListService.fetchProjectList(access_token)
+        return this.projectListService.fetchProjectList(access_token, id)
           .map(projectList => this.projectListActions.fetchProjectListSuccess(projectList))
           .catch(err => Observable.of(this.projectListActions.fetchProjectListFail()));
       });
@@ -40,9 +41,10 @@ export class ProjectListEpics {
     return action$.ofType(ProjectListActions.ADD_PROJECT_LIST)
       .mergeMap(() => {
         const {access_token} = store.getState().login.auth;
+        const {id} = store.getState().login.userData.user;
         const {addProjectListForm} = store.getState().projectList;
 
-        return this.projectListService.addProjectList(access_token, addProjectListForm)
+        return this.projectListService.addProjectList(access_token, id, addProjectListForm)
           .mergeMap(projectList => Observable.concat(
             Observable.of(this.projectListActions.addProjectListSuccess(projectList)),
             Observable.of(this.projectListActions.hideAddProjectListModal())
