@@ -10,25 +10,25 @@ export class ProjectListService {
 
   constructor(private http: Http) { }
 
-  fetchProjectList(authorization: string): Observable<ProjectList[]> {
+  fetchProjectList(authorization: string, userId: string): Observable<ProjectList[]> {
     const headers = new Headers({authorization});
     const options = new RequestOptions({headers});
 
-    return this.http.get(`${urls.apiUrl}/lists`, options).map(res => res.json());
+    return this.http.get(`${urls.apiUrl}/users/${userId}/lists`, options).map(res => res.json());
   }
 
   fetchSelectedListProject(authorization: string, listId: string): Observable<Project[]> {
     const headers = new Headers({authorization});
     const options = new RequestOptions({headers});
 
-    return this.http.get(`${urls.apiUrl}/lists/${listId}/projects`, options).map(res => res.json());
+    return this.http.get(`${urls.apiUrl}/lists/${listId}/links`, options).map(res => res.json());
   }
 
-  addProjectList(authorization: string, projectList: ProjectList): Observable<ProjectList> {
+  addProjectList(authorization: string, userId: string, projectList: ProjectList): Observable<ProjectList> {
     const headers = new Headers({authorization});
     const options = new RequestOptions({headers});
 
-    return this.http.post(`${urls.apiUrl}/lists`, projectList, options).map(res => res.json());
+    return this.http.post(`${urls.apiUrl}/users/${userId}/lists`, projectList, options).map(res => res.json());
   }
 
   deleteProjectList(authorization: string, projectList: ProjectList): Observable<ProjectList> {
