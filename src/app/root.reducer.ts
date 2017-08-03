@@ -3,8 +3,8 @@ import {composeReducers, defaultFormReducer} from '@angular-redux/form';
 import {combineReducers} from 'redux';
 import {initReducer as init} from './init/init.reducer';
 import {navbarReducer as navbar} from './navbar/navbar.reducer';
-import {projectsReducer as projects} from './projects/projects.reducer';
-import {projectListReducer as projectList} from './project-list/project-list.reducer';
+import {linksReducer as links} from './links/links.reducer';
+import {listsReducer as lists} from './lists/list.reducer';
 import {loginReducer as login} from './login/login.reducer';
 
 export const rootReducer = composeReducers(
@@ -13,8 +13,8 @@ export const rootReducer = composeReducers(
     router,
     init,
     navbar,
-    projects,
-    projectList,
+    links,
+    lists,
     login
   })
 );

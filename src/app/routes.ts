@@ -1,7 +1,7 @@
 import {LoginComponent} from './login/login.component';
-import {ProjectsComponent} from './projects/projects.component';
-import {ProjectListComponent} from './project-list/project-list.component';
-import {SelectedListComponent} from './project-list/selected-list/selected-list.component';
+import {ProjectsComponent} from './links/links.component';
+import {ProjectListComponent} from './lists/list.component';
+import {SelectedListComponent} from './lists/selected-list/selected-list.component';
 
 export const routes = [
   {
@@ -14,11 +14,11 @@ export const routes = [
     component: LoginComponent
   },
   {
-    path: 'projects',
+    path: 'links',
     component: ProjectsComponent
   },
   {
-    path: 'my-lists',
+    path: 'lists',
     component: ProjectListComponent,
     children: [
       {

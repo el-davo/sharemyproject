@@ -1,0 +1,26 @@
+<div class="col-md-12">
+  <clr-datagrid [clrDgLoading]="(links$ | async)?.isFetchingLinks">
+    <clr-dg-column>Name</clr-dg-column>
+    <clr-dg-column>Description</clr-dg-column>
+    <clr-dg-column>Private</clr-dg-column>
+
+    <clr-dg-row *ngFor="let link of (links$ | async).links">
+      <clr-dg-cell>{{link.name}}</clr-dg-cell>
+      <clr-dg-cell>{{link.description}}</clr-dg-cell>
+      <clr-dg-cell>
+        <div class="toggle-switch">
+          <input *ngIf="link.isPrivate" type="checkbox" checked>
+          <input *ngIf="!link.isPrivate" type="checkbox">
+          <label></label>
+        </div>
+      </clr-dg-cell>
+
+      <clr-dg-action-overflow>
+        <button class="action-item" (click)="showDeleteLinkModal(link)">Delete</button>
+      </clr-dg-action-overflow>
+    </clr-dg-row>
+
+    <clr-dg-footer>{{(links$ | async).links.length}} Projects</clr-dg-footer>
+
+  </clr-datagrid>
+</div>

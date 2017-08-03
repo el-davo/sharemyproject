@@ -1,0 +1,12 @@
+<clr-modal [clrModalClosable]="false"
+           [clrModalOpen]="(lists$ | async)?.showDeleteListModal">
+  <h3 class="modal-title">Warning</h3>
+  <div class="modal-body">
+    Are you sure you want to delete "{{(lists$ | async)?.deletingList?.name}}"
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="hideDeleteProjectListModal()">Cancel</button>
+    <button type="button" class="btn btn-primary" [clrLoading]="(lists$ | async)?.isDeletingList"
+            (click)="deleteProjectList()">Ok</button>
+  </div>
+</clr-modal>
