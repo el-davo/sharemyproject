@@ -1,0 +1,12 @@
+<clr-modal [clrModalClosable]="false"
+           [clrModalOpen]="(links$ | async)?.showDeleteLinkModal">
+  <h3 class="modal-title">Warning</h3>
+  <div class="modal-body">
+    Are you sure you want to delete "{{(links$ | async)?.deletingLink?.name}}"
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="hideDeleteLinkModal()">Cancel</button>
+    <button type="button" class="btn btn-primary" [clrLoading]="(links$ | async)?.isDeletingLink"
+            (click)="deleteLink()">Ok</button>
+  </div>
+</clr-modal>

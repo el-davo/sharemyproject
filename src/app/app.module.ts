@@ -14,17 +14,17 @@ import * as reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import * as persistState from 'redux-localstorage'
 import {environment} from '../environments/environment';
 import {AppComponent} from './app.component';
-import {ProjectsModule} from './projects/projects.module';
+import {ProjectsModule} from './links/links.module';
 import {SearchModule} from './search/search.module';
 import {routes} from './routes';
-import {ProjectsEpics} from './projects/epics/projects.epics';
+import {LinksEpics} from './links/epics/links.epics';
 import {NavbarModule} from './navbar/navbar.module';
-import {ProjectListModule} from './project-list/project-list.module';
+import {ProjectListModule} from './lists/list.module';
 import {LoginModule} from './login/login.module';
 
 import 'clarity-icons';
 import 'clarity-icons/shapes/essential-shapes';
-import {ProjectListEpics} from './project-list/epics/project-list.epics';
+import {ListEpics} from './lists/epics/list.epics';
 import {LoginEpics} from './login/epics/login.epics';
 import {InitModule} from './init/init.module';
 import {InitEpics} from './init/epics/init.epics';
@@ -52,8 +52,8 @@ import {InitEpics} from './init/epics/init.epics';
   providers: [
     InitEpics,
     LoginEpics,
-    ProjectsEpics,
-    ProjectListEpics
+    LinksEpics,
+    ListEpics
   ],
   bootstrap: [AppComponent]
 })
@@ -63,20 +63,20 @@ export class AppModule {
               ngReduxRouter: NgReduxRouter,
               private initEpics: InitEpics,
               private loginEpics: LoginEpics,
-              private projectsEpics: ProjectsEpics,
-              private projectListEpics: ProjectListEpics) {
+              private linksEpics: LinksEpics,
+              private listEpics: ListEpics) {
 
     const epics = combineEpics(
       this.initEpics.appInit,
       this.loginEpics.socialLoginFacebook,
       this.loginEpics.socialLoginGithub,
-      this.projectsEpics.fetchProjects,
-      this.projectsEpics.addProject,
-      this.projectsEpics.deleteProject,
-      this.projectListEpics.fetchProjectList,
-      this.projectListEpics.fetchSelectedListProjects,
-      this.projectListEpics.addProjectList,
-      this.projectListEpics.deleteProjectList
+      this.linksEpics.fetchLinks,
+      this.linksEpics.addLink,
+      this.linksEpics.deleteLink,
+      this.listEpics.fetchList,
+      this.listEpics.fetchSelectedListLinks,
+      this.listEpics.addList,
+      this.listEpics.deleteList
     );
 
     const middleware = [

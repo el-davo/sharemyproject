@@ -1,0 +1,49 @@
+<clr-modal [clrModalClosable]="false"
+           [clrModalOpen]="(links$ | async)?.showAddLinkModal">
+  <h3 class="modal-title">Create Project</h3>
+  <div class="modal-body">
+    <form [connect]="['links', 'addLinkForm']">
+      <section class="form-block">
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name"
+                 name="name"
+                 size="38"
+                 ngModel>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Url</label>
+          <input id="url"
+                 name="url"
+                 size="38"
+                 ngModel>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description"
+                    name="description"
+                    rows="5"
+                    ngModel></textarea>
+        </div>
+
+        <div class="form-group">
+          <div class="toggle-switch">
+            <input type="checkbox"
+                   id="isPrivate"
+                   name="isPrivate"
+                   ngModel>
+            <label for="isPrivate">Private</label>
+          </div>
+        </div>
+      </section>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="hideAddLinkModal()">Cancel</button>
+    <button type="button" class="btn btn-primary" [clrLoading]="(links$ | async)?.isAddingLink"
+            (click)="addLink()">Ok</button>
+  </div>
+</clr-modal>

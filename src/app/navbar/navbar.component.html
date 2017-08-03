@@ -5,8 +5,8 @@
     </a>
   </div>
   <div class="header-nav">
-    <a [routerLink]="['/projects']" class="nav-link nav-text">My Projects</a>
-    <a [routerLink]="['/my-lists']" class="nav-link nav-text">My Lists</a>
+    <a [routerLink]="['/lists']" class="nav-link nav-text">My Lists</a>
+    <a [routerLink]="['/links']" class="nav-link nav-text">My Links</a>
   </div>
   <div class="header-actions">
     <clr-dropdown clrMenuPosition="bottom-right">
@@ -14,8 +14,8 @@
         <clr-icon shape="add"></clr-icon>
       </button>
       <clr-dropdown-menu>
-        <a (click)="openAddProjectModal()" clrDropdownItem>Create Project</a>
-        <a (click)="openAddProjectListModal()" clrDropdownItem>Create List</a>
+        <a (click)="showAddLinkModal()" clrDropdownItem>Create Link</a>
+        <a (click)="showAddListModal()" clrDropdownItem>Create List</a>
       </clr-dropdown-menu>
     </clr-dropdown>
 
