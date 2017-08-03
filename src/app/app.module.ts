@@ -76,7 +76,8 @@ export class AppModule {
       this.listEpics.fetchList,
       this.listEpics.fetchSelectedListLinks,
       this.listEpics.addList,
-      this.listEpics.deleteList
+      this.listEpics.deleteList,
+      this.listEpics.addLinkToList
     );
 
     const middleware = [

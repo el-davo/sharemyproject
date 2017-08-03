@@ -23,4 +23,9 @@ export class SelectedListComponent {
     return this.listActions.fetchSelectedListLinks(id)
   }
 
+  @dispatch()
+  showAddLinkToListModal() {
+    return this.listActions.showAddLinkToListModal();
+  }
+
 }

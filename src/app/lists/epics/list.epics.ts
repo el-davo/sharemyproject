@@ -68,4 +68,22 @@ export class ListEpics {
       });
   };
 
+  addLinkToList = (action$, store) => {
+    return action$.ofType(ListActions.ADD_LINK_TO_LIST)
+      .mergeMap(() => {
+        const {access_token} = store.getState().login.auth;
+        const {id} = store.getState().login.userData.user;
+        const link = store.getState().lists.addLinkToListForm;
+        const {selectedListId} = store.getState().lists;
+
+        return this.listsService.addLinkToList(access_token, id, selectedListId, link)
+          .mergeMap(() => Observable.concat(
+            Observable.of(this.listActions.addLinkToListSuccess()),
+            Observable.of(this.listActions.fetchSelectedListLinks(selectedListId)),
+            Observable.of(this.listActions.hideAddLinkToListModal())
+          ))
+          .catch(err => Observable.of(this.listActions.addLinkToListFail()));
+      });
+  }
+
 }

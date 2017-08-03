@@ -1,0 +1,26 @@
+<clr-modal [clrModalClosable]="false"
+           [clrModalOpen]="(lists$ | async)?.showAddLinkToListModal">
+  <h3 class="modal-title">Add Link</h3>
+  <div class="modal-body">
+    <form [connect]="['lists', 'addLinkToListForm']">
+      <section class="form-block">
+        <div class="form-group">
+          <label for="id">Select Link</label>
+          <div class="select">
+            <select name="id" id="id" ngModel>
+              <option *ngFor="let link of (links$ | async)" [value]="link">
+                {{link.name}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </section>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="hideAddLinkToListModal()">Cancel</button>
+    <button type="button" class="btn btn-primary" [clrLoading]="(lists$ | async)?.isDeletingList"
+            (click)="addLinkToList()">Ok
+    </button>
+  </div>
+</clr-modal>

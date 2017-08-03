@@ -7,14 +7,23 @@ export const listState: ListState = {
   isDeletingList: false,
   showAddListModal: false,
   showDeleteListModal: false,
+  showAddLinkToListModal: false,
   addListForm: {
     id: null,
     name: '',
     isPrivate: false,
     description: ''
   },
+  addLinkToListForm: {
+    id: null,
+    name: '',
+    url: null,
+    isPrivate: false,
+    description: ''
+  },
   deletingList: null,
   selectedList: [],
+  selectedListId: null,
   lists: []
 };
 
@@ -25,9 +34,12 @@ export interface ListState {
   isDeletingList: boolean;
   showAddListModal: boolean;
   showDeleteListModal: boolean;
+  showAddLinkToListModal: boolean;
   addListForm: List;
+  addLinkToListForm: Link;
   deletingList: List;
   selectedList: Link[];
+  selectedListId: string;
   lists: List[];
 }
 
