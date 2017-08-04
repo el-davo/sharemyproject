@@ -22,7 +22,8 @@ export class ListsService {
     const headers = new Headers({authorization});
     const options = new RequestOptions({headers});
 
-    return this.http.get(`${urls.apiUrl}/lists/${listId}/links`, options).map(res => res.json());
+    return this.http.get(`${urls.apiUrl}/listsToLinks?filter={"include":["link"],"where":{"listId":${listId}}`,
+      options).map(res => res.json());
   }
 
   addProjectList(authorization: string, userId: string, list: List): Observable<List> {
