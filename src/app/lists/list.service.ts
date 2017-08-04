@@ -43,6 +43,6 @@ export class ListsService {
     const headers = new Headers({authorization});
     const options = new RequestOptions({headers});
 
-    return this.http.post(`${urls.apiUrl}/lists/${listId}/links/`, link, options).map(res => res.json());
+    return this.http.put(`${urls.apiUrl}/lists/${listId}/links/rel/${link.id}`, options).map(res => res.json());
   }
 }
