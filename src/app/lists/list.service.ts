@@ -22,7 +22,7 @@ export class ListsService {
     const headers = new Headers({authorization});
     const options = new RequestOptions({headers});
 
-    return this.http.get(`${urls.apiUrl}/listsToLinks?filter={"include":["links"],"where":{"listId":${listId}}}`,
+    return this.http.get(`${urls.apiUrl}/listsToLinks?filter={"include":["link"],"where":{"listId":${listId}}}`,
       options).map(res => res.json());
   }
 
