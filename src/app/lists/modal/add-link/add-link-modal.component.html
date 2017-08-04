@@ -8,7 +8,7 @@
           <label for="id">Select Link</label>
           <div class="select">
             <select name="id" id="id" ngModel>
-              <option *ngFor="let link of (links$ | async)" [value]="link">
+              <option *ngFor="let link of (links$ | async)" [value]="link.id">
                 {{link.name}}
               </option>
             </select>

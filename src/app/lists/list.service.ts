@@ -39,10 +39,10 @@ export class ListsService {
     return this.http.delete(`${urls.apiUrl}/lists/${list.id}`, options).map(res => res.json());
   }
 
-  addLinkToList(authorization: string, userId: string, listId: string, link: Link): Observable<List> {
+  addLinkToList(authorization: string, listId: string, linkId: Link): Observable<List> {
     const headers = new Headers({authorization});
     const options = new RequestOptions({headers});
 
-    return this.http.put(`${urls.apiUrl}/lists/${listId}/links/rel/${link.id}`, link, options).map(res => res.json());
+    return this.http.put(`${urls.apiUrl}/listsToLinks`, {listId, linkId}, options).map(res => res.json());
   }
 }
