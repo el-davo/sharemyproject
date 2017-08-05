@@ -11,10 +11,13 @@ import {LoginService} from '../login.service';
 import {Observable} from 'rxjs/Observable';
 import {FacebookIdentity} from '../social/facebook.interface';
 import {GithubIdentity} from '../social/github.interface';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class LoginEpics {
-  constructor(private loginService: LoginService, private loginActions: LoginActions) {
+  constructor(private loginService: LoginService,
+              private loginActions: LoginActions,
+              private router: Router) {
   }
 
   socialLoginFacebook = action$ => {
@@ -30,7 +33,11 @@ export class LoginEpics {
             return Observable.concat(
               Observable.of(this.loginActions.authComplete(event.data)),
               this.loginService.getUserInformation<FacebookIdentity>(event.data.access_token)
-                .map(userData => this.loginActions.loginSuccess(userData))
+                .map(userData => {
+                  console.log('Redirecting now');
+                  this.router.navigate(['/links']);
+                  return this.loginActions.loginSuccess(userData)
+                })
             )
           })
           .catch(err => Observable.of(this.loginActions.loginFail()));
@@ -50,7 +57,10 @@ export class LoginEpics {
             return Observable.concat(
               Observable.of(this.loginActions.authComplete(event.data)),
               this.loginService.getUserInformation<GithubIdentity>(event.data.access_token)
-                .map(userData => this.loginActions.loginSuccess(userData))
+                .map(userData => {
+                  this.router.navigate(['/links']);
+                  return this.loginActions.loginSuccess(userData)
+                })
             )
           })
           .catch(err => Observable.of(this.loginActions.loginFail()));
