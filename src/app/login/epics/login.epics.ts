@@ -34,7 +34,6 @@ export class LoginEpics {
               Observable.of(this.loginActions.authComplete(event.data)),
               this.loginService.getUserInformation<FacebookIdentity>(event.data.access_token)
                 .map(userData => {
-                  console.log('Redirecting now');
                   this.router.navigate(['/links']);
                   return this.loginActions.loginSuccess(userData)
                 })
@@ -64,6 +63,22 @@ export class LoginEpics {
             )
           })
           .catch(err => Observable.of(this.loginActions.loginFail()));
+      });
+  };
+
+  logout = (action$, store) => {
+    return action$.ofType(LoginActions.LOGOUT)
+      .mergeMap(() => {
+        const {access_token} = store.getState().login.auth;
+
+        return this.loginService.logout(access_token).map(() => {
+          localStorage.removeItem('access_token');
+
+          this.router.navigate(['/login']);
+
+          return this.loginActions.logoutSuccess();
+        })
+          .catch(err => Observable.of(this.loginActions.logoutFail()));
       });
   };
 

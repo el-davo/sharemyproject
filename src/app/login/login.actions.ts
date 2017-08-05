@@ -11,6 +11,10 @@ export class LoginActions {
   static LOGIN_SUCCESS = 'login/LOGIN_SUCCESS';
   static LOGIN_FAIL = 'login/LOGIN_FAIL';
 
+  static LOGOUT = 'login/LOGOUT';
+  static LOGOUT_SUCCESS = 'login/LOGOUT_SUCCESS';
+  static LOGOUT_FAIL = 'login/LOGOUT_FAIL';
+
   loginFacebook() {
     return {type: LoginActions.LOGIN_FACEBOOK};
   }
@@ -29,5 +33,17 @@ export class LoginActions {
 
   loginFail() {
     return {type: LoginActions.LOGIN_FAIL};
+  }
+
+  logout() {
+    return {type: LoginActions.LOGOUT};
+  }
+
+  logoutSuccess() {
+    return {type: LoginActions.LOGOUT_SUCCESS};
+  }
+
+  logoutFail() {
+    return {type: LoginActions.LOGOUT_FAIL};
   }
 }
