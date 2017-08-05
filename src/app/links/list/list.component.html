@@ -5,7 +5,9 @@
     <clr-dg-column>Private</clr-dg-column>
 
     <clr-dg-row *ngFor="let link of (links$ | async).links">
-      <clr-dg-cell>{{link.name}}</clr-dg-cell>
+      <clr-dg-cell>
+        <a target="_blank" [href]="link.url">{{link.name}}</a>
+      </clr-dg-cell>
       <clr-dg-cell>{{link.description}}</clr-dg-cell>
       <clr-dg-cell>
         <div class="toggle-switch">
