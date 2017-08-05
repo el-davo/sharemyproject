@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ListComponent} from './list/list.component';
 import {LinksService} from './links.service';
 import {LinksActions} from './links.actions';
-import {ProjectsComponent} from './links.component';
+import {LinksComponent} from './links.component';
 import {AddLinkModalComponent} from './modal/add/add-link-modal.component';
 import {ClrModalModule} from 'clarity-angular/modal/modal.module';
 import {NgReduxFormModule} from '@angular-redux/form/dist/source';
@@ -23,7 +23,7 @@ import {DeleteLinkModalComponent} from './modal/delete/delete-link-modal.compone
   ],
   declarations: [
     ListComponent,
-    ProjectsComponent,
+    LinksComponent,
     AddLinkModalComponent,
     DeleteLinkModalComponent
   ],

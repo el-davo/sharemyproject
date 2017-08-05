@@ -1,7 +1,8 @@
 import {LoginComponent} from './login/login.component';
-import {ProjectsComponent} from './links/links.component';
-import {ProjectListComponent} from './lists/list.component';
+import {LinksComponent} from './links/links.component';
+import {ListComponent} from './lists/list.component';
 import {SelectedListComponent} from './lists/selected-list/selected-list.component';
+import {IsLoggedInGuard} from './router/is-logged-in.guard';
 
 export const routes = [
   {
@@ -15,11 +16,13 @@ export const routes = [
   },
   {
     path: 'links',
-    component: ProjectsComponent
+    component: LinksComponent,
+    canActivate: [IsLoggedInGuard]
   },
   {
     path: 'lists',
-    component: ProjectListComponent,
+    component: ListComponent,
+    canActivate: [IsLoggedInGuard],
     children: [
       {
         path: ':id',
