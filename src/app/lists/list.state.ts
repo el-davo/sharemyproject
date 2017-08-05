@@ -38,7 +38,7 @@ export interface ListState {
   addListForm: List;
   addLinkToListForm: Link;
   deletingList: List;
-  selectedList: Link[];
+  selectedList: ListsToLinks[];
   selectedListId: string;
   lists: List[];
 }
@@ -48,4 +48,11 @@ export interface List {
   name: string;
   isPrivate: boolean;
   description: string;
+}
+
+interface ListsToLinks {
+  id: string;
+  linkId: string;
+  listId: string;
+  link: Link;
 }
