@@ -11,9 +11,12 @@ import {LinksActions} from '../../links.actions';
 })
 export class AddLinkModalComponent {
 
+  URL_REGEX = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+
   @select('links') links$: Observable<LinksState>;
 
-  constructor(private projectsActions: LinksActions) { }
+  constructor(private projectsActions: LinksActions) {
+  }
 
   @dispatch()
   hideAddLinkModal() {
@@ -23,5 +26,11 @@ export class AddLinkModalComponent {
   @dispatch()
   addLink() {
     return this.projectsActions.addLink();
+  }
+
+  isUrl(url) {
+    const regex = new RegExp(this.URL_REGEX);
+
+    return (url || '').match(regex);
   }
 }
