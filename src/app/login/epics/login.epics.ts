@@ -34,7 +34,6 @@ export class LoginEpics {
               Observable.of(this.loginActions.authComplete(event.data)),
               this.loginService.getUserInformation<FacebookIdentity>(event.data.access_token)
                 .map(userData => {
-                  this.router.navigate(['/links']);
                   return this.loginActions.loginSuccess(userData)
                 })
             )
@@ -63,6 +62,15 @@ export class LoginEpics {
             )
           })
           .catch(err => Observable.of(this.loginActions.loginFail()));
+      });
+  };
+
+  loginSuccess = (action$) => {
+    return action$.ofType(LoginActions.LOGIN_SUCCESS)
+      .map(() => {
+        this.router.navigate(['/links']);
+
+        return {type: 'NOOP'};
       });
   };
 

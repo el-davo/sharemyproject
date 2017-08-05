@@ -73,6 +73,7 @@ export class AppModule {
       this.loginEpics.socialLoginFacebook,
       this.loginEpics.socialLoginGithub,
       this.loginEpics.logout,
+      this.loginEpics.loginSuccess,
       this.linksEpics.fetchLinks,
       this.linksEpics.addLink,
       this.linksEpics.deleteLink,
