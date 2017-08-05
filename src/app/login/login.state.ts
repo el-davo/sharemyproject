@@ -1,7 +1,7 @@
 import {Identity, SocialUser} from './social/social-user.interface';
 
 export const loginState: LoginState = {
-  isLoggingIn: false,
+  isLoggingIn: true,
   isLoggingOut: false,
   isLoggedIn: false,
   hasLoginFailed: false,

@@ -65,15 +65,6 @@ export class LoginEpics {
       });
   };
 
-  loginSuccess = (action$) => {
-    return action$.ofType(LoginActions.LOGIN_SUCCESS)
-      .map(() => {
-        this.router.navigate(['/links']);
-
-        return {type: 'NOOP'};
-      });
-  };
-
   logout = (action$, store) => {
     return action$.ofType(LoginActions.LOGOUT)
       .mergeMap(() => {
