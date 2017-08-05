@@ -28,7 +28,7 @@ export class AddLinkModalComponent {
     return this.projectsActions.addLink();
   }
 
-  isUrl(url: string) {
+  isUrl(url) {
     const regex = new RegExp(this.URL_REGEX);
 
     return (url || '').match(regex);
