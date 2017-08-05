@@ -3,6 +3,6 @@
     <img class="avatar" [src]="(userData$ | async)?.identity?.profile?.photos[0]?.value">
   </button>
   <clr-dropdown-menu>
-    <a href="#" clrDropdownItem>Log out</a>
+    <a (click)="logout()" clrDropdownItem>Log out</a>
   </clr-dropdown-menu>
 </clr-dropdown>

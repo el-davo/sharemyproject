@@ -2,6 +2,7 @@ import {Identity, SocialUser} from './social/social-user.interface';
 
 export const loginState: LoginState = {
   isLoggingIn: false,
+  isLoggingOut: false,
   isLoggedIn: false,
   hasLoginFailed: false,
   userData: {
@@ -13,6 +14,7 @@ export const loginState: LoginState = {
 
 export interface LoginState {
   isLoggingIn: boolean;
+  isLoggingOut: boolean;
   isLoggedIn: boolean;
   hasLoginFailed: boolean;
   userData: SocialUser<Identity>;
