@@ -25,6 +25,6 @@ export class LoginService {
     const headers = new Headers({authorization});
     const options = new RequestOptions({headers});
 
-    return this.http.get(`${urls.apiUrl}/users/logout`, options).map(res => res);
+    return this.http.post(`${urls.apiUrl}/users/logout`, options).map(res => res);
   }
 }
