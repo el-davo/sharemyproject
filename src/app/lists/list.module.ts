@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ProjectListComponent} from './list.component';
+import {ListComponent} from './list.component';
 import {ListsService} from './list.service';
 import {ListActions} from './list.actions';
 import {RouterModule} from '@angular/router';
@@ -28,7 +28,7 @@ import { AddLinkModalComponent } from './modal/add-link/add-link-modal.component
     ClrDatagridModule
   ],
   declarations: [
-    ProjectListComponent,
+    ListComponent,
     SelectedListComponent,
     CardComponent,
     AddListModalComponent,

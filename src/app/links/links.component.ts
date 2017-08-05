@@ -7,7 +7,7 @@ import {LinksActions} from './links.actions';
   templateUrl: './links.component.html',
   styleUrls: ['./links.component.css']
 })
-export class ProjectsComponent implements OnInit {
+export class LinksComponent implements OnInit {
 
   constructor(private projectsActions: LinksActions) {
   }

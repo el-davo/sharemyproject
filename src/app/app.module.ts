@@ -28,6 +28,7 @@ import {ListEpics} from './lists/epics/list.epics';
 import {LoginEpics} from './login/epics/login.epics';
 import {InitModule} from './init/init.module';
 import {InitEpics} from './init/epics/init.epics';
+import {IsLoggedInGuard} from './router/is-logged-in.guard';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {InitEpics} from './init/epics/init.epics';
     InitEpics,
     LoginEpics,
     LinksEpics,
-    ListEpics
+    ListEpics,
+    IsLoggedInGuard
   ],
   bootstrap: [AppComponent]
 })

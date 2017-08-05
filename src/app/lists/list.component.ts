@@ -9,7 +9,7 @@ import {List, ListState} from './list.state';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ProjectListComponent implements OnInit {
+export class ListComponent implements OnInit {
 
   @select('lists') lists$: Observable<ListState>;
 
