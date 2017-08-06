@@ -30,6 +30,7 @@ import {InitModule} from './init/init.module';
 import {InitEpics} from './init/epics/init.epics';
 import {IsLoggedInGuard} from './router/is-logged-in.guard';
 import {LandingModule} from './landing/landing.module';
+import {SearchEpics} from "./search/epics/search.epics";
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ export class AppModule {
               private initEpics: InitEpics,
               private loginEpics: LoginEpics,
               private linksEpics: LinksEpics,
-              private listEpics: ListEpics) {
+              private listEpics: ListEpics,
+              private searchEpics: SearchEpics) {
 
     const epics = combineEpics(
       this.initEpics.appInit,
@@ -82,7 +84,8 @@ export class AppModule {
       this.listEpics.fetchSelectedListLinks,
       this.listEpics.addList,
       this.listEpics.deleteList,
-      this.listEpics.addLinkToList
+      this.listEpics.addLinkToList,
+      this.searchEpics.search
     );
 
     const middleware = [
