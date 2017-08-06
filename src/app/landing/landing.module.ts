@@ -5,10 +5,10 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {ClrNavigationModule} from 'clarity-angular/layout/nav/navigation.module';
 import {ClrIconModule} from 'clarity-angular/icon/icon.module';
 import {RouterModule} from '@angular/router';
-import { FeaturesComponent } from './features/features.component';
-import { StoreLinksCardComponent } from './features/store-links-card/store-links-card.component';
-import { ShareListsCardComponent } from './features/share-lists-card/share-lists-card.component';
-import { AnalyticsCardComponent } from './features/analytics-card/analytics-card.component';
+import {FeaturesComponent} from './features/features.component';
+import {StoreLinksCardComponent} from './features/store-links-card/store-links-card.component';
+import {ShareListsCardComponent} from './features/share-lists-card/share-lists-card.component';
+import {AnalyticsCardComponent} from './features/analytics-card/analytics-card.component';
 
 @NgModule({
   imports: [
@@ -17,7 +17,14 @@ import { AnalyticsCardComponent } from './features/analytics-card/analytics-card
     ClrNavigationModule,
     RouterModule
   ],
-  declarations: [LandingComponent, NavbarComponent, FeaturesComponent, StoreLinksCardComponent, ShareListsCardComponent, AnalyticsCardComponent]
+  declarations: [
+    LandingComponent,
+    NavbarComponent,
+    FeaturesComponent,
+    StoreLinksCardComponent,
+    ShareListsCardComponent,
+    AnalyticsCardComponent
+  ]
 })
 export class LandingModule {
 }
