@@ -8,9 +8,9 @@
     <div *ngIf="!(init$ | async)?.isInitializingApp">
       <app-navbar *ngIf="(login$ | async)?.isLoggedIn"></app-navbar>
       <router-outlet>
-        <app-add-project-modal></app-add-project-modal>
-        <app-add-project-list-modal></app-add-project-list-modal>
       </router-outlet>
+      <app-add-project-modal></app-add-project-modal>
+      <app-add-project-list-modal></app-add-project-list-modal>
     </div>
   </div>
 </content>

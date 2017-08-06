@@ -29,6 +29,7 @@ import {LoginEpics} from './login/epics/login.epics';
 import {InitModule} from './init/init.module';
 import {InitEpics} from './init/epics/init.epics';
 import {IsLoggedInGuard} from './router/is-logged-in.guard';
+import {LandingModule} from './landing/landing.module';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {IsLoggedInGuard} from './router/is-logged-in.guard';
     SearchModule,
     ProjectListModule,
     LoginModule,
-    InitModule
+    InitModule,
+    LandingModule
   ],
   providers: [
     InitEpics,

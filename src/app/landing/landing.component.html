@@ -1,0 +1,18 @@
+<div>
+  <app-landing-navbar *ngIf="!(isLoggedIn$ | async)"></app-landing-navbar>
+
+  <div class="row landing-backdrop">
+    <div class="col-xs-12">
+      <br/>
+      <br/>
+      <br/>
+      <h1 align="center">The best way to store and share your links!</h1>
+    </div>
+  </div>
+
+  <div class="row features">
+    <div class="col-xs-12">
+      <app-features></app-features>
+    </div>
+  </div>
+</div>
