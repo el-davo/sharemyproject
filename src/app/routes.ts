@@ -3,12 +3,12 @@ import {LinksComponent} from './links/links.component';
 import {ListComponent} from './lists/list.component';
 import {SelectedListComponent} from './lists/selected-list/selected-list.component';
 import {IsLoggedInGuard} from './router/is-logged-in.guard';
+import {LandingComponent} from './landing/landing.component';
 
 export const routes = [
   {
     path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
+    component: LandingComponent
   },
   {
     path: 'login',

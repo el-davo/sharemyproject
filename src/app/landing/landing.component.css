@@ -1,0 +1,12 @@
+.landing-backdrop {
+  background-image: url('../../assets/landing-backdrop.jpg');
+  height: 400px;
+}
+
+h1 {
+  color: white;
+}
+
+.features {
+  margin: 10px;
+}
