@@ -16,7 +16,7 @@ export class SearchEpics {
 
   search = (action$) => {
     return action$.ofType(SearchActions.SEARCH)
-      .mergeMap(term => {
+      .mergeMap(({term}) => {
 
         return this.searchService.search(term)
           .map(lists => this.searchActions.searchSuccessLists(lists))
