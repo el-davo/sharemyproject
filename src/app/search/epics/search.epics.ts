@@ -19,7 +19,7 @@ export class SearchEpics {
       .mergeMap(term => {
 
         return this.searchService.search(term)
-          .map(lists => this.searchActions.searchSuccess(lists))
+          .map(lists => this.searchActions.searchSuccessLists(lists))
           .catch(err => Observable.of(this.searchActions.searchFail()));
       });
   };

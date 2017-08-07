@@ -1,6 +1,7 @@
 /* Morph Search */
 .morphsearch {
   width: 0;
+  opacity: 0;
   min-height: 0;
   background: black;
   position: absolute;
@@ -18,7 +19,7 @@
 }
 
 .morphsearch.open {
-  opacity: 0.8;
+  opacity: 0.89;
   width: 100%;
   min-height: 100vh;
   top: 0;

@@ -8,7 +8,7 @@ export class SearchActions {
   static HIDE_SEARCH_OVERLAY = 'search/HIDE_SEARCH_OVERLAY';
 
   static SEARCH = 'search/SEARCH';
-  static SEARCH_SUCCESS = 'search/SEARCH_SUCCESS';
+  static SEARCH_SUCCESS_LISTS = 'search/SEARCH_SUCCESS_LISTS';
   static SEARCH_FAIL = 'search/SEARCH_FAIL';
 
   showSearchOverlay() {
@@ -23,8 +23,8 @@ export class SearchActions {
     return {type: SearchActions.SEARCH, term};
   }
 
-  searchSuccess(results: List[]) {
-    return {type: SearchActions.SEARCH_SUCCESS, results};
+  searchSuccessLists(lists: List[]) {
+    return {type: SearchActions.SEARCH_SUCCESS_LISTS, lists};
   }
 
   searchFail() {

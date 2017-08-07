@@ -1,6 +1,16 @@
 <div class="morphsearch" [ngClass]="{'open': (showSearchOverlay$ | async)}">
+  <app-search-close></app-search-close>
   <form class="morphsearch-form">
     <input class="morphsearch-input"
-           placeholder="Search..." />
+           placeholder="Search..."
+           (keyup)="search($event.target.value)"/>
   </form>
+
+  <br/>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <app-search-results-lists></app-search-results-lists>
+    </div>
+  </div>
 </div>

@@ -6,11 +6,11 @@ export const searchReducer = (state: SearchState = searchState, action): SearchS
     case SearchActions.SHOW_SEARCH_OVERLAY:
       return {...state, showSearchOverlay: true};
     case SearchActions.HIDE_SEARCH_OVERLAY:
-      return {...state, showSearchOverlay: false};
+      return {...state, showSearchOverlay: false, results: {lists: []}};
     case SearchActions.SEARCH:
       return {...state, isSearching: true};
-    case SearchActions.SEARCH_SUCCESS:
-      return {...state, isSearching: false, results: action.results};
+    case SearchActions.SEARCH_SUCCESS_LISTS:
+      return {...state, isSearching: false, results: {...state.results, lists: action.lists}};
     case SearchActions.SEARCH_FAIL:
       return {...state, isSearching: false};
     default:

@@ -1,0 +1,25 @@
+<div class="card-container">
+  <div class="card">
+    <div class="card-header">
+      Lists
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+
+        <!-- List -->
+        <div class="md-list">
+          <div class="md-list-item" *ngFor="let list of lists$ | async">
+            <div>
+              {{list.name}}
+            </div>
+            <div class="md-list-item-row2">
+              {{list.description}}
+            </div>
+          </div>
+        </div>
+        <!-- /list -->
+
+      </div>
+    </div>
+  </div>
+</div>
