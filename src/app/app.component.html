@@ -6,6 +6,7 @@
     </div>
 
     <div *ngIf="!(init$ | async)?.isInitializingApp">
+      <app-search></app-search>
       <app-navbar *ngIf="(login$ | async)?.isLoggedIn"></app-navbar>
       <router-outlet>
       </router-outlet>

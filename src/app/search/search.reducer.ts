@@ -3,6 +3,10 @@ import {SearchActions} from './search.actions';
 
 export const searchReducer = (state: SearchState = searchState, action): SearchState => {
   switch (action.type) {
+    case SearchActions.SHOW_SEARCH_OVERLAY:
+      return {...state, showSearchOverlay: true};
+    case SearchActions.HIDE_SEARCH_OVERLAY:
+      return {...state, showSearchOverlay: false};
     case SearchActions.SEARCH:
       return {...state, isSearching: true};
     case SearchActions.SEARCH_SUCCESS:

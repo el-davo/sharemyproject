@@ -1,3 +1,6 @@
-<p>
-  search works!
-</p>
+<div class="morphsearch" [ngClass]="{'open': (showSearchOverlay$ | async)}">
+  <form class="morphsearch-form">
+    <input class="morphsearch-input"
+           placeholder="Search..." />
+  </form>
+</div>

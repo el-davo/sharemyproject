@@ -58,6 +58,7 @@ import {SearchEpics} from "./search/epics/search.epics";
     LoginEpics,
     LinksEpics,
     ListEpics,
+    SearchEpics,
     IsLoggedInGuard
   ],
   bootstrap: [AppComponent]
