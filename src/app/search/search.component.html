@@ -1,4 +1,4 @@
-<div class="morphsearch" [ngClass]="{'open': (showSearchOverlay$ | async)}">
+<div class="morphsearch" [ngClass]="{'open': (search$ | async).showSearchOverlay}">
   <app-search-close></app-search-close>
   <form class="morphsearch-form">
     <input class="morphsearch-input"
@@ -10,7 +10,7 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <app-search-results-lists></app-search-results-lists>
+      <app-search-results-lists *ngIf="(search$ | async).results.lists.length > 0"></app-search-results-lists>
     </div>
   </div>
 </div>

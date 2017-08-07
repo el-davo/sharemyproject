@@ -6,7 +6,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/concat';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {SearchService} from '../../search.service';
+import {SearchService} from '../search.service';
 import {SearchActions} from '../search.actions'
 
 @Injectable()
