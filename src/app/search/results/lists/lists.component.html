@@ -6,18 +6,12 @@
     <div class="card-block">
       <div class="card-text">
 
-        <!-- List -->
-        <div class="md-list">
-          <div class="md-list-item" *ngFor="let list of lists$ | async">
-            <div>
-              {{list.name}}
-            </div>
-            <div class="md-list-item-row2">
-              {{list.description}}
-            </div>
-          </div>
-        </div>
-        <!-- /list -->
+        <app-md-list>
+          <app-md-list-item *ngFor="let list of lists$ | async"
+                            [primaryText]="list.name"
+                            [secondaryText]="list.description">
+          </app-md-list-item>
+        </app-md-list>
 
       </div>
     </div>

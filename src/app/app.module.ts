@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {NgReduxModule, NgRedux} from '@angular-redux/store';
+import {NgRedux, NgReduxModule} from '@angular-redux/store';
 import {createLogger} from 'redux-logger';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
@@ -8,8 +8,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {rootReducer} from './root.reducer';
 import {FormsModule} from '@angular/forms';
 import {NgReduxFormModule} from '@angular-redux/form';
-import {NgReduxRouterModule, NgReduxRouter} from '@angular-redux/router';
-import {createEpicMiddleware, combineEpics} from 'redux-observable';
+import {NgReduxRouter, NgReduxRouterModule} from '@angular-redux/router';
+import {combineEpics, createEpicMiddleware} from 'redux-observable';
 import * as reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import * as persistState from 'redux-localstorage'
 import {environment} from '../environments/environment';
@@ -30,7 +30,8 @@ import {InitModule} from './init/init.module';
 import {InitEpics} from './init/epics/init.epics';
 import {IsLoggedInGuard} from './router/is-logged-in.guard';
 import {LandingModule} from './landing/landing.module';
-import {SearchEpics} from "./search/epics/search.epics";
+import {SearchEpics} from './search/epics/search.epics';
+import {AppCommonModule} from './common/common.module';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {SearchEpics} from "./search/epics/search.epics";
     ProjectListModule,
     LoginModule,
     InitModule,
-    LandingModule
+    LandingModule,
+    AppCommonModule
   ],
   providers: [
     InitEpics,
