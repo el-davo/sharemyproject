@@ -11,6 +11,7 @@ import {ClrLoadingModule} from 'clarity-angular/utils/loading/loading.module'
 import {ClrDatagridModule} from 'clarity-angular/data/datagrid/datagrid.module';
 import {FormsModule} from '@angular/forms';
 import {DeleteLinkModalComponent} from './modal/delete/delete-link-modal.component';
+import {AppCommonModule} from '../common/common.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import {DeleteLinkModalComponent} from './modal/delete/delete-link-modal.compone
     NgReduxFormModule,
     FormsModule,
     ClrLoadingModule,
-    ClrDatagridModule
+    ClrDatagridModule,
+    AppCommonModule
   ],
   declarations: [
     ListComponent,
