@@ -11,7 +11,7 @@ export class SearchService {
   }
 
   search(term: string): Observable<List[]> {
-    return this.http.get(`${urls.apiUrl}/lists?filter={"limit": 10, "where":{"name":{"like":"${term}%"}}}`)
+    return this.http.get(`${urls.apiUrl}/lists?filter={"limit":10,"where":{"name":{"like":"${term}%"}}}`)
       .map(res => res.json());
   }
 

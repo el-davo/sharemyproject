@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {dispatch, select} from '@angular-redux/store';
 import {Observable} from 'rxjs/Observable';
 import {SearchActions} from './search.actions';
+import {SearchState} from './search.state';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +11,7 @@ import {SearchActions} from './search.actions';
 })
 export class SearchComponent {
 
-  @select(['search', 'showSearchOverlay']) showSearchOverlay$: Observable<boolean>;
+  @select('search') search$: Observable<SearchState>;
 
   constructor(private searchActions: SearchActions) {
   }
