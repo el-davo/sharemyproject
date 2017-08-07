@@ -1,0 +1,19 @@
+<div class="card-container">
+  <div class="card">
+    <div class="card-header">
+      Lists
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+
+        <app-md-list>
+          <app-md-list-item *ngFor="let list of lists$ | async"
+                            [primaryText]="list.name"
+                            [secondaryText]="list.description">
+          </app-md-list-item>
+        </app-md-list>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {NgReduxModule, NgRedux} from '@angular-redux/store';
+import {NgRedux, NgReduxModule} from '@angular-redux/store';
 import {createLogger} from 'redux-logger';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
@@ -8,8 +8,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {rootReducer} from './root.reducer';
 import {FormsModule} from '@angular/forms';
 import {NgReduxFormModule} from '@angular-redux/form';
-import {NgReduxRouterModule, NgReduxRouter} from '@angular-redux/router';
-import {createEpicMiddleware, combineEpics} from 'redux-observable';
+import {NgReduxRouter, NgReduxRouterModule} from '@angular-redux/router';
+import {combineEpics, createEpicMiddleware} from 'redux-observable';
 import * as reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import * as persistState from 'redux-localstorage'
 import {environment} from '../environments/environment';
@@ -30,6 +30,8 @@ import {InitModule} from './init/init.module';
 import {InitEpics} from './init/epics/init.epics';
 import {IsLoggedInGuard} from './router/is-logged-in.guard';
 import {LandingModule} from './landing/landing.module';
+import {SearchEpics} from './search/epics/search.epics';
+import {AppCommonModule} from './common/common.module';
 
 @NgModule({
   declarations: [
@@ -50,13 +52,15 @@ import {LandingModule} from './landing/landing.module';
     ProjectListModule,
     LoginModule,
     InitModule,
-    LandingModule
+    LandingModule,
+    AppCommonModule
   ],
   providers: [
     InitEpics,
     LoginEpics,
     LinksEpics,
     ListEpics,
+    SearchEpics,
     IsLoggedInGuard
   ],
   bootstrap: [AppComponent]
@@ -68,7 +72,8 @@ export class AppModule {
               private initEpics: InitEpics,
               private loginEpics: LoginEpics,
               private linksEpics: LinksEpics,
-              private listEpics: ListEpics) {
+              private listEpics: ListEpics,
+              private searchEpics: SearchEpics) {
 
     const epics = combineEpics(
       this.initEpics.appInit,
@@ -82,7 +87,8 @@ export class AppModule {
       this.listEpics.fetchSelectedListLinks,
       this.listEpics.addList,
       this.listEpics.deleteList,
-      this.listEpics.addLinkToList
+      this.listEpics.addLinkToList,
+      this.searchEpics.search
     );
 
     const middleware = [
