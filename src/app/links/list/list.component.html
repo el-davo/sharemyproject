@@ -30,6 +30,11 @@
           </a>
         </app-md-list>
 
+        <div class="text-center" *ngIf="(links$ | async)?.isFetchingLinks">
+          <span class="spinner spinner-md">
+            Loading...
+          </span>
+        </div>
       </div>
     </div>
   </div>

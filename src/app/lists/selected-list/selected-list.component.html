@@ -1,17 +1,28 @@
 <div class="col-md-12">
   <button class="btn btn-sm btn-primary pull-right" (click)="showAddLinkToListModal()">Add Link</button>
 
-  <clr-datagrid [clrDgLoading]="(lists$ | async)?.isFetchingSelectedList">
-    <clr-dg-column>Name</clr-dg-column>
-    <clr-dg-column>Description</clr-dg-column>
+  <div class="card">
+    <div class="card-header">
+      Links
+    </div>
+    <div class="card-block">
+      <div class="card-text">
 
-    <clr-dg-row *ngFor="let link of (lists$ | async)?.selectedList">
-      <clr-dg-cell>
-        <a target="_blank" [href]="link?.link?.url">{{link?.link?.name}}</a>
-      </clr-dg-cell>
-      <clr-dg-cell>{{link?.link?.description}}</clr-dg-cell>
-    </clr-dg-row>
+        <app-md-list>
+          <a [href]="link.link.url" target="_blank" *ngFor="let link of (lists$ | async).selectedList">
+            <app-md-list-item [primaryText]="link?.link?.name"
+                              [secondaryText]="link?.link?.description">
+            </app-md-list-item>
+          </a>
+        </app-md-list>
 
-    <clr-dg-footer>{{(lists$ | async)?.selectedList.length}} Links</clr-dg-footer>
-  </clr-datagrid>
+        <div class="text-center" *ngIf="(lists$ | async)?.isFetchingSelectedList">
+          <span class="spinner spinner-md">
+            Loading...
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
