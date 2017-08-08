@@ -11,9 +11,9 @@ export const searchState: SearchState = {
 export interface SearchState {
   isSearching: boolean;
   showSearchOverlay: boolean;
-  results: Results;
+  results: SearchResults;
 }
 
-interface Results {
+export interface SearchResults {
   lists: List[]
 }
