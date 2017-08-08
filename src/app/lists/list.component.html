@@ -5,13 +5,15 @@
   </div>
   <nav class="sidenav">
     <section class="sidenav-content">
-      <div class="text-center" *ngIf="(lists$ | async)?.isFetchingLists">
-      <span class="spinner spinner-md">
-        Loading...
-      </span>
-      </div>
       <section class="nav-group">
         <label>My Lists</label>
+
+        <div class="text-center" *ngIf="(lists$ | async)?.isFetchingLists">
+          <span class="spinner spinner-md">
+            Loading...
+          </span>
+        </div>
+
         <ul class="nav-list">
           <li *ngFor="let list of (lists$ | async)?.lists">
             <div class="nav-link" [routerLink]="[list.id]">
