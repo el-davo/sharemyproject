@@ -7,10 +7,12 @@ import {LinksComponent} from './links.component';
 import {AddLinkModalComponent} from './modal/add/add-link-modal.component';
 import {ClrModalModule} from 'clarity-angular/modal/modal.module';
 import {NgReduxFormModule} from '@angular-redux/form/dist/source';
-import {ClrLoadingModule} from 'clarity-angular/utils/loading/loading.module'
-import {ClrDatagridModule} from 'clarity-angular/data/datagrid/datagrid.module';
+import {ClrLoadingModule} from 'clarity-angular/utils/loading/loading.module';
+import {ClrDropdownModule} from 'clarity-angular/popover/dropdown/dropdown.module';
+import {ClrIconModule} from 'clarity-angular/icon/icon.module';
 import {FormsModule} from '@angular/forms';
 import {DeleteLinkModalComponent} from './modal/delete/delete-link-modal.component';
+import {AppCommonModule} from '../common/common.module';
 
 @NgModule({
   imports: [
@@ -19,7 +21,9 @@ import {DeleteLinkModalComponent} from './modal/delete/delete-link-modal.compone
     NgReduxFormModule,
     FormsModule,
     ClrLoadingModule,
-    ClrDatagridModule
+    ClrIconModule,
+    ClrDropdownModule,
+    AppCommonModule
   ],
   declarations: [
     ListComponent,

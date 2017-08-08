@@ -14,7 +14,7 @@ import {SelectedListComponent} from './selected-list/selected-list.component';
 import {CardComponent} from './card/card.component';
 import {AddListModalComponent} from './modal/add/add-list-modal.component';
 import {DeleteListModalComponent} from './modal/delete/delete-list-modal.component';
-import { AddLinkModalComponent } from './modal/add-link/add-link-modal.component';
+import {AddLinkModalComponent} from './modal/add-link/add-link-modal.component';
 
 @NgModule({
   imports: [

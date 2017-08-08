@@ -17,7 +17,9 @@ export class ListComponent {
   }
 
   @dispatch()
-  showDeleteLinkModal(link: Link) {
+  showDeleteLinkModal(link: Link, event) {
+    event.stopPropagation();
+    event.preventDefault();
     return this.projectsActions.showDeleteLinkModal(link);
   }
 

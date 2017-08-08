@@ -11,7 +11,8 @@ import { MdListRightIconButtonComponent } from './material/md-list-right-icon-bu
   ],
   exports: [
     MdListComponent,
-    MdListItemComponent
+    MdListItemComponent,
+    MdListRightIconButtonComponent
   ]
 })
 export class AppCommonModule {
