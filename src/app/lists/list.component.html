@@ -1,24 +1,29 @@
 <div class="content-container">
-    <div class="content-area">
-      <router-outlet>
-      </router-outlet>
-    </div>
-    <nav class="sidenav">
-      <section class="sidenav-content">
-        <section class="nav-group">
-          <label>My Lists</label>
-          <ul class="nav-list">
-            <li *ngFor="let list of (lists$ | async)?.lists">
-              <div class="nav-link" [routerLink]="[list.id]">
-                <clr-icon class="delete-icon"
-                          (click)="deleteList($event, list)"
-                          shape="trash" size="18"></clr-icon>&nbsp;&nbsp;{{list.name}}
-              </div>
-            </li>
-          </ul>
-        </section>
+  <div class="content-area">
+    <router-outlet>
+    </router-outlet>
+  </div>
+  <nav class="sidenav">
+    <section class="sidenav-content">
+      <div class="text-center" *ngIf="(lists$ | async)?.isFetchingLists">
+      <span class="spinner spinner-md">
+        Loading...
+      </span>
+      </div>
+      <section class="nav-group">
+        <label>My Lists</label>
+        <ul class="nav-list">
+          <li *ngFor="let list of (lists$ | async)?.lists">
+            <div class="nav-link" [routerLink]="[list.id]">
+              <clr-icon class="delete-icon"
+                        (click)="deleteList($event, list)"
+                        shape="trash" size="18"></clr-icon>&nbsp;&nbsp;{{list.name}}
+            </div>
+          </li>
+        </ul>
       </section>
-    </nav>
+    </section>
+  </nav>
 
   <app-delete-project-list-modal></app-delete-project-list-modal>
   <app-add-link-modal></app-add-link-modal>
