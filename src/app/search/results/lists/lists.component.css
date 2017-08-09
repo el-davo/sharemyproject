@@ -2,3 +2,8 @@
   margin: 50px;
   opacity: 1;
 }
+
+a {
+  text-decoration: none;
+  color: #2A5DB0;
+}

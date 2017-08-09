@@ -88,7 +88,8 @@ export class AppModule {
       this.listEpics.addList,
       this.listEpics.deleteList,
       this.listEpics.addLinkToList,
-      this.searchEpics.search
+      this.searchEpics.search,
+      this.searchEpics.fetchSelectedSearchList
     );
 
     const middleware = [

@@ -7,10 +7,11 @@
       <div class="card-text">
 
         <app-md-list>
-          <app-md-list-item *ngFor="let list of lists$ | async"
-                            [primaryText]="list.name"
-                            [secondaryText]="list.description">
-          </app-md-list-item>
+          <a [routerLink]="['search', 'lists', list.id]" *ngFor="let list of lists$ | async">
+            <app-md-list-item [primaryText]="list.name"
+                              [secondaryText]="list.description">
+            </app-md-list-item>
+          </a>
         </app-md-list>
 
       </div>

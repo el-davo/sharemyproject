@@ -1,0 +1,25 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      Links
+    </div>
+    <div class="card-block">
+      <div class="card-text">
+
+        <app-md-list>
+          <a [href]="link.link.url" target="_blank" *ngFor="let link of (search$ | async).selectedSearchList">
+            <app-md-list-item [primaryText]="link.link.name"
+                              [secondaryText]="link.link.description">
+            </app-md-list-item>
+          </a>
+        </app-md-list>
+
+        <div class="text-center" *ngIf="(search$ | async)?.isFetchingSelectedSearchList">
+          <span class="spinner spinner-md">
+            Loading...
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

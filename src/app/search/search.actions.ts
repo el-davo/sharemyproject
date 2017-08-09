@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {List} from '../lists/list.state';
+import {Link} from '../links/links.state';
 
 @Injectable()
 export class SearchActions {
@@ -10,6 +11,10 @@ export class SearchActions {
   static SEARCH = 'search/SEARCH';
   static SEARCH_SUCCESS_LISTS = 'search/SEARCH_SUCCESS_LISTS';
   static SEARCH_FAIL = 'search/SEARCH_FAIL';
+
+  static FETCH_SELECTED_SEARCH_LIST = 'search/FETCH_SELECTED_SEARCH_LIST';
+  static FETCH_SELECTED_SEARCH_LIST_SUCCESS = 'search/FETCH_SELECTED_SEARCH_LIST_SUCCESS';
+  static FETCH_SELECTED_SEARCH_LIST_FAIL = 'search/FETCH_SELECTED_SEARCH_LIST_FAIL';
 
   showSearchOverlay() {
     return {type: SearchActions.SHOW_SEARCH_OVERLAY};
@@ -29,5 +34,17 @@ export class SearchActions {
 
   searchFail() {
     return {type: SearchActions.SEARCH_FAIL};
+  }
+
+  fetchSelectedSearchList(listId: string) {
+    return {type: SearchActions.FETCH_SELECTED_SEARCH_LIST, listId};
+  }
+
+  fetchSelectedSearchListSuccess(links: Link[]) {
+    return {type: SearchActions.FETCH_SELECTED_SEARCH_LIST_SUCCESS, links};
+  }
+
+  fetchSelectedSearchListFail() {
+    return {type: SearchActions.FETCH_SELECTED_SEARCH_LIST_FAIL};
   }
 }
