@@ -35,6 +35,9 @@
             Loading...
           </span>
         </div>
+
+        <app-list-empty
+          *ngIf="(links$ | async)?.links.length === 0 && !(links$ | async)?.isFetchingLinks"></app-list-empty>
       </div>
     </div>
   </div>

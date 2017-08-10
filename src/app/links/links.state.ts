@@ -27,7 +27,7 @@ export interface LinksState {
 }
 
 export interface Link {
-  id: string;
+  id?: string;
   name: string;
   isPrivate: boolean;
   description: string;
