@@ -13,6 +13,7 @@ import {ClrIconModule} from 'clarity-angular/icon/icon.module';
 import {FormsModule} from '@angular/forms';
 import {DeleteLinkModalComponent} from './modal/delete/delete-link-modal.component';
 import {AppCommonModule} from '../common/common.module';
+import { EmptyComponent } from './list/empty/empty.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import {AppCommonModule} from '../common/common.module';
     ListComponent,
     LinksComponent,
     AddLinkModalComponent,
-    DeleteLinkModalComponent
+    DeleteLinkModalComponent,
+    EmptyComponent
   ],
   providers: [
     LinksService,

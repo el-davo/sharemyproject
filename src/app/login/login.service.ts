@@ -11,7 +11,7 @@ export class LoginService {
   }
 
   socialLogin(api: string) {
-    window.open(`https://sharemyproject-backend.cfapps.io/${api}`, 'name', 'width=400,height=400');
+    window.open(`${urls.authUrl}/${api}`, 'name', 'width=400,height=400');
   }
 
   getUserInformation<T>(authorization: string): Observable<SocialUser<T>> {

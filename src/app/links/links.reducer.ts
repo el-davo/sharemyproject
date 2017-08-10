@@ -12,7 +12,7 @@ export const linksReducer = (state: LinksState = linksState, action): LinksState
     case LinksActions.SHOW_ADD_LINK_MODAL:
       return {...state, showAddLinkModal: true};
     case LinksActions.HIDE_ADD_LINK_MODAL:
-      return {...state, showAddLinkModal: false};
+      return {...state, showAddLinkModal: false, addLinkForm: {name: '', url: '', description: '', isPrivate: false}};
     case LinksActions.ADD_LINK:
       return {...state, isAddingLink: true};
     case LinksActions.ADD_LINK_SUCCESS:
@@ -26,9 +26,11 @@ export const linksReducer = (state: LinksState = linksState, action): LinksState
     case LinksActions.DELETE_LINK:
       return {...state, isDeletingLink: true};
     case LinksActions.DELETE_LINK_SUCCESS:
-      return {...state, isDeletingLink: false, links: state.links.filter(link => {
-        return link.id !== action.link.id
-      })};
+      return {
+        ...state, isDeletingLink: false, links: state.links.filter(link => {
+          return link.id !== action.link.id
+        })
+      };
     case LinksActions.DELETE_LINK_FAIL:
       return {...state, isDeletingLink: false};
     default:

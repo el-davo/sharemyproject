@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently --kill-others --raw \"ts-node ./src/stubs/stub-server.ts\" \"ng serve --open\"",
-    "start:hot": "concurrently --kill-others --raw \"ts-node ./src/stubs/stub-server.ts\" \"ng serve --open --hmr -e=hmr\"",
+    "start": "ng serve --open",
+    "start:hot": "ng serve --open --hmr -e=hmr",
     "build": "ng build --prod",
     "test:watch": "ng test -cc",
     "lint": "ng lint",
