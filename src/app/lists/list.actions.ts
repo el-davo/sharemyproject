@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {List} from './list.state';
-import {Link} from '../links/links.state';
+import {ListsToLinks} from '../search/search.state';
 
 @Injectable()
 export class ListActions {
@@ -50,7 +50,7 @@ export class ListActions {
     return {type: ListActions.FETCH_SELECTED_LIST_LINKS, listId};
   }
 
-  fetchSelectedListLinkSuccess(links: Link[]) {
+  fetchSelectedListLinkSuccess(links: ListsToLinks[]) {
     return {type: ListActions.FETCH_SELECTED_LIST_LINKS_SUCCESS, links};
   }
 
