@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {List} from '../lists/list.state';
-import {Link} from '../links/links.state';
+import {SelectedSearchList} from './search.state';
 
 @Injectable()
 export class SearchActions {
@@ -40,8 +40,8 @@ export class SearchActions {
     return {type: SearchActions.FETCH_SELECTED_SEARCH_LIST, listId};
   }
 
-  fetchSelectedSearchListSuccess(links: Link[]) {
-    return {type: SearchActions.FETCH_SELECTED_SEARCH_LIST_SUCCESS, links};
+  fetchSelectedSearchListSuccess(selectedSearchList: SelectedSearchList) {
+    return {type: SearchActions.FETCH_SELECTED_SEARCH_LIST_SUCCESS, selectedSearchList};
   }
 
   fetchSelectedSearchListFail() {

@@ -14,9 +14,9 @@ export const searchReducer = (state: SearchState = searchState, action): SearchS
     case SearchActions.SEARCH_FAIL:
       return {...state, isSearching: false};
     case SearchActions.FETCH_SELECTED_SEARCH_LIST:
-      return {...state, isFetchingSelectedSearchList: true, selectedSearchList: []};
+      return {...state, isFetchingSelectedSearchList: true, selectedSearchList: {userIdentity: null, list: []}};
     case SearchActions.FETCH_SELECTED_SEARCH_LIST_SUCCESS:
-      return {...state, isFetchingSelectedSearchList: false, selectedSearchList: action.links};
+      return {...state, isFetchingSelectedSearchList: false, selectedSearchList: action.selectedSearchList};
     case SearchActions.FETCH_SELECTED_SEARCH_LIST_FAIL:
       return {...state, isFetchingSelectedSearchList: false};
     default:

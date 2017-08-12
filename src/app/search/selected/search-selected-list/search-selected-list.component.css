@@ -2,3 +2,22 @@ a {
   text-decoration: none;
   color: #2A5DB0;
 }
+
+.avatar {
+  line-height: 0;
+  display: inline-block;
+  margin: 5px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: 50%;
+  transition: linear 0.25s;
+  height: 40px;
+  width: 40px;
+}
+.avatar img {
+  border-radius: 50%;
+}
+.avatar:hover {
+  transition: ease-out 0.2s;
+  border: 2px solid rgba(255,255,255,0.8);
+  -webkit-transition: ease-out 0.2s;
+}

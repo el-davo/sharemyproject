@@ -20,7 +20,7 @@ export class ListEpics {
         const {access_token} = store.getState().login.auth;
         const {id} = store.getState().login.userData.user;
 
-        return this.listsService.fetchProjectList(access_token, id)
+        return this.listsService.fetchUserLists(access_token, id)
           .map(lists => this.listActions.fetchListsSuccess(lists))
           .catch(err => Observable.of(this.listActions.fetchListsFail()));
       });
@@ -29,9 +29,7 @@ export class ListEpics {
   fetchSelectedListLinks = (action$, store) => {
     return action$.ofType(ListActions.FETCH_SELECTED_LIST_LINKS)
       .mergeMap(({listId}) => {
-        const {access_token} = store.getState().login.auth;
-
-        return this.listsService.fetchSelectedListProject(access_token, listId)
+        return this.listsService.fetchSelectedListProject(listId)
           .map(projects => this.listActions.fetchSelectedListLinkSuccess(projects))
           .catch(err => Observable.of(this.listActions.fetchSelectedListLinksFail()));
       });
@@ -72,10 +70,11 @@ export class ListEpics {
     return action$.ofType(ListActions.ADD_LINK_TO_LIST)
       .mergeMap(() => {
         const {access_token} = store.getState().login.auth;
+        const userId = store.getState().login.userData.user.id;
         const {id} = store.getState().lists.addLinkToListForm;
         const {selectedListId} = store.getState().lists;
 
-        return this.listsService.addLinkToList(access_token, selectedListId, id)
+        return this.listsService.addLinkToList(access_token, userId, selectedListId, id)
           .mergeMap(() => Observable.concat(
             Observable.of(this.listActions.addLinkToListSuccess()),
             Observable.of(this.listActions.fetchSelectedListLinks(selectedListId)),

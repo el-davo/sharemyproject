@@ -1,4 +1,5 @@
 import {Link} from '../links/links.state';
+import {User} from '../navbar/navbar.state';
 
 export const listState: ListState = {
   isFetchingLists: false,
@@ -48,6 +49,7 @@ export interface List {
   name: string;
   isPrivate: boolean;
   description: string;
+  user?: User;
 }
 
 interface ListsToLinks {

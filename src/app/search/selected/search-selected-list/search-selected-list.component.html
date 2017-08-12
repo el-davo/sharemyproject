@@ -1,13 +1,23 @@
 <div class="col-md-12">
+
+
   <div class="card">
     <div class="card-header">
       Links
     </div>
     <div class="card-block">
+      <div class="card-media-block">
+        <img class="avatar" [src]="(userIdentity$ | async)?.profile?.photos[0]?.value">
+        <div class="card-media-description">
+          <span class="card-media-text">
+                            Owner: {{(userIdentity$ | async)?.profile?.name?.givenName}}
+                             {{(userIdentity$ | async)?.profile?.name?.familyName}}
+                        </span>
+        </div>
+      </div>
       <div class="card-text">
-
         <app-md-list>
-          <a [href]="link.link.url" target="_blank" *ngFor="let link of (search$ | async).selectedSearchList">
+          <a [href]="link.link.url" target="_blank" *ngFor="let link of (search$ | async)?.selectedSearchList?.list">
             <app-md-list-item [primaryText]="link.link.name"
                               [secondaryText]="link.link.description">
             </app-md-list-item>
@@ -22,4 +32,5 @@
       </div>
     </div>
   </div>
+
 </div>

@@ -9,5 +9,6 @@ export interface NavbarState {
 }
 
 export interface User {
+  id: string;
   username: string;
 }

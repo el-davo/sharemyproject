@@ -1,3 +1,5 @@
+import {User} from '../navbar/navbar.state';
+
 export const linksState: LinksState = {
   isFetchingLinks: false,
   showAddLinkModal: false,
@@ -28,6 +30,7 @@ export interface LinksState {
 
 export interface Link {
   id?: string;
+  user?: User;
   name: string;
   isPrivate: boolean;
   description: string;

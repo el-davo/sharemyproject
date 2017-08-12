@@ -1,5 +1,6 @@
 import {List} from '../lists/list.state';
 import {Link} from '../links/links.state';
+import {Identity} from '../login/social/social-user.interface';
 
 export const searchState: SearchState = {
   isSearching: false,
@@ -8,7 +9,10 @@ export const searchState: SearchState = {
   results: {
     lists: []
   },
-  selectedSearchList: []
+  selectedSearchList: {
+    userIdentity: null,
+    list: []
+  }
 };
 
 export interface SearchState {
@@ -16,16 +20,21 @@ export interface SearchState {
   showSearchOverlay: boolean;
   isFetchingSelectedSearchList: boolean;
   results: SearchResults;
-  selectedSearchList: ListsToLinks[]
+  selectedSearchList: SelectedSearchList
 }
 
 export interface SearchResults {
   lists: List[]
 }
 
-interface ListsToLinks {
+export interface ListsToLinks {
   id: string;
   linkId: string;
   listId: string;
   link: Link;
+}
+
+export interface SelectedSearchList {
+  userIdentity: Identity;
+  list: ListsToLinks[]
 }
