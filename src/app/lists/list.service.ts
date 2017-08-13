@@ -25,7 +25,7 @@ export class ListsService {
   }
 
   fetchSelectedListProject(listId: string): Observable<ListsToLinks[]> {
-    return this.http.get(`${urls.apiUrl}/listsToLinks?filter={"include":["link"],"where":{"listId":${listId}}}`)
+    return this.http.get(`${urls.apiUrl}/listsToLinks?filter={"include":["link"],"where":{"listId":"${listId}"}}`)
       .map(res => res.json());
   }
 
