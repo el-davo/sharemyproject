@@ -8,7 +8,6 @@ export const linksState: LinksState = {
   isDeletingLink: false,
   deletingLink: null,
   addLinkForm: {
-    id: null,
     name: '',
     isPrivate: false,
     description: '',

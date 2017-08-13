@@ -10,7 +10,6 @@ export const listState: ListState = {
   showDeleteListModal: false,
   showAddLinkToListModal: false,
   addListForm: {
-    id: null,
     name: '',
     isPrivate: false,
     description: ''
@@ -45,7 +44,7 @@ export interface ListState {
 }
 
 export interface List {
-  id: string;
+  id?: string;
   name: string;
   isPrivate: boolean;
   description: string;
