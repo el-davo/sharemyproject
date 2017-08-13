@@ -6,8 +6,8 @@ const urlsEnv = {
     authUrl: 'http://localhost:3000'
   },
   production: {
-    apiUrl: 'https://sharemyproject-backend.cfapps.io/api',
-    authUrl: 'https://sharemyproject-backend.cfapps.io'
+    apiUrl: 'https:///linkcouch-backend.cfapps.io/api',
+    authUrl: 'https:///linkcouch-backend.cfapps.io'
   }
 };
 
