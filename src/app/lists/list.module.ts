@@ -15,7 +15,8 @@ import {AddListModalComponent} from './modal/add/add-list-modal.component';
 import {DeleteListModalComponent} from './modal/delete/delete-list-modal.component';
 import {AddLinkModalComponent} from './modal/add-link/add-link-modal.component';
 import {AppCommonModule} from '../common/common.module';
-import { EmptyComponent } from './selected-list/empty/empty.component';
+import {EmptyComponent} from './selected-list/empty/empty.component';
+import {ListEmptyComponent} from './empty/empty.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { EmptyComponent } from './selected-list/empty/empty.component';
     AddListModalComponent,
     DeleteListModalComponent,
     AddLinkModalComponent,
-    EmptyComponent
+    EmptyComponent,
+    ListEmptyComponent
   ],
   providers: [
     ListsService,

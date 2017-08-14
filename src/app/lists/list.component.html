@@ -2,6 +2,9 @@
   <div class="content-area">
     <router-outlet>
     </router-outlet>
+
+    <app-lists-empty
+      *ngIf="!(lists$ | async)?.isFetchingLists && (lists$ | async)?.lists.length === 0"></app-lists-empty>
   </div>
   <nav class="sidenav">
     <section class="sidenav-content">
