@@ -1,5 +1,5 @@
 <div class="col-md-12">
-  <button class="btn btn-sm btn-primary pull-right" (click)="showAddLinkToListModal()">Add Link</button>
+  <button class="btn btn-primary pull-right" (click)="showAddLinkToListModal()">Add Link</button>
 
   <div class="card">
     <div class="card-header">
@@ -21,6 +21,10 @@
             Loading...
           </span>
         </div>
+
+        <app-selected-list-empty
+          *ngIf="!(lists$ | async)?.isFetchingSelectedList && (lists$ | async)?.selectedList.length === 0">
+        </app-selected-list-empty>
 
       </div>
     </div>
