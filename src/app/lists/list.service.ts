@@ -13,7 +13,7 @@ export class ListsService {
   }
 
   fetchList(listId: string): Observable<List> {
-    return this.http.get(`${urls.apiUrl}/lists/${listId}?filter={"include": ["user", "userIdentity"]}`)
+    return this.http.get(`${urls.apiUrl}/lists/${listId}?filter={"include": ["user"]}`)
       .map(res => res.json());
   }
 
