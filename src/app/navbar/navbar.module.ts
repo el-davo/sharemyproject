@@ -22,7 +22,8 @@ import {SearchComponent} from './widgets/search/search.component';
     SearchComponent
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    SearchComponent
   ]
 })
 export class NavbarModule {

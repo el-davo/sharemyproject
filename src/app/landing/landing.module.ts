@@ -9,13 +9,15 @@ import {FeaturesComponent} from './features/features.component';
 import {StoreLinksCardComponent} from './features/store-links-card/store-links-card.component';
 import {ShareListsCardComponent} from './features/share-lists-card/share-lists-card.component';
 import {AnalyticsCardComponent} from './features/analytics-card/analytics-card.component';
+import {NavbarModule} from '../navbar/navbar.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ClrIconModule,
     ClrNavigationModule,
-    RouterModule
+    RouterModule,
+    NavbarModule
   ],
   declarations: [
     LandingComponent,
