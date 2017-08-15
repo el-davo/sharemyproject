@@ -1,0 +1,9 @@
+.btn-github {
+  width: 100%;
+  background-color: #444444;
+  color: white;
+  padding: 10px;
+  border: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
