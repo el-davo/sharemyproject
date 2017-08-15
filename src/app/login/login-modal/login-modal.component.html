@@ -1,0 +1,13 @@
+<clr-modal [clrModalClosable]="false"
+           [clrModalOpen]="(login$ | async)?.showLoginModal">
+  <h3 class="modal-title">Login</h3>
+  <div class="modal-body">
+
+    <app-social-login-facebook></app-social-login-facebook>
+    <app-social-login-github></app-social-login-github>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="hideLoginModal()">Cancel</button>
+  </div>
+</clr-modal>

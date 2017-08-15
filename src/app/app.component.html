@@ -7,11 +7,17 @@
 
     <div *ngIf="!(init$ | async)?.isInitializingApp">
       <app-search></app-search>
+
+      <!-- nav -->
+      <app-landing-navbar *ngIf="!(login$ | async)?.isLoggedIn"></app-landing-navbar>
       <app-navbar *ngIf="(login$ | async)?.isLoggedIn"></app-navbar>
+      <!-- /nav -->
+
       <router-outlet>
       </router-outlet>
       <app-add-project-modal></app-add-project-modal>
       <app-add-project-list-modal></app-add-project-list-modal>
+      <app-login-modal></app-login-modal>
     </div>
   </div>
 </content>

@@ -12,7 +12,7 @@ export const linksReducer = (state: LinksState = linksState, action): LinksState
     case LinksActions.SHOW_ADD_LINK_MODAL:
       return {...state, showAddLinkModal: true};
     case LinksActions.HIDE_ADD_LINK_MODAL:
-      return {...state, showAddLinkModal: false, addLinkForm: {name: '', url: '', description: '', isPrivate: false}};
+      return {...state, showAddLinkModal: false, addLinkForm: {name: '', url: '', description: '', isPrivate: true}};
     case LinksActions.ADD_LINK:
       return {...state, isAddingLink: true};
     case LinksActions.ADD_LINK_SUCCESS:
