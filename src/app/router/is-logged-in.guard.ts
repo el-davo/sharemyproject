@@ -22,7 +22,7 @@ export class IsLoggedInGuard implements CanActivate {
       .mergeMap(() => {
         return this.isLoggedIn$.mergeMap((isLoggedIn) => {
           if (!isLoggedIn) {
-            this.router.navigate(['/login']);
+            this.router.navigate(['/']);
             return Observable.of(false);
           }
 

@@ -34,6 +34,7 @@ export class LoginEpics {
               Observable.of(this.loginActions.authComplete(event.data)),
               this.loginService.getUserInformation<FacebookIdentity>(event.data.access_token)
                 .map(userData => {
+                  this.router.navigate(['/links']);
                   return this.loginActions.loginSuccess(userData)
                 })
             )
@@ -73,7 +74,7 @@ export class LoginEpics {
         return this.loginService.logout(access_token).map(() => {
           localStorage.removeItem('access_token');
 
-          this.router.navigate(['/login']);
+          this.router.navigate(['/']);
 
           return this.loginActions.logoutSuccess();
         })

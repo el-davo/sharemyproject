@@ -1,4 +1,3 @@
-import {LoginComponent} from './login/login.component';
 import {LinksComponent} from './links/links.component';
 import {ListComponent} from './lists/list.component';
 import {SelectedListComponent} from './lists/selected-list/selected-list.component';
@@ -11,10 +10,6 @@ export const routes = [
   {
     path: '',
     component: LandingComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
   },
   {
     path: 'links',

@@ -12,7 +12,7 @@ export const loginReducer = (state: LoginState = loginState, action): LoginState
     case LoginActions.AUTH_COMPLETE:
       return {...state, auth: action.auth};
     case LoginActions.LOGIN_SUCCESS:
-      return {...state, isLoggingIn: false, isLoggedIn: true, userData: action.socialUser};
+      return {...state, isLoggingIn: false, isLoggedIn: true, userData: action.socialUser, showLoginModal: false};
     case LoginActions.LOGIN_FAIL:
       return {...state, isLoggingIn: false, hasLoginFailed: true};
     case LoginActions.LOGOUT:

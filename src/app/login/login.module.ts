@@ -7,6 +7,7 @@ import {LoginActions} from './login.actions';
 import {LoginModalComponent} from './login-modal/login-modal.component';
 import {ClrModalModule} from 'clarity-angular/modal/modal.module';
 import {FacebookComponent} from './social-login-buttons/facebook/facebook.component';
+import {GithubComponent} from './social-login-buttons/github/github.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {FacebookComponent} from './social-login-buttons/facebook/facebook.compon
     LoginComponent,
     LoginFormComponent,
     LoginModalComponent,
-    FacebookComponent
+    FacebookComponent,
+    GithubComponent
   ],
   exports: [
     LoginModalComponent
