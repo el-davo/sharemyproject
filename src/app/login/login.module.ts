@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {LoginComponent} from './login.component';
 import {LoginFormComponent} from './login-form/login-form.component';
 import {LoginService} from './login.service';
 import {LoginActions} from './login.actions';
@@ -15,7 +14,6 @@ import {GithubComponent} from './social-login-buttons/github/github.component';
     ClrModalModule
   ],
   declarations: [
-    LoginComponent,
     LoginFormComponent,
     LoginModalComponent,
     FacebookComponent,

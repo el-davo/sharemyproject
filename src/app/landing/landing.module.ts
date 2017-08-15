@@ -26,6 +26,9 @@ import {NavbarModule} from '../navbar/navbar.module';
     StoreLinksCardComponent,
     ShareListsCardComponent,
     AnalyticsCardComponent
+  ],
+  exports: [
+    NavbarComponent
   ]
 })
 export class LandingModule {

@@ -18,7 +18,7 @@ export const listsReducer = (state: ListState = listState, action): ListState =>
     case ListActions.SHOW_ADD_LIST_MODAL:
       return {...state, showAddListModal: true};
     case ListActions.HIDE_ADD_LIST_MODAL:
-      return {...state, showAddListModal: false, addListForm: {name: '', description: '', isPrivate: false}};
+      return {...state, showAddListModal: false, addListForm: {name: '', description: '', isPrivate: true}};
     case ListActions.ADD_LIST:
       return {...state, isAddingList: true};
     case ListActions.ADD_LIST_SUCCESS:
