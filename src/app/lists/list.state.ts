@@ -11,7 +11,7 @@ export const listState: ListState = {
   showAddLinkToListModal: false,
   addListForm: {
     name: '',
-    isPrivate: false,
+    isPrivate: true,
     description: ''
   },
   addLinkToListForm: {

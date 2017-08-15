@@ -5,6 +5,9 @@ import {Identity, SocialUser} from './social/social-user.interface';
 @Injectable()
 export class LoginActions {
 
+  static SHOW_LOGIN_MODAL = 'login/SHOW_LOGIN_MODAL';
+  static HIDE_LOGIN_MODAL = 'login/HIDE_LOGIN_MODAL';
+
   static LOGIN_FACEBOOK = 'login/LOGIN_FACEBOOK';
   static LOGIN_GITHUB = 'login/LOGIN_GITHUB';
   static AUTH_COMPLETE = 'login/AUTH_COMPLETE';
@@ -14,6 +17,14 @@ export class LoginActions {
   static LOGOUT = 'login/LOGOUT';
   static LOGOUT_SUCCESS = 'login/LOGOUT_SUCCESS';
   static LOGOUT_FAIL = 'login/LOGOUT_FAIL';
+
+  showLoginModal() {
+    return {type: LoginActions.SHOW_LOGIN_MODAL};
+  }
+
+  hideLoginModal() {
+    return {type: LoginActions.HIDE_LOGIN_MODAL};
+  }
 
   loginFacebook() {
     return {type: LoginActions.LOGIN_FACEBOOK};

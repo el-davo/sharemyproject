@@ -3,6 +3,10 @@ import {LoginActions} from './login.actions';
 
 export const loginReducer = (state: LoginState = loginState, action): LoginState => {
   switch (action.type) {
+    case LoginActions.SHOW_LOGIN_MODAL:
+      return {...state, showLoginModal: true};
+    case LoginActions.HIDE_LOGIN_MODAL:
+      return {...state, showLoginModal: false};
     case LoginActions.LOGIN_FACEBOOK:
       return {...state, isLoggingIn: true};
     case LoginActions.AUTH_COMPLETE:
