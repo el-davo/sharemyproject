@@ -6,12 +6,13 @@
     "ng": "ng",
     "start": "ng serve --open",
     "start:hot": "ng serve --open --hmr -e=hmr",
-    "build": "ng build --prod",
+    "build": "ng build --prod --stats-json",
     "test:watch": "ng test -cc",
     "lint": "ng lint",
     "lint:fix": "npm run lint -- -fix",
     "e2e": "ng e2e",
-    "prod": "http-server dist -p 3000"
+    "prod": "http-server dist -p 3000",
+    "analyze": "webpack-bundle-analyzer dist/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -65,6 +66,7 @@
     "redux-logger": "^3.0.6",
     "rosie": "^1.6.0",
     "tslint": "~5.3.2",
-    "typescript": "^2.4.2"
+    "typescript": "^2.4.2",
+    "webpack-bundle-analyzer": "^2.9.0"
   }
 }

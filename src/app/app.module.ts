@@ -22,8 +22,6 @@ import {NavbarModule} from './navbar/navbar.module';
 import {ProjectListModule} from './lists/list.module';
 import {LoginModule} from './login/login.module';
 
-import 'clarity-icons';
-import 'clarity-icons/shapes/essential-shapes';
 import {ListEpics} from './lists/epics/list.epics';
 import {LoginEpics} from './login/epics/login.epics';
 import {InitModule} from './init/init.module';
