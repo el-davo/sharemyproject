@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {dispatch, select} from '@angular-redux/store';
 import {ListActions} from './list.actions';
 import {Observable} from 'rxjs/Observable';
@@ -13,7 +13,8 @@ export class ListComponent implements OnInit {
 
   @select('lists') lists$: Observable<ListState>;
 
-  constructor(private projectListActions: ListActions) { }
+  constructor(private projectListActions: ListActions) {
+  }
 
   @dispatch()
   ngOnInit() {

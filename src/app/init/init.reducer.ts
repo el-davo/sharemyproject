@@ -8,7 +8,7 @@ export const initReducer = (state: InitState = initState, action): InitState => 
     case InitActions.APP_INIT_SUCCESS:
       return {...state, isInitializingApp: false};
     case InitActions.APP_INIT_FAIL:
-      return {...state, isInitializingApp: false, hasInitializingFailed: true};
+      return {...state, isInitializingApp: false, hasInitFailed: true};
     default:
       return state;
   }
