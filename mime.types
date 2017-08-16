@@ -1,0 +1,12 @@
+types {
+    # JavaScript
+
+    # Normalize to standard type.
+    # https://tools.ietf.org/html/rfc4329#section-7.2
+    application/javascript                js;
+
+
+    # Other
+
+    text/css                              css;
+}

@@ -6,6 +6,7 @@ install:
 - yarn run lint
 - npm run build
 - cp nginx.conf dist/nginx.conf
+- cp mime.types dist/mime.types
 cache:
   yarn: true
 deploy:
