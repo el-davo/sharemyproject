@@ -7,6 +7,7 @@ import {linksReducer as links} from './links/links.reducer';
 import {listsReducer as lists} from './lists/list.reducer';
 import {loginReducer as login} from './login/login.reducer';
 import {searchReducer as search} from './search/search.reducer';
+import {landingReducer as landing} from './landing/landing.reducer';
 
 export const rootReducer = composeReducers(
   defaultFormReducer(),
@@ -17,6 +18,7 @@ export const rootReducer = composeReducers(
     links,
     lists,
     login,
-    search
+    search,
+    landing
   })
 );

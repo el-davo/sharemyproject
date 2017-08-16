@@ -1,0 +1,7 @@
+<app-md-list>
+  <a [routerLink]="['search', 'lists', list.id]" *ngFor="let list of (landing$ | async).lists">
+    <app-md-list-item [primaryText]="list.name"
+                      [secondaryText]="list.description">
+    </app-md-list-item>
+  </a>
+</app-md-list>

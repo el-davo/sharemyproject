@@ -10,6 +10,11 @@ import {StoreLinksCardComponent} from './features/store-links-card/store-links-c
 import {ShareListsCardComponent} from './features/share-lists-card/share-lists-card.component';
 import {AnalyticsCardComponent} from './features/analytics-card/analytics-card.component';
 import {NavbarModule} from '../navbar/navbar.module';
+import {LatestListsComponent} from './latest-lists/latest-lists.component';
+import {LandingActions} from './landing.actions';
+import {LandingEpics} from './epics/landing.epics';
+import {ListComponent} from './latest-lists/list/list.component';
+import {AppCommonModule} from '../common/common.module';
 
 @NgModule({
   imports: [
@@ -17,7 +22,8 @@ import {NavbarModule} from '../navbar/navbar.module';
     ClrIconModule,
     ClrNavigationModule,
     RouterModule,
-    NavbarModule
+    NavbarModule,
+    AppCommonModule
   ],
   declarations: [
     LandingComponent,
@@ -25,10 +31,16 @@ import {NavbarModule} from '../navbar/navbar.module';
     FeaturesComponent,
     StoreLinksCardComponent,
     ShareListsCardComponent,
-    AnalyticsCardComponent
+    AnalyticsCardComponent,
+    LatestListsComponent,
+    ListComponent
   ],
   exports: [
     NavbarComponent
+  ],
+  providers: [
+    LandingActions,
+    LandingEpics
   ]
 })
 export class LandingModule {

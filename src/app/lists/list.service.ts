@@ -17,6 +17,12 @@ export class ListsService {
       .map(res => res.json());
   }
 
+  fetchLatestLists(): Observable<List[]> {
+    const filter = '{"limit": 5, "order": "createdAt DESC", "where": {"isPrivate": false}}';
+    return this.http.get(`${urls.apiUrl}/lists?filter=${filter}`)
+      .map(res => res.json());
+  }
+
   fetchUserLists(authorization: string, userId: string): Observable<List[]> {
     const headers = new Headers({authorization});
     const options = new RequestOptions({headers});
