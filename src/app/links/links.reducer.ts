@@ -18,7 +18,7 @@ export const linksReducer = (state: LinksState = linksState, action): LinksState
     case LinksActions.ADD_LINK_SUCCESS:
       return {...state, isAddingLink: false, links: [...state.links, action.link]};
     case LinksActions.ADD_LINK_FAIL:
-      return {...state, isAddingProject: false};
+      return {...state, isAddingLink: false};
     case LinksActions.SHOW_DELETE_LINK_MODAL:
       return {...state, showDeleteLinkModal: true, deletingLink: action.link};
     case LinksActions.HIDE_DELETE_LINK_MODAL:

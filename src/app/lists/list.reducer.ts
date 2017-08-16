@@ -38,7 +38,7 @@ export const listsReducer = (state: ListState = listState, action): ListState =>
         })
       };
     case ListActions.DELETE_LIST_FAIL:
-      return {...state, isDeletingProject: false};
+      return {...state, isDeletingList: false};
     case ListActions.SHOW_ADD_LINK_TO_LIST_MODAL:
       return {...state, showAddLinkToListModal: true};
     case ListActions.HIDE_ADD_LINK_TO_LIST_MODAL:
