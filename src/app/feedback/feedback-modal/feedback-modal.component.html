@@ -1,0 +1,60 @@
+<clr-modal [clrModalClosable]="false"
+           [clrModalOpen]="(feedback$ | async)?.showFeedbackModal">
+  <h3 class="modal-title">Feedback</h3>
+  <div class="modal-body">
+    <div class="alert alert-info">
+      <div class="alert-item">
+        <div class="alert-icon-wrapper">
+          <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+        </div>
+        <span class="alert-text">
+          Hey there, We are always trying to improve our user experience, If you have a few seconds
+      maybe you can give us
+      some feedback on how we are doing
+        </span>
+      </div>
+    </div>
+
+    <form [connect]="['feedback', 'form']">
+      <section class="form-block">
+
+        <div class="form-group">
+          <label class="required">Summary</label>
+          <input type="text"
+                 name="summary"
+                 id="summary"
+                 size="38"
+                 ngModel
+                 required
+                 maxlength="256"
+                 #summary="ngModel">
+        </div>
+
+        <div class="form-group">
+          <label for="description" class="required">Description</label>
+          <textarea id="description"
+                    name="description"
+                    rows="5"
+                    ngModel
+                    required
+                    #description="ngModel"></textarea>
+        </div>
+      </section>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="hideFeedbackModal()">Cancel</button>
+
+    <button type="button"
+            class="btn btn-primary"
+            disabled
+            *ngIf="summary?.errors?.required || description?.errors?.required">Send Feedback
+    </button>
+    <button type="button"
+            class="btn btn-primary"
+            [clrLoading]="(feedback$ | async)?.isSendingFeedback"
+            *ngIf="!summary?.errors?.required && !description?.errors?.required"
+            (click)="sendFeedback()">Send Feedback
+    </button>
+  </div>
+</clr-modal>

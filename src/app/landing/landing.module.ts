@@ -15,6 +15,7 @@ import {LandingActions} from './landing.actions';
 import {LandingEpics} from './epics/landing.epics';
 import {ListComponent} from './latest-lists/list/list.component';
 import {AppCommonModule} from '../common/common.module';
+import {FeedbackModule} from '../feedback/feedback.module';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import {AppCommonModule} from '../common/common.module';
     ClrNavigationModule,
     RouterModule,
     NavbarModule,
-    AppCommonModule
+    AppCommonModule,
+    FeedbackModule
   ],
   declarations: [
     LandingComponent,

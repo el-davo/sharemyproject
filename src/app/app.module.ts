@@ -31,6 +31,7 @@ import {LandingModule} from './landing/landing.module';
 import {SearchEpics} from './search/epics/search.epics';
 import {AppCommonModule} from './common/common.module';
 import {LandingEpics} from './landing/epics/landing.epics';
+import {FeedbackEpics} from './feedback/epics/feedback.epics';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import {LandingEpics} from './landing/epics/landing.epics';
     ListEpics,
     SearchEpics,
     LandingEpics,
+    FeedbackEpics,
     IsLoggedInGuard
   ],
   bootstrap: [AppComponent]
@@ -74,7 +76,8 @@ export class AppModule {
               private linksEpics: LinksEpics,
               private listEpics: ListEpics,
               private searchEpics: SearchEpics,
-              private landingEpics: LandingEpics) {
+              private landingEpics: LandingEpics,
+              private feedbackEpics: FeedbackEpics) {
 
     const epics = combineEpics(
       this.initEpics.appInit,
@@ -91,7 +94,9 @@ export class AppModule {
       this.listEpics.addLinkToList,
       this.searchEpics.search,
       this.searchEpics.fetchSelectedSearchList,
-      this.landingEpics.fetchLatestLists
+      this.landingEpics.fetchLatestLists,
+      this.feedbackEpics.determineShowFeedbackButton,
+      this.feedbackEpics.addFeedback
     );
 
     const middleware = [

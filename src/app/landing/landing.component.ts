@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {select} from '@angular-redux/store';
+import {dispatch, select} from '@angular-redux/store';
 import {Observable} from 'rxjs/Observable';
+import {FeedbackActions} from '../feedback/feedback.actions';
 
 @Component({
   selector: 'app-landing',
@@ -11,10 +12,13 @@ export class LandingComponent implements OnInit {
 
   @select(['login', 'isLoggedIn']) isLoggedIn$: Observable<boolean>;
 
-  constructor() {
+  constructor(private feedbackActions: FeedbackActions) {
+
   }
 
+  @dispatch()
   ngOnInit() {
+    return this.feedbackActions.determineShowFeedbackButton();
   }
 
 }
