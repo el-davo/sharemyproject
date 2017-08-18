@@ -43,7 +43,12 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline" (click)="hideFeedbackModal()">Cancel</button>
+    <button type="button"
+            class="btn btn-outline"
+            angulartics2On="click"
+            angularticsEvent="FeedbackCancelButtonClicked"
+            (click)="hideFeedbackModal()">Cancel
+    </button>
 
     <button type="button"
             class="btn btn-primary"

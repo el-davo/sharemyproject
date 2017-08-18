@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {dispatch} from '@angular-redux/store';
 import {LinksActions} from './links.actions';
+import {Angulartics2GoogleAnalytics} from 'angulartics2';
 
 @Component({
   selector: 'app-projects',
@@ -9,7 +10,7 @@ import {LinksActions} from './links.actions';
 })
 export class LinksComponent implements OnInit {
 
-  constructor(private projectsActions: LinksActions) {
+  constructor(private projectsActions: LinksActions, angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {
   }
 
   @dispatch()

@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import {NgReduxFormModule} from '@angular-redux/form/dist/source';
 import {FeedbackModalComponent} from './feedback-modal/feedback-modal.component';
 import {FeedbackService} from './feedback.service';
+import {Angulartics2Module} from 'angulartics2';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {FeedbackService} from './feedback.service';
     ClrModalModule,
     ClrLoadingModule,
     FormsModule,
-    NgReduxFormModule
+    NgReduxFormModule,
+    Angulartics2Module.forChild(),
   ],
   declarations: [
     HoverButtonComponent,

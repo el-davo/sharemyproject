@@ -6,6 +6,7 @@ import {Observable} from 'rxjs/Observable';
 import {SearchState} from '../../search.state';
 import {FacebookIdentity} from '../../../login/social/facebook.interface';
 import {GithubIdentity} from '../../../login/social/github.interface';
+import {Angulartics2GoogleAnalytics} from 'angulartics2';
 
 @Component({
   selector: 'app-search-selected-list',
@@ -17,7 +18,9 @@ export class SearchSelectedListComponent {
   @select('search') search$: Observable<SearchState>;
   @select(['search', 'selectedSearchList', 'userIdentity']) userIdentity$: Observable<FacebookIdentity | GithubIdentity>;
 
-  constructor(private route: ActivatedRoute, private searchActions: SearchActions) {
+  constructor(private route: ActivatedRoute,
+              private searchActions: SearchActions,
+              angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {
     this.route.params.subscribe(({id}) => this.fetchLinks(id));
   }
 
