@@ -9,6 +9,7 @@ import {rootReducer} from './root.reducer';
 import {FormsModule} from '@angular/forms';
 import {NgReduxFormModule} from '@angular-redux/form';
 import {NgReduxRouter, NgReduxRouterModule} from '@angular-redux/router';
+import {Angulartics2GoogleAnalytics, Angulartics2Module} from 'angulartics2';
 import {combineEpics, createEpicMiddleware} from 'redux-observable';
 import * as reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import * as persistState from 'redux-localstorage'
@@ -39,6 +40,7 @@ import {FeedbackEpics} from './feedback/epics/feedback.epics';
   ],
   imports: [
     RouterModule.forRoot(routes),
+    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
     BrowserModule,
     HttpModule,
     FormsModule,
