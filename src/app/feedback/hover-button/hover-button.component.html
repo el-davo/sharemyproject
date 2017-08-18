@@ -1,5 +1,8 @@
 <div class="fab animated flipInY" *ngIf="(showFeedbackHoverButton$ | async)">
-  <div class="fab-action-button" (click)="showFeedbackModal()">
+  <div class="fab-action-button"
+       angulartics2On="click"
+       angularticsEvent="FeedbackButtonClicked"
+       (click)="showFeedbackModal()">
     <clr-icon shape="chat-bubble is-solid" size="35"></clr-icon>
   </div>
 </div>
