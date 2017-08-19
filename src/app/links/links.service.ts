@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/map';
 import {Injectable} from '@angular/core';
-import {Http, RequestOptions, Headers} from '@angular/http';
+import {Headers, Http, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {Link} from './links.state';
 import {urls} from '../common/urls';
@@ -30,6 +30,13 @@ export class LinksService {
     const options = new RequestOptions({headers});
 
     return this.http.delete(`${urls.apiUrl}/links/${link.id}`, options).map(res => res.json());
+  }
+
+  editLink(authorization: string, link: Link): Observable<Link> {
+    const headers = new Headers({authorization});
+    const options = new RequestOptions({headers});
+
+    return this.http.patch(`${urls.apiUrl}/links/${link.id}`, link, options).map(res => res.json());
   }
 
 }

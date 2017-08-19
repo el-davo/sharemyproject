@@ -3,6 +3,7 @@ import {dispatch, select} from '@angular-redux/store';
 import {Observable} from 'rxjs/Observable';
 import {LinksState} from '../../links.state';
 import {LinksActions} from '../../links.actions';
+import {isUrl} from '../../../common/utils';
 
 @Component({
   selector: 'app-add-project-modal',
@@ -10,8 +11,6 @@ import {LinksActions} from '../../links.actions';
   styleUrls: ['./add-link-modal.component.css']
 })
 export class AddLinkModalComponent {
-
-  URL_REGEX = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
 
   @select('links') links$: Observable<LinksState>;
 
@@ -29,8 +28,6 @@ export class AddLinkModalComponent {
   }
 
   isUrl(url) {
-    const regex = new RegExp(this.URL_REGEX);
-
-    return (url || '').match(regex);
+    return isUrl(url);
   }
 }

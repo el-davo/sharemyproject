@@ -4,23 +4,30 @@ import {Link} from './links.state';
 @Injectable()
 export class LinksActions {
 
-  static FETCH_LINKS = 'projects/FETCH_LINKS';
-  static FETCH_LINKS_SUCCESS = 'projects/FETCH_LINKS_SUCCESS';
-  static FETCH_LINKS_FAIL = 'projects/FETCH_LINKS_FAIL';
+  static FETCH_LINKS = 'links/FETCH_LINKS';
+  static FETCH_LINKS_SUCCESS = 'links/FETCH_LINKS_SUCCESS';
+  static FETCH_LINKS_FAIL = 'links/FETCH_LINKS_FAIL';
 
-  static SHOW_ADD_LINK_MODAL = 'projects/SHOW_ADD_LINK_MODAL';
-  static HIDE_ADD_LINK_MODAL = 'projects/HIDE_ADD_LINK_MODAL';
+  static SHOW_ADD_LINK_MODAL = 'links/SHOW_ADD_LINK_MODAL';
+  static HIDE_ADD_LINK_MODAL = 'links/HIDE_ADD_LINK_MODAL';
 
-  static ADD_LINK = 'projects/ADD_LINK';
-  static ADD_LINK_SUCCESS = 'projects/ADD_LINK_SUCCESS';
-  static ADD_LINK_FAIL = 'projects/ADD_LINK_FAIL';
+  static ADD_LINK = 'links/ADD_LINK';
+  static ADD_LINK_SUCCESS = 'links/ADD_LINK_SUCCESS';
+  static ADD_LINK_FAIL = 'links/ADD_LINK_FAIL';
 
-  static SHOW_DELETE_LINK_MODAL = 'projects/SHOW_DELETE_LINK_MODAL';
-  static HIDE_DELETE_LINK_MODAL = 'projects/HIDE_DELETE_LINK_MODAL';
+  static SHOW_DELETE_LINK_MODAL = 'links/SHOW_DELETE_LINK_MODAL';
+  static HIDE_DELETE_LINK_MODAL = 'links/HIDE_DELETE_LINK_MODAL';
 
-  static DELETE_LINK = 'projects/DELETE_LINK';
-  static DELETE_LINK_SUCCESS = 'projects/DELETE_LINK_SUCCESS';
-  static DELETE_LINK_FAIL = 'projects/DELETE_LINK_FAIL';
+  static DELETE_LINK = 'links/DELETE_LINK';
+  static DELETE_LINK_SUCCESS = 'links/DELETE_LINK_SUCCESS';
+  static DELETE_LINK_FAIL = 'links/DELETE_LINK_FAIL';
+
+  static SHOW_EDIT_LINK_MODAL = 'links/SHOW_EDIT_LINK_MODAL';
+  static HIDE_EDIT_LINK_MODAL = 'links/HIDE_EDIT_LINK_MODAL';
+
+  static EDIT_LINK = 'links/EDIT_LINK';
+  static EDIT_LINK_SUCCESS = 'links/EDIT_LINK_SUCCESS';
+  static EDIT_LINK_FAIL = 'links/EDIT_LINK_FAIL';
 
   fetchLinks() {
     return {type: LinksActions.FETCH_LINKS};
@@ -72,5 +79,25 @@ export class LinksActions {
 
   deleteLinkFail() {
     return {type: LinksActions.DELETE_LINK_FAIL};
+  }
+
+  showEditLinkModal(link: Link) {
+    return {type: LinksActions.SHOW_EDIT_LINK_MODAL, link};
+  }
+
+  hideEditLinkModal() {
+    return {type: LinksActions.HIDE_EDIT_LINK_MODAL};
+  }
+
+  editLink() {
+    return {type: LinksActions.EDIT_LINK};
+  }
+
+  editLinkSuccess(link: Link) {
+    return {type: LinksActions.EDIT_LINK_SUCCESS, link};
+  }
+
+  editLinkFail() {
+    return {type: LinksActions.EDIT_LINK_FAIL};
   }
 }

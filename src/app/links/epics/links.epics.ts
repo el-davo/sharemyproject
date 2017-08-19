@@ -56,4 +56,20 @@ export class LinksEpics {
           .catch(err => Observable.of(this.linksActions.deleteLinkFail()));
       });
   };
+
+  editLink = (action$, store) => {
+    return action$.ofType(LinksActions.EDIT_LINK)
+      .mergeMap(() => {
+        const {access_token} = store.getState().login.auth;
+        const {id} = store.getState().login.userData.user;
+        const editLinkForm = store.getState().links.editLinkForm;
+
+        return this.linksService.editLink(access_token, editLinkForm)
+          .mergeMap(link => Observable.concat(
+            Observable.of(this.linksActions.editLinkSuccess(link)),
+            Observable.of(this.linksActions.hideEditLinkModal())
+          ))
+          .catch(err => Observable.of(this.linksActions.editLinkFail()));
+      });
+  };
 }

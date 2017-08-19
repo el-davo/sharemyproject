@@ -33,6 +33,20 @@ export const linksReducer = (state: LinksState = linksState, action): LinksState
       };
     case LinksActions.DELETE_LINK_FAIL:
       return {...state, isDeletingLink: false};
+    case LinksActions.SHOW_EDIT_LINK_MODAL:
+      return {...state, showEditLinkModal: true, editLinkForm: action.link};
+    case LinksActions.HIDE_EDIT_LINK_MODAL:
+      return {
+        ...state,
+        showEditLinkModal: false,
+        editLinkForm: {id: '', name: '', url: '', description: '', isPrivate: true}
+      };
+    case LinksActions.EDIT_LINK_SUCCESS:
+      return {
+        ...state, links: state.links.map(link => {
+          return link.id === action.link.id ? action.link : link;
+        })
+      };
     default:
       return state;
   }
