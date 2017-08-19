@@ -23,4 +23,11 @@ export class ListComponent {
     return this.projectsActions.showDeleteLinkModal(link);
   }
 
+  @dispatch()
+  showEditLinkModal(link: Link, event) {
+    event.stopPropagation();
+    event.preventDefault();
+    return this.projectsActions.showEditLinkModal(link);
+  }
+
 }

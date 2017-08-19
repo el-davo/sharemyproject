@@ -20,6 +20,10 @@
                   </button>
                   <clr-dropdown-menu>
                     <button type="button"
+                            (click)="showEditLinkModal(link, $event)"
+                            clrDropdownItem>Edit
+                    </button>
+                    <button type="button"
                             (click)="showDeleteLinkModal(link, $event)"
                             clrDropdownItem>Delete
                     </button>

@@ -88,6 +88,7 @@ export class AppModule {
       this.loginEpics.logout,
       this.linksEpics.fetchLinks,
       this.linksEpics.addLink,
+      this.linksEpics.editLink,
       this.linksEpics.deleteLink,
       this.listEpics.fetchList,
       this.listEpics.fetchSelectedListLinks,

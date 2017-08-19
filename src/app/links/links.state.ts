@@ -4,6 +4,7 @@ export const linksState: LinksState = {
   isFetchingLinks: false,
   showAddLinkModal: false,
   showDeleteLinkModal: false,
+  showEditLinkModal: false,
   isAddingLink: false,
   isDeletingLink: false,
   deletingLink: null,
@@ -13,6 +14,13 @@ export const linksState: LinksState = {
     description: '',
     url: ''
   },
+  editLinkForm: {
+    id: '',
+    name: '',
+    description: '',
+    url: '',
+    isPrivate: true
+  },
   links: []
 };
 
@@ -20,10 +28,12 @@ export interface LinksState {
   isFetchingLinks: boolean;
   showAddLinkModal: boolean;
   showDeleteLinkModal: boolean;
+  showEditLinkModal: boolean;
   isAddingLink: boolean;
   isDeletingLink: boolean;
   deletingLink: Link;
   addLinkForm: Link;
+  editLinkForm: Link,
   links: Link[];
 }
 
