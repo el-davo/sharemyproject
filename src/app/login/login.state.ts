@@ -6,6 +6,7 @@ export const loginState: LoginState = {
   isLoggingOut: false,
   isLoggedIn: false,
   hasLoginFailed: false,
+  showLogoutModal: false,
   userData: {
     user: null,
     identity: null
@@ -19,6 +20,7 @@ export interface LoginState {
   isLoggingOut: boolean;
   isLoggedIn: boolean;
   hasLoginFailed: boolean;
+  showLogoutModal: boolean;
   userData: SocialUser<Identity>;
   auth: Auth;
 }

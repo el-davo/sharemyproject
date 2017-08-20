@@ -14,6 +14,9 @@ export class LoginActions {
   static LOGIN_SUCCESS = 'login/LOGIN_SUCCESS';
   static LOGIN_FAIL = 'login/LOGIN_FAIL';
 
+  static SHOW_LOGOUT_MODAL = 'login/SHOW_LOGOUT_MODAL';
+  static HIDE_LOGOUT_MODAL = 'login/HIDE_LOGOUT_MODAL';
+
   static LOGOUT = 'login/LOGOUT';
   static LOGOUT_SUCCESS = 'login/LOGOUT_SUCCESS';
   static LOGOUT_FAIL = 'login/LOGOUT_FAIL';
@@ -44,6 +47,14 @@ export class LoginActions {
 
   loginFail() {
     return {type: LoginActions.LOGIN_FAIL};
+  }
+
+  showLogoutModal() {
+    return {type: LoginActions.SHOW_LOGOUT_MODAL};
+  }
+
+  hideLogoutModal() {
+    return {type: LoginActions.HIDE_LOGOUT_MODAL};
   }
 
   logout() {
