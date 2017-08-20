@@ -33,6 +33,7 @@ import {SearchEpics} from './search/epics/search.epics';
 import {AppCommonModule} from './common/common.module';
 import {LandingEpics} from './landing/epics/landing.epics';
 import {FeedbackEpics} from './feedback/epics/feedback.epics';
+import {ToasterModule} from 'angular2-toaster';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {FeedbackEpics} from './feedback/epics/feedback.epics';
     LoginModule,
     InitModule,
     LandingModule,
-    AppCommonModule
+    AppCommonModule,
+    ToasterModule
   ],
   providers: [
     InitEpics,

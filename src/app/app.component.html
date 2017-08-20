@@ -13,6 +13,10 @@
       <app-navbar *ngIf="(login$ | async)?.isLoggedIn"></app-navbar>
       <!-- /nav -->
 
+      <!-- Toaster -->
+      <toaster-container [toasterconfig]="toasterconfig"></toaster-container>
+      <!-- /Toaster -->
+
       <router-outlet>
       </router-outlet>
       <app-add-project-modal></app-add-project-modal>
