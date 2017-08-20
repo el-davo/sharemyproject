@@ -7,7 +7,7 @@ import {RouterModule} from '@angular/router';
 import {ClrIconModule} from 'clarity-angular/icon/icon.module';
 import {ClrModalModule} from 'clarity-angular/modal/modal.module';
 import {NgReduxFormModule} from '@angular-redux/form/dist/source';
-import {ClrLoadingModule} from 'clarity-angular/utils/loading/loading.module'
+import {ClrLoadingModule} from 'clarity-angular/utils/loading/loading.module';
 import {FormsModule} from '@angular/forms';
 import {SelectedListComponent} from './selected-list/selected-list.component';
 import {CardComponent} from './card/card.component';

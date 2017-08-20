@@ -7,20 +7,25 @@ import {LoginModalComponent} from './login-modal/login-modal.component';
 import {ClrModalModule} from 'clarity-angular/modal/modal.module';
 import {FacebookComponent} from './social-login-buttons/facebook/facebook.component';
 import {GithubComponent} from './social-login-buttons/github/github.component';
+import {LogoutModalComponent} from './logout-modal/logout-modal.component';
+import {ClrLoadingModule} from 'clarity-angular/utils/loading/loading.module'
 
 @NgModule({
   imports: [
     CommonModule,
-    ClrModalModule
+    ClrModalModule,
+    ClrLoadingModule
   ],
   declarations: [
     LoginFormComponent,
     LoginModalComponent,
     FacebookComponent,
-    GithubComponent
+    GithubComponent,
+    LogoutModalComponent
   ],
   exports: [
-    LoginModalComponent
+    LoginModalComponent,
+    LogoutModalComponent
   ],
   providers: [
     LoginService,

@@ -12,12 +12,14 @@ import {Observable} from 'rxjs/Observable';
 import {FacebookIdentity} from '../social/facebook.interface';
 import {GithubIdentity} from '../social/github.interface';
 import {Router} from '@angular/router';
+import {ToasterService} from 'angular2-toaster';
 
 @Injectable()
 export class LoginEpics {
   constructor(private loginService: LoginService,
               private loginActions: LoginActions,
-              private router: Router) {
+              private router: Router,
+              private toaster: ToasterService) {
   }
 
   socialLoginFacebook = action$ => {
@@ -71,14 +73,24 @@ export class LoginEpics {
       .mergeMap(() => {
         const {access_token} = store.getState().login.auth;
 
-        return this.loginService.logout(access_token).map(() => {
+        return this.loginService.logout(access_token).mergeMap(() => {
           localStorage.removeItem('access_token');
 
           this.router.navigate(['/']);
 
-          return this.loginActions.logoutSuccess();
+          const message = 'You are now logged out, please check back soon :)';
+          this.toaster.pop('success', 'Success', message);
+
+          return Observable.concat(
+            Observable.of(this.loginActions.hideLogoutModal()),
+            Observable.of(this.loginActions.logoutSuccess())
+          );
         })
-          .catch(err => Observable.of(this.loginActions.logoutFail()));
+          .catch(err => {
+            const message = 'An error occurred while trying to log you out, please try again';
+            this.toaster.pop('error', 'Error', message);
+            return Observable.of(this.loginActions.logoutFail())
+          });
       });
   };
 

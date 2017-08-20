@@ -19,7 +19,7 @@ export class UserComponent {
   }
 
   @dispatch()
-  logout() {
-    return this.loginActions.logout();
+  showLogoutModal() {
+    return this.loginActions.showLogoutModal();
   }
 }
