@@ -22,6 +22,7 @@
         "../node_modules/clarity-icons/clarity-icons.min.css",
         "../node_modules/clarity-ui/clarity-ui.min.css",
         "../node_modules/animate.css/animate.css",
+        "../node_modules/angular2-toaster/toaster.css",
         "styles.css"
       ],
       "scripts": [
