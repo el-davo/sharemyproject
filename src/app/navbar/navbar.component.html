@@ -6,8 +6,8 @@
     </a>
   </div>
   <div class="header-nav">
-    <a [routerLink]="['/lists']" class="nav-link nav-text">My Lists</a>
-    <a [routerLink]="['/links']" class="nav-link nav-text">My Links</a>
+    <a [routerLink]="['/lists']" [routerLinkActive]="['active']" class="nav-link nav-text">My Lists</a>
+    <a [routerLink]="['/links']" [routerLinkActive]="['active']" class="nav-link nav-text">My Links</a>
   </div>
 
   <app-nav-widget-search></app-nav-widget-search>
