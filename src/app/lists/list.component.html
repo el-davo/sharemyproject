@@ -11,7 +11,7 @@
   </div>
   <nav class="sidenav">
     <section class="sidenav-content">
-      <section class="nav-group">
+      <section class="nav-group" *ngIf="(lists$ | async)?.privateLists.length > 0">
         <label>Private</label>
 
         <div class="text-center" *ngIf="(lists$ | async)?.isFetchingLists">
@@ -31,7 +31,7 @@
         </ul>
       </section>
 
-      <section class="nav-group">
+      <section class="nav-group" *ngIf="(lists$ | async)?.publicLists.length > 0">
         <label>Public</label>
 
         <div class="text-center" *ngIf="(lists$ | async)?.isFetchingLists">
