@@ -8,10 +8,11 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {ListActions} from '../list.actions';
 import {ListsService} from '../list.service';
+import {ToasterService} from 'angular2-toaster';
 
 @Injectable()
 export class ListEpics {
-  constructor(private listsService: ListsService, private listActions: ListActions) {
+  constructor(private listsService: ListsService, private listActions: ListActions, private toaster: ToasterService) {
   }
 
   fetchList = (action$, store) => {
@@ -21,7 +22,12 @@ export class ListEpics {
         const {id} = store.getState().login.userData.user;
 
         return this.listsService.fetchUserLists(access_token, id)
-          .map(lists => this.listActions.fetchListsSuccess(lists))
+          .mergeMap(lists => {
+            return Observable.concat(
+              Observable.of(this.listActions.updatePublicLists(lists.filter(list => !list.isPrivate))),
+              Observable.of(this.listActions.updatePrivateLists(lists.filter(list => list.isPrivate))),
+            )
+          })
           .catch(err => Observable.of(this.listActions.fetchListsFail()));
       });
   };
@@ -43,10 +49,16 @@ export class ListEpics {
         const {addListForm} = store.getState().lists;
 
         return this.listsService.addProjectList(access_token, id, addListForm)
-          .mergeMap(projectList => Observable.concat(
-            Observable.of(this.listActions.addListSuccess(projectList)),
-            Observable.of(this.listActions.hideAddListModal())
-          ))
+          .mergeMap(list => {
+            const message = 'List has been added successfully';
+            this.toaster.pop('success', 'Success', message);
+
+            return Observable.concat(
+              Observable.of(list.isPrivate ?
+                this.listActions.addPrivateLIstSuccess(list) : this.listActions.addPublicListSuccess(list)),
+              Observable.of(this.listActions.hideAddListModal())
+            )
+          })
           .catch(err => Observable.of(this.listActions.addListFail()));
       });
   };
@@ -58,10 +70,17 @@ export class ListEpics {
         const {deletingList} = store.getState().lists;
 
         return this.listsService.deleteProjectList(access_token, deletingList)
-          .mergeMap(() => Observable.concat(
-            Observable.of(this.listActions.deleteListSuccess(deletingList)),
-            Observable.of(this.listActions.hideDeleteListModal())
-          ))
+          .mergeMap(() => {
+            const message = 'List has been deleted successfully';
+            this.toaster.pop('success', 'Success', message);
+
+            return Observable.concat(
+              Observable.of(deletingList.isPrivate ?
+                this.listActions.deletePrivateListSuccess(deletingList) :
+                this.listActions.deletePublicListSuccess(deletingList)),
+              Observable.of(this.listActions.hideDeleteListModal())
+            )
+          })
           .catch(err => Observable.of(this.listActions.deleteListFail()));
       });
   };

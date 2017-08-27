@@ -24,7 +24,8 @@ export const listState: ListState = {
   deletingList: null,
   selectedList: [],
   selectedListId: null,
-  lists: []
+  publicLists: [],
+  privateLists: []
 };
 
 export interface ListState {
@@ -40,7 +41,8 @@ export interface ListState {
   deletingList: List;
   selectedList: ListsToLinks[];
   selectedListId: string;
-  lists: List[];
+  publicLists: List[];
+  privateLists: List[];
 }
 
 export interface List {
