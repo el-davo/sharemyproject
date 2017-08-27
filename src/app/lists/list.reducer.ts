@@ -5,8 +5,10 @@ export const listsReducer = (state: ListState = listState, action): ListState =>
   switch (action.type) {
     case ListActions.FETCH_LISTS:
       return {...state, isFetchingLists: true};
-    case ListActions.FETCH_LISTS_SUCCESS:
-      return {...state, isFetchingLists: false, lists: action.lists};
+    case ListActions.UPDATE_PUBLIC_LISTS:
+      return {...state, isFetchingLists: false, publicLists: action.lists};
+    case ListActions.UPDATE_PRIVATE_LISTS:
+      return {...state, isFetchingLists: false, privateLists: action.lists};
     case ListActions.FETCH_LISTS_FAIL:
       return {...state, isFetchingLists: false};
     case ListActions.FETCH_SELECTED_LIST_LINKS:
@@ -21,8 +23,10 @@ export const listsReducer = (state: ListState = listState, action): ListState =>
       return {...state, showAddListModal: false, addListForm: {name: '', description: '', isPrivate: true}};
     case ListActions.ADD_LIST:
       return {...state, isAddingList: true};
-    case ListActions.ADD_LIST_SUCCESS:
-      return {...state, isAddingList: false, lists: [...state.lists, action.list]};
+    case ListActions.ADD_PUBLIC_LIST_SUCCESS:
+      return {...state, isAddingList: false, publicLists: [...state.publicLists, action.list]};
+    case ListActions.ADD_PRIVATE_LIST_SUCCESS:
+      return {...state, isAddingList: false, privateLists: [...state.privateLists, action.list]};
     case ListActions.ADD_LIST_FAIL:
       return {...state, isAddingList: false};
     case ListActions.SHOW_DELETE_LIST_MODAL:
@@ -31,9 +35,15 @@ export const listsReducer = (state: ListState = listState, action): ListState =>
       return {...state, showDeleteListModal: false, deletingList: null};
     case ListActions.DELETE_LIST:
       return {...state, isDeletingList: true};
-    case ListActions.DELETE_LIST_SUCCESS:
+    case ListActions.DELETE_PUBLIC_LIST_SUCCESS:
       return {
-        ...state, isDeletingList: false, lists: state.lists.filter(list => {
+        ...state, isDeletingList: false, publicLists: state.publicLists.filter(list => {
+          return list.id !== action.list.id
+        })
+      };
+    case ListActions.DELETE_PRIVATE_LIST_SUCCESS:
+      return {
+        ...state, isDeletingList: false, privateLists: state.privateLists.filter(list => {
           return list.id !== action.list.id
         })
       };
