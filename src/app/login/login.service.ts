@@ -11,7 +11,7 @@ export class LoginService {
   }
 
   socialLogin(api: string) {
-    window.open(`${urls.authUrl}/${api}`, 'name', 'width=800,height=700');
+    window.open(`${urls.authUrl}/${api}`);
   }
 
   getUserInformation<T>(authorization: string): Observable<SocialUser<T>> {
