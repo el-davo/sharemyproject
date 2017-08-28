@@ -9,6 +9,7 @@ import {loginReducer as login} from './login/login.reducer';
 import {searchReducer as search} from './search/search.reducer';
 import {landingReducer as landing} from './landing/landing.reducer';
 import {feedbackReducer as feedback} from './feedback/feedback.reducer';
+import {tokensReducer as tokens} from './screenshots/tokens/tokens.reducer';
 
 export const rootReducer = composeReducers(
   defaultFormReducer(),
@@ -21,6 +22,7 @@ export const rootReducer = composeReducers(
     login,
     search,
     landing,
-    feedback
+    feedback,
+    tokens
   })
 );
