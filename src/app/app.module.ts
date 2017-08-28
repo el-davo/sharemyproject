@@ -34,6 +34,7 @@ import {AppCommonModule} from './common/common.module';
 import {LandingEpics} from './landing/epics/landing.epics';
 import {FeedbackEpics} from './feedback/epics/feedback.epics';
 import {ToasterModule} from 'angular2-toaster';
+import {ScreenshotsModule} from './screenshots/screenshots.module';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import {ToasterModule} from 'angular2-toaster';
     InitModule,
     LandingModule,
     AppCommonModule,
-    ToasterModule
+    ToasterModule,
+    ScreenshotsModule
   ],
   providers: [
     InitEpics,
