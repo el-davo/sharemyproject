@@ -1,0 +1,13 @@
+.landing-backdrop {
+  background-image: url('../../../assets/screenshots-backdrop.jpg');
+  height: 400px;
+  background-size: cover;
+}
+
+h1 {
+  color: white;
+}
+
+.landing-item {
+  margin: 10px;
+}
