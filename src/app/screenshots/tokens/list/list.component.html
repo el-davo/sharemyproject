@@ -1,0 +1,5 @@
+<div class="text-center" *ngIf="(tokens$ | async)?.isFetchingUserTokens">
+  <span class="spinner spinner-md">
+    Loading...
+  </span>
+</div>

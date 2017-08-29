@@ -38,7 +38,7 @@ export class TokensActions {
     return {type: TokensActions.HIDE_DELETE_USER_TOKEN_MODAL};
   }
 
-  fetchUserTokesn() {
+  fetchUserTokens() {
     return {type: TokensActions.FETCH_USER_TOKENS};
   }
 

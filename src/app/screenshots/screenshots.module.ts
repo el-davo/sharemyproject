@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {TokensModule} from './tokens/tokens.module';
 import {LandingModule} from './landing/landing.module';
 import {ScreenshotsRoutes} from './routes';
+import {TokensService} from './tokens.service';
 
 @NgModule({
   imports: [
@@ -11,7 +12,10 @@ import {ScreenshotsRoutes} from './routes';
     LandingModule,
     ScreenshotsRoutes
   ],
-  declarations: []
+  declarations: [],
+  providers: [
+    TokensService
+  ]
 })
 export class ScreenshotsModule {
 }

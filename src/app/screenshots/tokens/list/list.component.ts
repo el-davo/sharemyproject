@@ -1,4 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {dispatch, select} from '@angular-redux/store';
+import {TokensActions} from '../tokens.actions';
+import {Observable} from 'rxjs/Observable';
+import {TokensState} from '../tokens.state';
 
 @Component({
   selector: 'app-screenshots-tokens-list',
@@ -7,10 +11,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() {
+  @select('tokens') tokens$: Observable<TokensState>;
+
+  constructor(private tokensActions: TokensActions) {
   }
 
+  @dispatch()
   ngOnInit() {
+    return this.tokensActions.fetchUserTokens();
   }
 
 }

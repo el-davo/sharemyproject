@@ -35,6 +35,7 @@ import {LandingEpics} from './landing/epics/landing.epics';
 import {FeedbackEpics} from './feedback/epics/feedback.epics';
 import {ToasterModule} from 'angular2-toaster';
 import {ScreenshotsModule} from './screenshots/screenshots.module';
+import {ScreenshotTokensEpics} from './screenshots/epics/screenshot-tokens.epics';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import {ScreenshotsModule} from './screenshots/screenshots.module';
     SearchEpics,
     LandingEpics,
     FeedbackEpics,
+    ScreenshotTokensEpics,
     IsLoggedInGuard
   ],
   bootstrap: [AppComponent]
@@ -83,7 +85,8 @@ export class AppModule {
               private listEpics: ListEpics,
               private searchEpics: SearchEpics,
               private landingEpics: LandingEpics,
-              private feedbackEpics: FeedbackEpics) {
+              private feedbackEpics: FeedbackEpics,
+              private screenshotTokensEpics: ScreenshotTokensEpics) {
 
     const epics = combineEpics(
       this.initEpics.appInit,
@@ -103,7 +106,8 @@ export class AppModule {
       this.searchEpics.fetchSelectedSearchList,
       this.landingEpics.fetchLatestLists,
       this.feedbackEpics.determineShowFeedbackButton,
-      this.feedbackEpics.addFeedback
+      this.feedbackEpics.addFeedback,
+      this.screenshotTokensEpics.fetchUserTokens
     );
 
     const middleware = [
