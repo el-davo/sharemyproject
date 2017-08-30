@@ -1,0 +1,58 @@
+version: '2'
+
+services:
+
+  db:
+    image: mysql
+    container_name: database.dev
+    command: mysqld --user=root --verbose
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: "linkcouch"
+      MYSQL_USER: "username"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+  linkcouch:
+      image: linkcouch-backend:latest
+      hostname: api
+      depends_on:
+        - db
+      environment:
+        - NODE_ENV=production
+        - sql_database=linkcouch
+        - sql_hostname=172.18.0.1
+        - sql_username=username
+        - sql_password=password
+      ports:
+        - "3000:3000"
+      volumes:
+        - yarn:/root/.cache/yarn
+      user: node
+      command: >
+        /bin/bash -c "sleep 2; node ."
+
+  linkcouch-screenshots:
+        image: linkcouch-screenshots-backend:latest
+        hostname: api
+        depends_on:
+          - db
+        environment:
+          - NODE_ENV=production
+          - sql_database=linkcouch
+          - sql_hostname=172.18.0.1
+          - sql_username=username
+          - sql_password=password
+        ports:
+          - "3001:3000"
+        volumes:
+          - yarn:/root/.cache/yarn
+        user: node
+        command: >
+          /bin/bash -c "sleep 2; node ."
+
+volumes:
+  db:
+  yarn:

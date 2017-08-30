@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {TokensComponent} from './tokens.component';
 import {ListComponent} from './list/list.component';
 import {TokensActions} from './tokens.actions';
+import { EmptyComponent } from './list/empty/empty.component';
 
 @NgModule({
   imports: [
@@ -10,7 +11,8 @@ import {TokensActions} from './tokens.actions';
   ],
   declarations: [
     TokensComponent,
-    ListComponent
+    ListComponent,
+    EmptyComponent
   ],
   providers: [
     TokensActions

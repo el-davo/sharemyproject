@@ -4,7 +4,7 @@ const urlsEnv = {
   development: {
     apiUrl: 'http://localhost:3000/api',
     authUrl: 'http://localhost:3000',
-    screenshotsTokensApi: 'http://localhost:3001'
+    screenshotsTokensApi: 'http://localhost:3001/api'
   },
   production: {
     apiUrl: 'https:///linkcouch-backend.cfapps.io/api',
