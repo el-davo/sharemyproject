@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {TokensActions} from '../../tokens.actions';
+import {dispatch} from '@angular-redux/store';
 
 @Component({
-  selector: 'app-empty',
+  selector: 'app-screenshots-tokens-empty',
   templateUrl: './empty.component.html',
   styleUrls: ['./empty.component.css']
 })
-export class EmptyComponent implements OnInit {
+export class EmptyComponent {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private tokensActions: TokensActions) {
   }
 
+  @dispatch()
+  showAddUserTokenModal = () => this.tokensActions.showAddUserTokenModal();
 }

@@ -107,7 +107,9 @@ export class AppModule {
       this.landingEpics.fetchLatestLists,
       this.feedbackEpics.determineShowFeedbackButton,
       this.feedbackEpics.addFeedback,
-      this.screenshotTokensEpics.fetchUserTokens
+      this.screenshotTokensEpics.fetchUserTokens,
+      this.screenshotTokensEpics.addUserToken,
+      this.screenshotTokensEpics.deleteUserToken
     );
 
     const middleware = [

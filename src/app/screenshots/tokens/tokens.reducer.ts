@@ -6,7 +6,7 @@ export const tokensReducer = (state: TokensState = tokensState, action: any): To
     case TokensActions.SHOW_ADD_USER_TOKEN_MODAL:
       return {...state, showAddUserTokenModal: true};
     case TokensActions.SHOW_DELETE_USER_TOKEN_MODAL:
-      return {...state, showDeleteUserTokenModel: true};
+      return {...state, showDeleteUserTokenModel: true, deletingToken: action.token};
     case TokensActions.HIDE_ADD_USER_TOKEN_MODAL:
       return {...state, showAddUserTokenModal: false};
     case TokensActions.HIDE_DELETE_USER_TOKEN_MODAL:

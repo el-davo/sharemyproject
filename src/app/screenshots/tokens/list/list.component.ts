@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {dispatch, select} from '@angular-redux/store';
 import {TokensActions} from '../tokens.actions';
 import {Observable} from 'rxjs/Observable';
-import {TokensState} from '../tokens.state';
+import {Token, TokensState} from '../tokens.state';
 
 @Component({
   selector: 'app-screenshots-tokens-list',
@@ -17,8 +17,9 @@ export class ListComponent implements OnInit {
   }
 
   @dispatch()
-  ngOnInit() {
-    return this.tokensActions.fetchUserTokens();
-  }
+  ngOnInit = () => this.tokensActions.fetchUserTokens();
+
+  @dispatch()
+  showDeleteUserTokenModal = (token: Token) => this.tokensActions.showDeleteUserTokenModal(token);
 
 }

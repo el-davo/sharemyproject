@@ -1,0 +1,13 @@
+<clr-modal [clrModalClosable]="false"
+           [clrModalOpen]="(tokens$ | async)?.showAddUserTokenModal">
+  <h3 class="modal-title">Alert</h3>
+  <div class="modal-body">
+    Are you sure you want to generate a new token?
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="hideAddUserTokenModal()">Cancel</button>
+    <button type="button" class="btn btn-primary" [clrLoading]="(tokens$ | async)?.isAddingUserToken"
+            (click)="addUserToken()">Ok
+    </button>
+  </div>
+</clr-modal>

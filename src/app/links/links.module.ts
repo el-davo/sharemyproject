@@ -13,8 +13,8 @@ import {ClrIconModule} from 'clarity-angular/icon/icon.module';
 import {FormsModule} from '@angular/forms';
 import {DeleteLinkModalComponent} from './modal/delete/delete-link-modal.component';
 import {AppCommonModule} from '../common/common.module';
-import { EmptyComponent } from './list/empty/empty.component';
-import { EditComponent } from './modal/edit/edit.component';
+import {EmptyComponent} from './list/empty/empty.component';
+import {EditComponent} from './modal/edit/edit.component';
 
 @NgModule({
   imports: [

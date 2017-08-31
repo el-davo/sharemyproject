@@ -22,55 +22,29 @@ export class TokensActions {
   static DELETE_USER_TOKEN_SUCCESS = 'screenshots/tokens/DELETE_USER_TOKEN_SUCCESS';
   static DELETE_USER_TOKEN_FAIL = 'screenshots/tokens/DELETE_USER_TOKEN_FAIL';
 
-  showAddUserTokenModal() {
-    return {type: TokensActions.SHOW_ADD_USER_TOKEN_MODAL};
-  }
+  showAddUserTokenModal = () => ({type: TokensActions.SHOW_ADD_USER_TOKEN_MODAL});
 
-  showDeleteUserTokenModal() {
-    return {type: TokensActions.SHOW_DELETE_USER_TOKEN_MODAL};
-  }
+  showDeleteUserTokenModal = (token: Token) => ({type: TokensActions.SHOW_DELETE_USER_TOKEN_MODAL, token});
 
-  hideAddUserTokenModal() {
-    return {type: TokensActions.HIDE_ADD_USER_TOKEN_MODAL};
-  }
+  hideAddUserTokenModal = () => ({type: TokensActions.HIDE_ADD_USER_TOKEN_MODAL});
 
-  hideDeleteUserTokenModal() {
-    return {type: TokensActions.HIDE_DELETE_USER_TOKEN_MODAL};
-  }
+  hideDeleteUserTokenModal = () => ({type: TokensActions.HIDE_DELETE_USER_TOKEN_MODAL});
 
-  fetchUserTokens() {
-    return {type: TokensActions.FETCH_USER_TOKENS};
-  }
+  fetchUserTokens = () => ({type: TokensActions.FETCH_USER_TOKENS});
 
-  fetchUserTokensSuccess(tokens: Token[]) {
-    return {type: TokensActions.FETCH_USER_TOKENS_SUCCESS, tokens};
-  }
+  fetchUserTokensSuccess = (tokens: Token[]) => ({type: TokensActions.FETCH_USER_TOKENS_SUCCESS, tokens});
 
-  fetchUserTokensFail() {
-    return {type: TokensActions.FETCH_USER_TOKENS_FAIL};
-  }
+  fetchUserTokensFail = () => ({type: TokensActions.FETCH_USER_TOKENS_FAIL});
 
-  addUserToken() {
-    return {type: TokensActions.ADD_USER_TOKEN};
-  }
+  addUserToken = () => ({type: TokensActions.ADD_USER_TOKEN});
 
-  addUserTokenSuccess(token: Token) {
-    return {type: TokensActions.ADD_USER_TOKEN_SUCCESS, token};
-  }
+  addUserTokenSuccess = (token: Token) => ({type: TokensActions.ADD_USER_TOKEN_SUCCESS, token});
 
-  addUserTokenFail() {
-    return {type: TokensActions.ADD_USER_TOKEN_FAIL};
-  }
+  addUserTokenFail = () => ({type: TokensActions.ADD_USER_TOKEN_FAIL});
 
-  deleteUserToken(token: Token) {
-    return {type: TokensActions.DELETE_USER_TOKEN, token};
-  }
+  deleteUserToken = () => ({type: TokensActions.DELETE_USER_TOKEN});
 
-  deleteUserTokenSuccess(token: Token) {
-    return {type: TokensActions.DELETE_USER_TOKEN_SUCCESS, token};
-  }
+  deleteUserTokenSuccess = (token: Token) => ({type: TokensActions.DELETE_USER_TOKEN_SUCCESS, token});
 
-  deleteUserTokenFail() {
-    return {type: TokensActions.DELETE_USER_TOKEN_FAIL};
-  }
+  deleteUserTokenFail = () => ({type: TokensActions.DELETE_USER_TOKEN_FAIL});
 }

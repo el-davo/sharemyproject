@@ -5,6 +5,7 @@ export const tokensState: TokensState = {
   showAddUserTokenModal: false,
   showDeleteUserTokenModel: false,
   addingToken: '',
+  deletingToken: null,
   tokens: []
 };
 
@@ -15,6 +16,7 @@ export interface TokensState {
   showAddUserTokenModal: boolean;
   showDeleteUserTokenModel: boolean;
   addingToken: string;
+  deletingToken: Token;
   tokens: Token[]
 }
 

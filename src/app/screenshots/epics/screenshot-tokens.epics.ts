@@ -24,4 +24,35 @@ export class ScreenshotTokensEpics {
           .catch(err => Observable.of(this.tokensActions.fetchUserTokensFail()));
       });
   };
+
+  addUserToken = (action$, store) => {
+    return action$.ofType(TokensActions.ADD_USER_TOKEN)
+      .mergeMap(() => {
+        const {access_token} = store.getState().login.auth;
+
+        return this.tokensService.addUserToken(access_token)
+          .mergeMap(token => {
+            return Observable.concat(
+              Observable.of(this.tokensActions.addUserTokenSuccess(token)),
+              Observable.of(this.tokensActions.hideAddUserTokenModal()))
+          })
+          .catch(err => Observable.of(this.tokensActions.addUserTokenFail()));
+      });
+  };
+
+  deleteUserToken = (action$, store) => {
+    return action$.ofType(TokensActions.DELETE_USER_TOKEN)
+      .mergeMap(() => {
+        const {access_token} = store.getState().login.auth;
+        const {deletingToken} = store.getState().tokens;
+
+        return this.tokensService.deleteUserToken(access_token, deletingToken)
+          .mergeMap(() => {
+            return Observable.concat(
+              Observable.of(this.tokensActions.deleteUserTokenSuccess(deletingToken)),
+              Observable.of(this.tokensActions.hideDeleteUserTokenModal()))
+          })
+          .catch(err => Observable.of(this.tokensActions.fetchUserTokensFail()));
+      });
+  };
 }

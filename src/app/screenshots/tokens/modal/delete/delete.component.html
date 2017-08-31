@@ -1,0 +1,13 @@
+<clr-modal [clrModalClosable]="false"
+           [clrModalOpen]="(tokens$ | async)?.showDeleteUserTokenModel">
+  <h3 class="modal-title">Alert</h3>
+  <div class="modal-body">
+    Are you sure you want to delete this token?
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="hideDeleteUserTokenModal()">Cancel</button>
+    <button type="button" class="btn btn-primary" [clrLoading]="(tokens$ | async)?.isDeletingUserToken"
+            (click)="deleteUserToken()">Ok
+    </button>
+  </div>
+</clr-modal>

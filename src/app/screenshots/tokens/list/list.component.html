@@ -1,5 +1,29 @@
-<div class="text-center" *ngIf="(tokens$ | async)?.isFetchingUserTokens">
-  <span class="spinner spinner-md">
+<div class="text-center">
+  <span class="spinner spinner-md" *ngIf="(tokens$ | async)?.isFetchingUserTokens">
     Loading...
   </span>
+
+  <app-screenshots-tokens-empty
+    *ngIf="(tokens$ | async)?.tokens.length === 0 && !(tokens$ | async)?.isFetchingUserTokens">
+  </app-screenshots-tokens-empty>
+
+  <app-md-list *ngFor="let token of (tokens$ | async)?.tokens">
+    <app-md-list-item [primaryText]="token?.id">
+      <app-md-list-right-icon-button>
+        <clr-dropdown [clrMenuPosition]="'bottom-right'">
+          <button type="button"
+                  class="dropdown-toggle"
+                  clrDropdownToggle>
+            <clr-icon shape="ellipsis-vertical"></clr-icon>
+          </button>
+          <clr-dropdown-menu>
+            <button type="button"
+                    (click)="showDeleteUserTokenModal(token)"
+                    clrDropdownItem>Delete
+            </button>
+          </clr-dropdown-menu>
+        </clr-dropdown>
+      </app-md-list-right-icon-button>
+    </app-md-list-item>
+  </app-md-list>
 </div>
