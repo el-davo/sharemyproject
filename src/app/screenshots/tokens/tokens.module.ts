@@ -10,7 +10,7 @@ import {ClrLoadingModule} from 'clarity-angular/utils/loading/loading.module';
 import {AddComponent} from './modal/add/add.component';
 import {ClrModalModule} from 'clarity-angular/modal/modal.module';
 import {ClrDropdownModule} from 'clarity-angular/popover/dropdown/dropdown.module';
-import { DeleteComponent } from './modal/delete/delete.component';
+import {DeleteComponent} from './modal/delete/delete.component';
 
 @NgModule({
   imports: [

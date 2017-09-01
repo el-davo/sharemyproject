@@ -1,11 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { S3Component } from './s3.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {S3Component} from './s3.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [S3Component]
+  declarations: [
+    S3Component
+  ],
+  exports: [
+    S3Component
+  ]
 })
-export class S3Module { }
+export class S3Module {
+}

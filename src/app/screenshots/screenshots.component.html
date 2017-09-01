@@ -1,0 +1,15 @@
+<div class="content-container">
+  <div class="content-area">
+    <router-outlet></router-outlet>
+  </div>
+  <clr-vertical-nav [clrVerticalNavCollapsible]="true">
+    <a clrVerticalNavLink routerLink="./tokens" routerLinkActive="active">
+      <clr-icon clrVerticalNavIcon shape="list"></clr-icon>
+      Tokens
+    </a>
+    <a clrVerticalNavLink routerLink="./s3" routerLinkActive="active">
+      <clr-icon clrVerticalNavIcon shape="storage"></clr-icon>
+      S3 Configuration
+    </a>
+  </clr-vertical-nav>
+</div>

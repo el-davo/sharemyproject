@@ -1,9 +1,9 @@
-<clr-dropdown clrMenuPosition="bottom-right">
+<clr-dropdown clrPosition="bottom-right">
   <button class="nav-icon" clrDropdownToggle>
     <img class="avatar" [src]="(userData$ | async)?.identity?.profile?.photos[0]?.value">
   </button>
   <clr-dropdown-menu>
-    <a [routerLink]="['screenshots/tokens']" clrDropdownItem>Screenshot Tokens</a>
+    <a [routerLink]="['screenshots/admin/tokens']" clrDropdownItem>Screenshot Tokens</a>
     <a (click)="showLogoutModal()" clrDropdownItem>Log out</a>
   </clr-dropdown-menu>
 </clr-dropdown>
