@@ -29,7 +29,7 @@ export class FeedbackEpics {
         const {form} = store.getState().feedback;
 
         return this.feedbackService.addFeedback(form)
-          .mergeMap(projectList => {
+          .mergeMap(() => {
             const message = 'Thanks for helping us to improve our user experience';
             this.toaster.pop('success', 'Success', message);
 

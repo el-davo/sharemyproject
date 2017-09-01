@@ -1,5 +1,5 @@
-<div class="text-center">
-  <span class="spinner spinner-md" *ngIf="(tokens$ | async)?.isFetchingUserTokens">
+<div>
+  <span class="spinner spinner-md text-center" *ngIf="(tokens$ | async)?.isFetchingUserTokens">
     Loading...
   </span>
 
@@ -8,7 +8,8 @@
   </app-screenshots-tokens-empty>
 
   <app-md-list *ngFor="let token of (tokens$ | async)?.tokens">
-    <app-md-list-item [primaryText]="token?.id">
+    <app-md-list-item [primaryText]="token?.id"
+                      [secondaryText]="'Token'">
       <app-md-list-right-icon-button>
         <clr-dropdown [clrMenuPosition]="'bottom-right'">
           <button type="button"

@@ -8,10 +8,13 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {TokensActions} from '../tokens/tokens.actions';
 import {TokensService} from '../tokens.service';
+import {ToasterService} from 'angular2-toaster';
 
 @Injectable()
 export class ScreenshotTokensEpics {
-  constructor(private tokensService: TokensService, private tokensActions: TokensActions) {
+  constructor(private toaster: ToasterService,
+              private tokensService: TokensService,
+              private tokensActions: TokensActions) {
   }
 
   fetchUserTokens = (action$, store) => {
@@ -32,6 +35,9 @@ export class ScreenshotTokensEpics {
 
         return this.tokensService.addUserToken(access_token)
           .mergeMap(token => {
+
+            this.toaster.pop('success', 'Success', 'New token has been created');
+
             return Observable.concat(
               Observable.of(this.tokensActions.addUserTokenSuccess(token)),
               Observable.of(this.tokensActions.hideAddUserTokenModal()))
@@ -48,6 +54,9 @@ export class ScreenshotTokensEpics {
 
         return this.tokensService.deleteUserToken(access_token, deletingToken)
           .mergeMap(() => {
+
+            this.toaster.pop('success', 'Success', 'Token has been deleted successfully');
+
             return Observable.concat(
               Observable.of(this.tokensActions.deleteUserTokenSuccess(deletingToken)),
               Observable.of(this.tokensActions.hideDeleteUserTokenModal()))
