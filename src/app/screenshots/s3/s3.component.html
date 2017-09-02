@@ -1,3 +1,11 @@
-<p>
-  s3 works!
-</p>
+<div>
+  <div class="text-center" *ngIf="(s3$ | async)?.isFetchingS3Configs">
+    <span class="spinner spinner-md">
+      Loading...
+    </span>
+  </div>
+
+  <app-s3-config-empty *ngIf="!(s3$ | async)?.isFetchingS3Configs && !(s3$ | async)?.s3Config">
+
+  </app-s3-config-empty>
+</div>

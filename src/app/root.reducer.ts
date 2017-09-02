@@ -10,6 +10,7 @@ import {searchReducer as search} from './search/search.reducer';
 import {landingReducer as landing} from './landing/landing.reducer';
 import {feedbackReducer as feedback} from './feedback/feedback.reducer';
 import {tokensReducer as tokens} from './screenshots/tokens/tokens.reducer';
+import {s3Reducer as s3} from './screenshots/s3/s3.reducer';
 
 export const rootReducer = composeReducers(
   defaultFormReducer(),
@@ -23,6 +24,7 @@ export const rootReducer = composeReducers(
     search,
     landing,
     feedback,
-    tokens
+    tokens,
+    s3
   })
 );

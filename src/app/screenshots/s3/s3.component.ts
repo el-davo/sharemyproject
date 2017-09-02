@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {S3Actions} from './s3.actions';
+import {dispatch, select} from '@angular-redux/store';
+import {Observable} from 'rxjs/Observable';
+import {S3State} from './s3.state';
 
 @Component({
   selector: 'app-s3',
@@ -7,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class S3Component implements OnInit {
 
-  constructor() { }
+  @select('s3') readonly s3$: Observable<S3State>;
 
-  ngOnInit() {
+  constructor(private s3Actions: S3Actions) {
   }
+
+  @dispatch()
+  ngOnInit = () => this.s3Actions.fetchS3Configs();
 
 }

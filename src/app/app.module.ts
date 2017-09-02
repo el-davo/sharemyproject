@@ -109,7 +109,8 @@ export class AppModule {
       this.feedbackEpics.addFeedback,
       this.screenshotTokensEpics.fetchUserTokens,
       this.screenshotTokensEpics.addUserToken,
-      this.screenshotTokensEpics.deleteUserToken
+      this.screenshotTokensEpics.deleteUserToken,
+      this.screenshotTokensEpics.fetchS3Config
     );
 
     const middleware = [

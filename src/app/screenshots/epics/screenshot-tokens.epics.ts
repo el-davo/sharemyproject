@@ -9,12 +9,16 @@ import {Observable} from 'rxjs/Observable';
 import {TokensActions} from '../tokens/tokens.actions';
 import {TokensService} from '../tokens.service';
 import {ToasterService} from 'angular2-toaster';
+import {S3Actions} from '../s3/s3.actions';
+import {S3Service} from '../s3/s3.service';
 
 @Injectable()
 export class ScreenshotTokensEpics {
   constructor(private toaster: ToasterService,
               private tokensService: TokensService,
-              private tokensActions: TokensActions) {
+              private tokensActions: TokensActions,
+              private s3Actions: S3Actions,
+              private s3Service: S3Service) {
   }
 
   fetchUserTokens = (action$, store) => {
@@ -62,6 +66,17 @@ export class ScreenshotTokensEpics {
               Observable.of(this.tokensActions.hideDeleteUserTokenModal()))
           })
           .catch(err => Observable.of(this.tokensActions.fetchUserTokensFail()));
+      });
+  };
+
+  fetchS3Config = (action$, store) => {
+    return action$.ofType(S3Actions.FETCH_S3_CONFIGS)
+      .mergeMap(() => {
+        const {access_token} = store.getState().login.auth;
+
+        return this.s3Service.fetchS3Config(access_token)
+          .map(s3Config => this.s3Actions.fetchS3ConfigsSuccess(s3Config))
+          .catch(err => Observable.of(this.s3Actions.fetchS3ConfigsFail()));
       });
   };
 }
