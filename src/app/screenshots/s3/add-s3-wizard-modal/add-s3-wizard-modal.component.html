@@ -3,7 +3,7 @@
 
   <clr-wizard-button [type]="'cancel'" (click)="hideAddS3WizardModal()">Cancel</clr-wizard-button>
   <clr-wizard-button [type]="'previous'">Back</clr-wizard-button>
-  <clr-wizard-button [type]="'next'">Next</clr-wizard-button>
+  <clr-wizard-button [type]="'next'" (click)="veryS3Config()">Next</clr-wizard-button>
   <clr-wizard-button [type]="'finish'">Finish</clr-wizard-button>
 
   <clr-wizard-page
@@ -14,7 +14,7 @@
     <app-s3-config-form></app-s3-config-form>
   </clr-wizard-page>
 
-  <clr-wizard-page>
+  <clr-wizard-page [clrWizardPageNextDisabled]="!(s3$ | async)?.isS3VerificationSuccess">
     <ng-template clrPageTitle>Verification</ng-template>
     <div>
       <app-s3-verification-form></app-s3-verification-form>

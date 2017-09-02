@@ -11,6 +11,10 @@ export class S3Actions {
   static SHOW_ADD_S3_WIZARD_MODAL = 's3/SHOW_ADD_S3_WIZARD_MODAL';
   static HIDE_ADD_S3_WIZARD_MODAL = 's3/HIDE_ADD_S3_WIZARD_MODAL';
 
+  static VERIFY_S3_CONFIG = 's3/VERIFY_S3_CONFIG';
+  static VERIFY_S3_CONFIG_SUCCESS = 's3/VERIFY_S3_CONFIG_SUCCESS';
+  static VERIFY_S3_CONFIG_FAIL = 's3/VERIFY_S3_CONFIG_FAIL';
+
   fetchS3Configs = () => ({type: S3Actions.FETCH_S3_CONFIGS});
 
   fetchS3ConfigsSuccess = (s3Config: S3Config) => ({type: S3Actions.FETCH_S3_CONFIGS_SUCCESS, s3Config});
@@ -20,4 +24,10 @@ export class S3Actions {
   showAddS3WizardModal = () => ({type: S3Actions.SHOW_ADD_S3_WIZARD_MODAL});
 
   hideAddS3WizardModal = () => ({type: S3Actions.HIDE_ADD_S3_WIZARD_MODAL});
+
+  veryS3Config = () => ({type: S3Actions.VERIFY_S3_CONFIG});
+
+  verifyS3ConfigSuccess = () => ({type: S3Actions.VERIFY_S3_CONFIG_SUCCESS});
+
+  verifyS3ConfigFail = () => ({type: S3Actions.VERIFY_S3_CONFIG_FAIL});
 }

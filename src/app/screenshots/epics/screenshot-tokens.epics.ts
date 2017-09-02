@@ -79,4 +79,16 @@ export class ScreenshotTokensEpics {
           .catch(err => Observable.of(this.s3Actions.fetchS3ConfigsFail()));
       });
   };
+
+  verifyS3Config = (action$, store) => {
+    return action$.ofType(S3Actions.VERIFY_S3_CONFIG)
+      .mergeMap(() => {
+        const {access_token} = store.getState().login.auth;
+        const {s3ConfigForm} = store.getState().s3;
+
+        return this.s3Service.verifyS3Config(access_token, s3ConfigForm)
+          .map(s3Config => this.s3Actions.verifyS3ConfigSuccess())
+          .catch(err => Observable.of(this.s3Actions.verifyS3ConfigFail()));
+      });
+  };
 }

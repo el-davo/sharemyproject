@@ -13,6 +13,12 @@ export const s3Reducer = (state: S3State = s3State, action): S3State => {
       return {...state, showAddS3WizardModal: true};
     case S3Actions.HIDE_ADD_S3_WIZARD_MODAL:
       return {...state, showAddS3WizardModal: false};
+    case S3Actions.VERIFY_S3_CONFIG:
+      return {...state, isVerifyingS3Config: true, isS3VerificationSuccess: false};
+    case S3Actions.VERIFY_S3_CONFIG_SUCCESS:
+      return {...state, isVerifyingS3Config: false, isS3VerificationSuccess: true};
+    case S3Actions.VERIFY_S3_CONFIG_FAIL:
+      return {...state, isVerifyingS3Config: false, isS3VerificationSuccess: false};
     default:
       return state;
   }

@@ -1,6 +1,8 @@
 export const s3State: S3State = {
   isFetchingS3Configs: false,
   showAddS3WizardModal: false,
+  isVerifyingS3Config: false,
+  isS3VerificationSuccess: false,
   s3Config: {
     key: '',
     secretKey: '',
@@ -16,6 +18,8 @@ export const s3State: S3State = {
 export interface S3State {
   isFetchingS3Configs: boolean;
   showAddS3WizardModal: boolean;
+  isVerifyingS3Config: boolean;
+  isS3VerificationSuccess: boolean;
   s3Config: S3Config,
   s3ConfigForm: S3Config
 }

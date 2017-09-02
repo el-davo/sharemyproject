@@ -19,4 +19,6 @@ export class AddS3WizardModalComponent {
   @dispatch()
   hideAddS3WizardModal = () => this.s3Actions.hideAddS3WizardModal();
 
+  @dispatch()
+  veryS3Config = () => this.s3Actions.veryS3Config();
 }
