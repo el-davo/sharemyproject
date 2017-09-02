@@ -8,4 +8,6 @@
   <app-s3-config-empty *ngIf="!(s3$ | async)?.isFetchingS3Configs && !(s3$ | async)?.s3Config">
 
   </app-s3-config-empty>
+
+  <app-add-s3-wizard-modal></app-add-s3-wizard-modal>
 </div>

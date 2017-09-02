@@ -1,0 +1,23 @@
+<clr-wizard #wizardmd [clrWizardOpen]="(s3$ | async)?.showAddS3WizardModal" clrWizardSize="lg">
+  <clr-wizard-title>S3 Configuration</clr-wizard-title>
+
+  <clr-wizard-button [type]="'cancel'" (click)="hideAddS3WizardModal()">Cancel</clr-wizard-button>
+  <clr-wizard-button [type]="'previous'">Back</clr-wizard-button>
+  <clr-wizard-button [type]="'next'">Next</clr-wizard-button>
+  <clr-wizard-button [type]="'finish'">Finish</clr-wizard-button>
+
+  <clr-wizard-page
+    [clrWizardPageNextDisabled]="(s3$ | async)?.s3ConfigForm.key.length === 0 ||
+    (s3$ | async)?.s3ConfigForm.secretKey.length === 0 ||
+    (s3$ | async)?.s3ConfigForm.bucket.length === 0">
+    <ng-template clrPageTitle>Details</ng-template>
+    <app-s3-config-form></app-s3-config-form>
+  </clr-wizard-page>
+
+  <clr-wizard-page>
+    <ng-template clrPageTitle>Verification</ng-template>
+    <div>
+      <app-s3-verification-form></app-s3-verification-form>
+    </div>
+  </clr-wizard-page>
+</clr-wizard>

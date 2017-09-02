@@ -1,0 +1,53 @@
+<form [connect]="['s3', 's3ConfigForm']" autocomplete="off">
+  <section class="form-block">
+
+    <div class="form-group">
+      <label class="required">Key</label>
+      <label for="key"
+             aria-haspopup="true"
+             role="tooltip">
+        <input type="text"
+               name="key"
+               id="key"
+               size="32"
+               ngModel
+               required
+               maxlength="256"
+               #name="ngModel">
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label class="required">Secret Key</label>
+      <label for="secretKey"
+             aria-haspopup="true"
+             role="tooltip">
+        <input type="password"
+               name="secretKey"
+               id="secretKey"
+               size="32"
+               ngModel
+               required
+               maxlength="256"
+               #name="ngModel">
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label class="required">Bucket</label>
+      <label for="bucket"
+             aria-haspopup="true"
+             role="tooltip">
+        <input type="text"
+               name="bucket"
+               id="bucket"
+               size="32"
+               ngModel
+               required
+               maxlength="256"
+               #name="ngModel">
+      </label>
+    </div>
+
+  </section>
+</form>
