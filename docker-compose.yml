@@ -57,6 +57,7 @@ services:
           - sql_hostname=172.18.0.1
           - sql_username=username
           - sql_password=password
+          - cipherPassword=testCipher
         ports:
           - "3001:3000"
         volumes:
