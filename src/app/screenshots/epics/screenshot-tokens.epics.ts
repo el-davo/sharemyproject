@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/concat';
+import 'rxjs/add/operator/delay';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {TokensActions} from '../tokens/tokens.actions';
@@ -74,8 +75,8 @@ export class ScreenshotTokensEpics {
       .mergeMap(() => {
         const {access_token} = store.getState().login.auth;
 
-        return this.s3Service.fetchS3Config(access_token)
-          .map(s3Config => this.s3Actions.fetchS3ConfigsSuccess(s3Config))
+        return this.s3Service.fetchS3Configs(access_token)
+          .map(s3Configs => this.s3Actions.fetchS3ConfigsSuccess(s3Configs))
           .catch(err => Observable.of(this.s3Actions.fetchS3ConfigsFail()));
       });
   };
@@ -87,7 +88,25 @@ export class ScreenshotTokensEpics {
         const {s3ConfigForm} = store.getState().s3;
 
         return this.s3Service.verifyS3Config(access_token, s3ConfigForm)
-          .map(s3Config => this.s3Actions.verifyS3ConfigSuccess())
+          .map(success => {
+            return success ? this.s3Actions.verifyS3ConfigSuccess() : this.s3Actions.verifyS3ConfigFail();
+          })
+          .delay(1500)
+          .catch(err => Observable.of(this.s3Actions.verifyS3ConfigFail()));
+      });
+  };
+
+  addS3Config = (action$, store) => {
+    return action$.ofType(S3Actions.VERIFY_S3_CONFIG)
+      .mergeMap(() => {
+        const {access_token} = store.getState().login.auth;
+        const {s3ConfigForm} = store.getState().s3;
+
+        return this.s3Service.verifyS3Config(access_token, s3ConfigForm)
+          .map(success => {
+            return success ? this.s3Actions.verifyS3ConfigSuccess() : this.s3Actions.verifyS3ConfigFail();
+          })
+          .delay(1500)
           .catch(err => Observable.of(this.s3Actions.verifyS3ConfigFail()));
       });
   };

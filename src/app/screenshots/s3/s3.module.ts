@@ -10,20 +10,26 @@ import {S3ConfigFormComponent} from './add-s3-wizard-modal/s3-config-form/s3-con
 import {S3VerificationFormComponent} from './add-s3-wizard-modal/s3-verification-form/s3-verification-form.component';
 import {NgReduxFormModule} from '@angular-redux/form/dist/source';
 import {FormsModule} from '@angular/forms';
+import {FailComponent} from './add-s3-wizard-modal/s3-verification-form/fail/fail.component';
+import {SuccessComponent} from './add-s3-wizard-modal/s3-verification-form/success/success.component';
+import {ClrIconModule} from 'clarity-angular/icon/icon.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ClrWizardModule,
     NgReduxFormModule,
-    FormsModule
+    FormsModule,
+    ClrIconModule
   ],
   declarations: [
     S3Component,
     EmptyComponent,
     AddS3WizardModalComponent,
     S3ConfigFormComponent,
-    S3VerificationFormComponent
+    S3VerificationFormComponent,
+    FailComponent,
+    SuccessComponent
   ],
   exports: [
     S3Component

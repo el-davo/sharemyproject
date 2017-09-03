@@ -15,9 +15,13 @@ export class S3Actions {
   static VERIFY_S3_CONFIG_SUCCESS = 's3/VERIFY_S3_CONFIG_SUCCESS';
   static VERIFY_S3_CONFIG_FAIL = 's3/VERIFY_S3_CONFIG_FAIL';
 
+  static ADD_S3_CONFIG = 's3/ADD_S3_CONFIG';
+  static ADD_S3_CONFIG_SUCCESS = 's3/ADD_S3_CONFIG_SUCCESS';
+  static ADD_S3_CONFIG_FAIL = 's3/ADD_S3_CONFIG_FAIL';
+
   fetchS3Configs = () => ({type: S3Actions.FETCH_S3_CONFIGS});
 
-  fetchS3ConfigsSuccess = (s3Config: S3Config) => ({type: S3Actions.FETCH_S3_CONFIGS_SUCCESS, s3Config});
+  fetchS3ConfigsSuccess = (s3Configs: S3Config[]) => ({type: S3Actions.FETCH_S3_CONFIGS_SUCCESS, s3Configs});
 
   fetchS3ConfigsFail = () => ({type: S3Actions.FETCH_S3_CONFIGS_FAIL});
 
@@ -30,4 +34,10 @@ export class S3Actions {
   verifyS3ConfigSuccess = () => ({type: S3Actions.VERIFY_S3_CONFIG_SUCCESS});
 
   verifyS3ConfigFail = () => ({type: S3Actions.VERIFY_S3_CONFIG_FAIL});
+
+  addS3Config = () => ({type: S3Actions.ADD_S3_CONFIG});
+
+  addS3ConfigSuccess = (s3Config: S3Config) => ({type: S3Actions.ADD_S3_CONFIG_SUCCESS, s3Config});
+
+  addS3ConfigFail = () => ({type: S3Actions.ADD_S3_CONFIG_FAIL});
 }

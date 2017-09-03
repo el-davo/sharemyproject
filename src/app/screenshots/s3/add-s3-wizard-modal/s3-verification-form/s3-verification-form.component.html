@@ -1,3 +1,17 @@
-<p>
-  s3-verification-form works!
-</p>
+<div>
+
+  <div *ngIf="(s3$ | async)?.isVerifyingS3Config">
+    <h4 class="text-center">Verifying S3 Configuration</h4>
+    <span class="spinner spinner-md text-center">
+      Loading...
+    </span>
+  </div>
+
+  <div *ngIf="!(s3$ | async)?.isVerifyingS3Config && (s3$ | async)?.isS3VerificationSuccess">
+    <app-s3-verification-success></app-s3-verification-success>
+  </div>
+
+  <div *ngIf="!(s3$ | async)?.isVerifyingS3Config && !(s3$ | async)?.isS3VerificationSuccess">
+    <app-s3-verification-fail></app-s3-verification-fail>
+  </div>
+</div>

@@ -111,7 +111,8 @@ export class AppModule {
       this.screenshotTokensEpics.addUserToken,
       this.screenshotTokensEpics.deleteUserToken,
       this.screenshotTokensEpics.fetchS3Config,
-      this.screenshotTokensEpics.verifyS3Config
+      this.screenshotTokensEpics.verifyS3Config,
+      this.screenshotTokensEpics.addS3Config
     );
 
     const middleware = [
