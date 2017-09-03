@@ -21,4 +21,7 @@ export class AddS3WizardModalComponent {
 
   @dispatch()
   veryS3Config = () => this.s3Actions.veryS3Config();
+
+  @dispatch()
+  addS3Config = () => this.s3Actions.addS3Config();
 }

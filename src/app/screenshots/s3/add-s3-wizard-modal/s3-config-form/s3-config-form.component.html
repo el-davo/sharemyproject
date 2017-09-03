@@ -2,6 +2,22 @@
   <section class="form-block">
 
     <div class="form-group">
+      <label class="required">Name</label>
+      <label for="name"
+             aria-haspopup="true"
+             role="tooltip">
+        <input type="text"
+               name="name"
+               id="name"
+               size="32"
+               ngModel
+               required
+               maxlength="256"
+               #name="ngModel">
+      </label>
+    </div>
+
+    <div class="form-group">
       <label class="required">Key</label>
       <label for="key"
              aria-haspopup="true"

@@ -19,4 +19,6 @@ export class S3Component implements OnInit {
   @dispatch()
   ngOnInit = () => this.s3Actions.fetchS3Configs();
 
+  @dispatch()
+  showAddS3WizardModal = () => this.s3Actions.showAddS3WizardModal();
 }

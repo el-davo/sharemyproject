@@ -1,0 +1,13 @@
+<clr-modal [clrModalClosable]="false"
+           [clrModalOpen]="(s3$ | async)?.showDeleteS3ConfigModal">
+  <h3 class="modal-title">Warning</h3>
+  <div class="modal-body">
+    Are you sure you want to delete "{{(s3$ | async)?.deletingS3Config?.name}}"
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="hideDeleteS3ConfigModal()">Cancel</button>
+    <button type="button" class="btn btn-primary" [clrLoading]="(s3$ | async)?.isDeletingS3Config"
+            (click)="deleteS3Config()">Ok
+    </button>
+  </div>
+</clr-modal>

@@ -97,17 +97,41 @@ export class ScreenshotTokensEpics {
   };
 
   addS3Config = (action$, store) => {
-    return action$.ofType(S3Actions.VERIFY_S3_CONFIG)
+    return action$.ofType(S3Actions.ADD_S3_CONFIG)
       .mergeMap(() => {
         const {access_token} = store.getState().login.auth;
+        const {id} = store.getState().login.userData.user;
         const {s3ConfigForm} = store.getState().s3;
 
-        return this.s3Service.verifyS3Config(access_token, s3ConfigForm)
-          .map(success => {
-            return success ? this.s3Actions.verifyS3ConfigSuccess() : this.s3Actions.verifyS3ConfigFail();
+        return this.s3Service.addS3Config(access_token, id, s3ConfigForm)
+          .mergeMap(s3Config => {
+            this.toaster.pop('success', 'Success', 'S3 Configuration has been added successfully');
+
+            return Observable.concat(
+              Observable.of(this.s3Actions.addS3ConfigSuccess(s3Config)),
+              Observable.of(this.s3Actions.hideAddS3WizardModal())
+            )
           })
-          .delay(1500)
-          .catch(err => Observable.of(this.s3Actions.verifyS3ConfigFail()));
+          .catch(err => Observable.of(this.s3Actions.addS3ConfigFail()));
+      });
+  };
+
+  deleteS3Config = (action$, store) => {
+    return action$.ofType(S3Actions.DELETE_S3_CONFIG)
+      .mergeMap(() => {
+        const {access_token} = store.getState().login.auth;
+        const {deletingS3Config} = store.getState().s3;
+
+        return this.s3Service.deleteS3Config(access_token, deletingS3Config)
+          .mergeMap(() => {
+            this.toaster.pop('success', 'Success', 'S3 Configuration has been deleted successfully');
+
+            return Observable.concat(
+              Observable.of(this.s3Actions.deleteS3ConfigSuccess(deletingS3Config)),
+              Observable.of(this.s3Actions.hideDeleteS3ConfigModal())
+            )
+          })
+          .catch(err => Observable.of(this.s3Actions.deleteS3ConfigFail()));
       });
   };
 }

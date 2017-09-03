@@ -13,6 +13,12 @@ import {FormsModule} from '@angular/forms';
 import {FailComponent} from './add-s3-wizard-modal/s3-verification-form/fail/fail.component';
 import {SuccessComponent} from './add-s3-wizard-modal/s3-verification-form/success/success.component';
 import {ClrIconModule} from 'clarity-angular/icon/icon.module';
+import {ClrDropdownModule} from 'clarity-angular/popover/dropdown/dropdown.module';
+import {ListComponent} from './list/list.component';
+import {AppCommonModule} from '../../common/common.module';
+import {DeleteComponent} from './modal/delete/delete.component';
+import {ClrModalModule} from 'clarity-angular/modal/modal.module';
+import {ClrLoadingModule} from 'clarity-angular/utils/loading/loading.module';
 
 @NgModule({
   imports: [
@@ -20,7 +26,11 @@ import {ClrIconModule} from 'clarity-angular/icon/icon.module';
     ClrWizardModule,
     NgReduxFormModule,
     FormsModule,
-    ClrIconModule
+    ClrIconModule,
+    AppCommonModule,
+    ClrDropdownModule,
+    ClrModalModule,
+    ClrLoadingModule
   ],
   declarations: [
     S3Component,
@@ -29,7 +39,9 @@ import {ClrIconModule} from 'clarity-angular/icon/icon.module';
     S3ConfigFormComponent,
     S3VerificationFormComponent,
     FailComponent,
-    SuccessComponent
+    SuccessComponent,
+    ListComponent,
+    DeleteComponent
   ],
   exports: [
     S3Component

@@ -5,9 +5,28 @@
     </span>
   </div>
 
-  <app-s3-config-empty *ngIf="!(s3$ | async)?.isFetchingS3Configs && !(s3$ | async)?.s3Config">
+  <app-s3-config-empty *ngIf="!(s3$ | async)?.isFetchingS3Configs && (s3$ | async)?.s3Configs.length === 0">
 
   </app-s3-config-empty>
 
+  <div class="col-xs-12" *ngIf="!(s3$ | async)?.isFetchingS3Configs && (s3$ | async)?.s3Configs.length > 0">
+    <div class="col-xs-12">
+      <button class="btn btn-outline" (click)="showAddS3WizardModal()">Add S3 Configuration</button>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        S3 Configurations
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <app-s3-configs-list></app-s3-configs-list>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <app-add-s3-wizard-modal></app-add-s3-wizard-modal>
+
+  <app-delete-s3-config-modal></app-delete-s3-config-modal>
 </div>

@@ -4,10 +4,12 @@
   <clr-wizard-button [type]="'cancel'" (click)="hideAddS3WizardModal()">Cancel</clr-wizard-button>
   <clr-wizard-button [type]="'previous'">Back</clr-wizard-button>
   <clr-wizard-button [type]="'next'" (click)="veryS3Config()">Next</clr-wizard-button>
-  <clr-wizard-button [type]="'finish'">Finish</clr-wizard-button>
+  <clr-wizard-button [type]="'finish'" (click)="addS3Config()">Finish</clr-wizard-button>
 
   <clr-wizard-page
-    [clrWizardPageNextDisabled]="(s3$ | async)?.s3ConfigForm.key.length === 0 ||
+    [clrWizardPageNextDisabled]="
+    (s3$ | async)?.s3ConfigForm.name.length === 0 ||
+    (s3$ | async)?.s3ConfigForm.key.length === 0 ||
     (s3$ | async)?.s3ConfigForm.secretKey.length === 0 ||
     (s3$ | async)?.s3ConfigForm.bucket.length === 0">
     <ng-template clrPageTitle>Details</ng-template>

@@ -4,6 +4,15 @@ export const s3State: S3State = {
   isVerifyingS3Config: false,
   isS3VerificationSuccess: false,
   isAddingS3Config: false,
+  showDeleteS3ConfigModal: false,
+  isDeletingS3Config: false,
+  deletingS3Config: {
+    id: '',
+    name: '',
+    key: '',
+    secretKey: '',
+    bucket: ''
+  },
   s3Configs: [],
   s3ConfigForm: {
     name: '',
@@ -19,11 +28,15 @@ export interface S3State {
   isVerifyingS3Config: boolean;
   isS3VerificationSuccess: boolean;
   isAddingS3Config: boolean;
+  showDeleteS3ConfigModal: boolean;
+  isDeletingS3Config: boolean;
+  deletingS3Config: S3Config;
   s3Configs: S3Config[],
   s3ConfigForm: S3Config
 }
 
 export interface S3Config {
+  id?: string;
   name: string,
   key: string;
   secretKey: string;
