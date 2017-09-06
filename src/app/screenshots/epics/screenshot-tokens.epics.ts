@@ -37,8 +37,9 @@ export class ScreenshotTokensEpics {
     return action$.ofType(TokensActions.ADD_USER_TOKEN)
       .mergeMap(() => {
         const {access_token} = store.getState().login.auth;
+        const {addingToken} = store.getState().tokens;
 
-        return this.tokensService.addUserToken(access_token)
+        return this.tokensService.addUserToken(access_token, addingToken)
           .mergeMap(token => {
 
             this.toaster.pop('success', 'Success', 'New token has been created');
@@ -47,7 +48,11 @@ export class ScreenshotTokensEpics {
               Observable.of(this.tokensActions.addUserTokenSuccess(token)),
               Observable.of(this.tokensActions.hideAddUserTokenModal()))
           })
-          .catch(err => Observable.of(this.tokensActions.addUserTokenFail()));
+          .catch(() => {
+            this.toaster.pop('error', 'Error', 'An error occurred creating token');
+
+            return Observable.of(this.tokensActions.addUserTokenFail())
+          });
       });
   };
 

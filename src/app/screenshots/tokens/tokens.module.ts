@@ -11,6 +11,8 @@ import {AddComponent} from './modal/add/add.component';
 import {ClrModalModule} from 'clarity-angular/modal/modal.module';
 import {ClrDropdownModule} from 'clarity-angular/popover/dropdown/dropdown.module';
 import {DeleteComponent} from './modal/delete/delete.component';
+import {FormsModule} from '@angular/forms';
+import {NgReduxFormModule} from '@angular-redux/form/dist/source';
 
 @NgModule({
   imports: [
@@ -19,7 +21,9 @@ import {DeleteComponent} from './modal/delete/delete.component';
     AppCommonModule,
     ClrLoadingModule,
     ClrModalModule,
-    ClrDropdownModule
+    ClrDropdownModule,
+    FormsModule,
+    NgReduxFormModule
   ],
   declarations: [
     TokensComponent,

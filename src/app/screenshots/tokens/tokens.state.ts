@@ -4,7 +4,9 @@ export const tokensState: TokensState = {
   isDeletingUserToken: false,
   showAddUserTokenModal: false,
   showDeleteUserTokenModel: false,
-  addingToken: '',
+  addingToken: {
+    name: ''
+  },
   deletingToken: null,
   tokens: []
 };
@@ -15,12 +17,14 @@ export interface TokensState {
   isDeletingUserToken: boolean;
   showAddUserTokenModal: boolean;
   showDeleteUserTokenModel: boolean;
-  addingToken: string;
+  addingToken: Token;
   deletingToken: Token;
   tokens: Token[]
 }
 
 export interface Token {
-  id: string;
-  created: string;
+  id?: string;
+  token?: string;
+  name: string;
+  created?: string;
 }

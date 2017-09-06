@@ -2,11 +2,39 @@
            [clrModalOpen]="(tokens$ | async)?.showAddUserTokenModal">
   <h3 class="modal-title">Alert</h3>
   <div class="modal-body">
-    Are you sure you want to generate a new token?
+    <form [connect]="['tokens', 'addingToken']" autocomplete="off">
+      <section class="form-block">
+
+        <div class="form-group">
+          <label class="required">Name</label>
+          <label for="name"
+                 aria-haspopup="true"
+                 role="tooltip">
+            <input type="text"
+                   name="name"
+                   id="name"
+                   size="32"
+                   ngModel
+                   required
+                   maxlength="256"
+                   #name="ngModel">
+          </label>
+        </div>
+      </section>
+    </form>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline" (click)="hideAddUserTokenModal()">Cancel</button>
-    <button type="button" class="btn btn-primary" [clrLoading]="(tokens$ | async)?.isAddingUserToken"
+
+    <button type="button"
+            class="btn btn-primary"
+            disabled
+            *ngIf="name?.errors?.required">Ok
+    </button>
+    <button type="button"
+            class="btn btn-primary"
+            [clrLoading]="(tokens$ | async)?.isAddingUserToken"
+            *ngIf="!name?.errors?.required"
             (click)="addUserToken()">Ok
     </button>
   </div>

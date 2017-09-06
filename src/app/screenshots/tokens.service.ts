@@ -16,11 +16,11 @@ export class TokensService {
     return this.http.get(`${urls.screenshotsTokensApi}/tokens`, options).map(res => res.json().tokens);
   }
 
-  addUserToken(authorization: string) {
+  addUserToken(authorization: string, token: Token) {
     const headers = new Headers({authorization});
     const options = new RequestOptions({headers});
 
-    return this.http.post(`${urls.screenshotsTokensApi}/tokens`, null, options).map(res => res.json().token);
+    return this.http.post(`${urls.screenshotsTokensApi}/tokens`, token, options).map(res => res.json().token);
   }
 
   deleteUserToken(authorization: string, token: Token) {

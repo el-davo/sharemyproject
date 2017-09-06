@@ -8,8 +8,8 @@
   </app-screenshots-tokens-empty>
 
   <app-md-list *ngFor="let token of (tokens$ | async)?.tokens">
-    <app-md-list-item [primaryText]="token?.id"
-                      [secondaryText]="'Token'">
+    <app-md-list-item [primaryText]="token?.token"
+                      [secondaryText]="token?.name">
       <app-md-list-right-icon-button>
         <clr-dropdown clrPosition="bottom-right">
           <button type="button"
