@@ -7,7 +7,7 @@ services:
     container_name: database.dev
     command: mysqld --user=root --verbose
     ports:
-      - "3306:3306"
+      - 3306:3306
     environment:
       MYSQL_DATABASE: "linkcouch"
       MYSQL_USER: "username"
@@ -27,9 +27,34 @@ services:
       MYSQL_USERNAME: username
       MYSQL_ROOT_PASSWORD: password
 
+  selenium-hub:
+    image: selenium/hub
+    hostname: selenium-hub
+    ports:
+      - 4444:4444
+
+  chrome:
+      image: selenium/node-chrome
+      links:
+        - selenium-hub:hub
+      environment:
+        HUB_PORT_4444_TCP_ADDR: hub
+        HUB_PORT_4444_TCP_PORT: 4444
+      volumes:
+        - /dev/shm:/dev/shm
+
+  fakes3:
+    image: olalond3/fakes3
+    ports:
+      - 4567:4567
+    volumes:
+      - ./s3:/fakes3/data
+    command: >
+      /bin/bash -c "sleep 5; aws --endpoint-url='http://localhost:4567' s3 mb s3://fakes31 --region us-west-1"
+
   linkcouch:
       image: linkcouch-backend:latest
-      hostname: api
+      hostname: linkcouch
       depends_on:
         - db
       environment:
@@ -39,7 +64,7 @@ services:
         - sql_username=username
         - sql_password=password
       ports:
-        - "3000:3000"
+        - 3000:3000
       volumes:
         - yarn:/root/.cache/yarn
       user: node
@@ -48,7 +73,7 @@ services:
 
   linkcouch-screenshots:
         image: linkcouch-screenshots-backend:latest
-        hostname: api
+        hostname: linkcouch-screenshots
         depends_on:
           - db
         environment:
@@ -57,12 +82,18 @@ services:
           - sql_hostname=172.18.0.1
           - sql_username=username
           - sql_password=password
-          - cipherPassword=testCipher
+          - cipherPassword=testCipher,
+          - seleniumHub=selenium-hub
+          - s3_endpoint=fakes3
+          - s3_port=4567
         ports:
-          - "3001:3000"
+          - 3001:3000
         volumes:
           - yarn:/root/.cache/yarn
         user: node
+        links:
+            - selenium-hub
+            - fakes3
         command: >
           /bin/bash -c "sleep 2; node ."
 
