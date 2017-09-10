@@ -1,47 +1,13 @@
-<div class="col-md-12">
-  <div class="card">
-    <div class="card-header">
-      Links
-    </div>
-    <div class="card-block">
-      <div class="card-text">
-
-        <app-md-list>
-          <a [href]="link.url" target="_blank" *ngFor="let link of (links$ | async).links">
-            <app-md-list-item [primaryText]="link.name"
-                              [secondaryText]="link.description">
-              <app-md-list-right-icon-button>
-                <clr-dropdown clrPosition="bottom-left">
-                  <button type="button"
-                          class="dropdown-toggle"
-                          clrDropdownToggle
-                          (click)="$event.preventDefault()">
-                    <clr-icon shape="ellipsis-vertical"></clr-icon>
-                  </button>
-                  <clr-dropdown-menu>
-                    <button type="button"
-                            (click)="showEditLinkModal(link, $event)"
-                            clrDropdownItem>Edit
-                    </button>
-                    <button type="button"
-                            (click)="showDeleteLinkModal(link, $event)"
-                            clrDropdownItem>Delete
-                    </button>
-                  </clr-dropdown-menu>
-                </clr-dropdown>
-              </app-md-list-right-icon-button>
-            </app-md-list-item>
-          </a>
-        </app-md-list>
-
-        <div class="text-center" *ngIf="(links$ | async)?.isFetchingLinks">
-          <span class="spinner spinner-md">
-            Loading...
-          </span>
+<div class="col-xs-12">
+  <div class="row">
+    <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12" *ngFor="let link of (links$ | async).links">
+      <div class="card clickable">
+        <div class="card-header">
+          {{link.name}}
         </div>
-
-        <app-list-empty
-          *ngIf="(links$ | async)?.links.length === 0 && !(links$ | async)?.isFetchingLinks"></app-list-empty>
+        <div class="card-img">
+          <img [src]="link.imageLocation" [alt]="link.description"/>
+        </div>
       </div>
     </div>
   </div>

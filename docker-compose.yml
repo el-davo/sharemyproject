@@ -52,9 +52,19 @@ services:
     command: >
       /bin/bash -c "sleep 5; aws --endpoint-url='http://localhost:4567' s3 mb s3://fakes31 --region us-west-1"
 
+  rabbit:
+      image: rabbitmq:3-management
+      ports:
+        - 8080:15672
+        - 5672:5672
+        - 5671:5671
+      environment:
+        RABBITMQ_DEFAULT_PASS: pass
+        RABBITMQ_DEFAULT_USER: user
+        RABBITMQ_DEFAULT_VHOST: vhost
+
   linkcouch:
       image: linkcouch-backend:latest
-      hostname: linkcouch
       depends_on:
         - db
       environment:
@@ -63,19 +73,25 @@ services:
         - sql_hostname=172.18.0.1
         - sql_username=username
         - sql_password=password
+        - mq_host=rabbit/vhost
+        - mq_username=user
+        - mq_password=pass
       ports:
         - 3000:3000
       volumes:
         - yarn:/root/.cache/yarn
       user: node
+      links:
+        - linkcouch-screenshots
+        - rabbit
       command: >
         /bin/bash -c "sleep 2; node ."
 
   linkcouch-screenshots:
         image: linkcouch-screenshots-backend:latest
-        hostname: linkcouch-screenshots
         depends_on:
           - db
+          - rabbit
         environment:
           - NODE_ENV=production
           - sql_database=linkcouch
@@ -84,18 +100,19 @@ services:
           - sql_password=password
           - cipherPassword=testCipher,
           - seleniumHub=selenium-hub
-          - s3_endpoint=fakes3
-          - s3_port=4567
+          - mq_host=rabbit/vhost
+          - mq_username=user
+          - mq_password=pass
         ports:
           - 3001:3000
         volumes:
           - yarn:/root/.cache/yarn
         user: node
         links:
-            - selenium-hub
-            - fakes3
+          - selenium-hub
+          - rabbit
         command: >
-          /bin/bash -c "sleep 2; node ."
+          /bin/bash -c "sleep 3; node ."
 
 volumes:
   db:

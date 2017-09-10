@@ -1,4 +1,11 @@
-a {
-  text-decoration: none;
-  color: #2A5DB0;
+.container {
+  margin: 10px;
+}
+
+.card-img {
+  opacity: 0.5;
+}
+
+.card-img:hover {
+  opacity: 1;
 }

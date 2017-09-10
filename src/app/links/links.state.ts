@@ -44,4 +44,5 @@ export interface Link {
   isPrivate: boolean;
   description: string;
   url: string;
+  imageLocation?: string;
 }
