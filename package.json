@@ -12,7 +12,10 @@
     "lint:fix": "npm run lint -- -fix",
     "e2e": "ng e2e",
     "prod": "http-server dist -p 3000",
-    "analyze": "webpack-bundle-analyzer dist/stats.json"
+    "analyze": "webpack-bundle-analyzer dist/stats.json",
+    "docker": "docker build -t eahedav/linkcouch-ui .",
+    "docker:tag": "docker tag eahedav/linkcouch-ui eahedav/linkcouch-ui",
+    "docker:push": "docker push eahedav/linkcouch-ui"
   },
   "private": true,
   "dependencies": {
