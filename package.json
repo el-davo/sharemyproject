@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve --open",
     "start:hot": "ng serve --open --hmr -e=hmr",
-    "build": "ng build --prod --stats-json --build-optimizer",
+    "build": "ng build --prod --stats-json --build-optimizer --base-href=/r/projects/1a5/linkcouch-ui/",
     "test:watch": "ng test -cc",
     "lint": "ng lint",
     "lint:fix": "npm run lint -- -fix",
